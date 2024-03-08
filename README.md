@@ -1,6 +1,6 @@
 # Tareas:
 
-- Usar llamaIndex solo para búsqueda semántica
+- Parametrizar todas las constantes y datos posibles en un env.
+- Usar llamaIndex solo para búsqueda semántica y la ingesta en varios formatos
 - 'Atacar' al LLM directamente (que se pueda escoger a qué LLM)
-- Parametrizar todas las constantes posibles en un env.
 - Tema multicontexto

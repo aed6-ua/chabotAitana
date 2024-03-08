@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+pydantic
+openai
+sentence_transformers
+llama-index

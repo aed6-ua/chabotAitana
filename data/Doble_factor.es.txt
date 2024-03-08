@@ -1,0 +1,268 @@
+¿Cómo se configura el doble factor?
+1. Instala una aplicación TOTP en el móvil o PC (las tienes en el apartado siguiente: https://si.ua.es/va/entorn-de-treball/seguretat/2fa/com-es-configura-el-doble-factor.html#app_TOTP). 
+¡Importante! No borres esta app. Será la que usarás siempre para generar el doble factor. 
+2. Entra a UACloud.
+      2.1. Si no te aparece a continuación una pantalla para configurar el doble factor, es que no lo tienes habilitado. Puedes activarlo de manera voluntaria en Mis opciones en UACloud, 
+	  pestaña de Seguridad (https://cvnet.cpd.ua.es/uadatper/segundofactor). Después, cierra la sesión en UACloud. Vuelve a acceder a UACloud y continúa con el punto siguiente. 
+      2.2. Si te aparece la pantalla de configuración del doble factor, continúa configurando el doble factor en UACloud. 
+3. Guarda de manera segura los códigos secretos que te aparecerán. 
+4. Confirma la configuración con el código temporal desechable generado por la aplicación TOTP. Recuerda que el código va cambiando cada cierto tiempo y se va renovando por otro. 
+Asegúrate de introducir el código antes de que caduque. 
+5. Si quieres, da nombre al dispositivo y márcalo como dispositivo de confianza para los próximos 30 días. 
+6. Accede a UACloud. Proceso acabado. 
+
+
+No me reconoce el código QR la aplicación de autenticación que me he descargado. ¿Qué hago?
+Puedes instalarte otra aplicación. Cualquiera de las aplicaciones recomendadas por la UA te reconocerá el QR. En todo caso, siempre puedes vincular el dispositivo 
+con la clave secreta. Es más incómodo, porque tienes que copiar a mano la clave, que es un código alfanumérico muy largo, pero te sirve para vincular dispositivos. 
+
+
+Me aparece un error cuando pongo el código que me genera la aplicación de autenticación. ¿Qué pasa?
+Si cuando introduces el código TOTP que te da la aplicación de autenticación encuentras este error "Las credenciales se han rechazado o no son válidas. El intento de autenticación ha fallado."
+Se puede deber a cuatro motivos:
+1. Te has equivocado escribiendo el código. A nosotros también nos pasa. :-) Recuerda que el código son 6 cifras sin espacio entre medio.
+2. Cuando has escrito el código TOTP, el periodo de vigencia ya había caducado. Recuerda que los códigos tienen una vigencia limitada de algunos segundos.
+3. El reloj del móvil u ordenador en que tienes la aplicación de autenticación no tiene la hora correcta (no está sincronizado con ningún sistema de hora automática).
+4. La aplicación de autenticación que genera el doble factor no está sincronizada. 
+Solución al punto 1 y 2: vuelve a mirar el código en la aplicación de autenticación y asegúrate de escribirlo correctamente y dentro del tiempo de vigencia.
+Solución al punto 3: activa la sincronización de la hora en tu móvil u ordenador.
+Solución al punto 4: entra a la configuración de la aplicación de autenticación y sincronízala.
+
+
+He perdido el dispositivo vinculado donde tengo la aplicación de autenticación y no tengo los códigos de seguridad. ¿Qué hago?
+Tienes dos opciones:
+-Si tienes certificado digital: accede a UACloud con certificado digital o DNI electrónico y ve al apartado de la gestión del doble factor en Mis opciones en UACloud, 
+pestaña de Seguridad (https://cvnet.cpd.ua.es/uadatper/segundofactor). Haz clic en Restablecer. El antiguo dispositivo en que generabas el doble factor queda desvinculado 
+de UACloud y ya puedes vincular otro dispositivo (un móvil nuevo, por ejemplo). Cuando tengas un dispositivo nuevo, accede a UACloud con usuario y contraseña y vuelve 
+a configurar el doble factor con el nuevo dispositivo. Puedes consultar la página del Registro General de la UA (https://sar.ua.es/va/registro/certificado/certificat-digital.html) 
+para saber cómo puedes obtener el certificado electrónico si no tienes.   
+-No tienes certificado digital: contacta con el Servicio de Información (https://web.ua.es/va/oia/oficina-d-informacio/dades-del-servei-de-informacion.html) porque te restablezcan 
+el segundo factor. Así se desvincula el dispositivo antiguo y podrás configurar de nuevo el doble factor para vincular otro. Después de que te hayan restablecido el doble factor, 
+accede a UACloud con usuario y contraseña y vuelve a configurar el doble factor con el nuevo dispositivo. 
+
+
+No puedo acceder a la aplicación móvil de UACloud con el doble factor. ¿Qué pasa?
+Debes de estar usando la aplicación antigua de UACloud que ya no tiene mantenimiento. Elimínala e instálate la aplicación 
+appUA para Android (https://play.google.com/store/apps/details?id=net.universia.ua) o para iOS (https://apps.apple.com/es/app/appua-universitat-dalacant/id1259183849) y no tendrás problemas.
+
+
+Tengo un iPhone y UACloud no me reconoce el código TOTP. ¿Qué pasa?
+Probablemente has escaneado el código QR con la cámara de la iPhone. Accede al apartado de contraseñas de iPhone y fíjate en la cuenta de UACloud que debes de tener guardado. 
+El código TOTP te lo genera el mismo iPhone en la aplicación de contraseñas. Este es el código TOTP que tienes que usar.
+
+
+¿Qué significan los códigos que me aparecen en pantalla cuando configuro el doble factor?
+Te explicamos qué significa cada código.
+- Código QR: Código en forma de matriz cuadrada de puntos que nos sirve para vincular un dispositivo desde una aplicación de autenticación TOTP. Desde la aplicación podrás escanear este código QR y el dispositivo quedará vinculado a tu cuenta y te permitirá generar los códigos del segundo factor. 
+- Códigos de seguridad: Cada uno de los 5 códigos que aparecen en pantalla cuando accedes por primera vez a través de UACloud para configurar el doble factor. Son los códigos que nos permitirán acceder a UACloud en caso de que hayamos perdido o hayamos olvidado nuestro dispositivo vinculado que genera los códigos del segundo factor.
+- Clave secreta: Clave alfanumérica (mezcla números y letras) que nos permite vincular un dispositivo (normalmente móvil) para que se  pueda generar el segundo factor de autenticación. La solemos utilizar si tenemos problemas para leer el código QR.
+	 
+	 
+¿Qué es la clave secreta que aparece cuando configuro el doble factor en UACloud?
+Es una clave alfanumérica (mezcla números y letras) que nos permite vincular un dispositivo (normalmente móvil) para que se  pueda generar el segundo factor de autenticación. 
+La solemos utilizar si tenemos problemas para leer el código QR.
+
+
+¿Qué son los códigos de seguridad que aparecen cuando configuro el doble factor en UACloud?
+Son los códigos que te permitirán acceder a UACloud si pierdes el dispositivo vinculado a tu cuenta (normalmente, el móvil). Son, por lo tanto, un mecanismo de seguridad para no 
+perder el acceso a UACloud en caso de pérdida del dispositivo vinculado.
+¡Atención! Los códigos de seguridad son desechable. Si ves que te quedan dos códigos de seguridad solo, recuerda desvincular el dispositivo y volver a vincularlo para renovar los códigos.
+
+
+¿Qué es un código TOTP?
+Un código TOTP (Time-Based One-Time Password) es un código temporal y desechable que se utiliza como segundo factor de autenticación, después de haber pasado el primer factor 
+(usuario y contraseña) para acceder a un servicio. El espíritu de funcionamiento es el mismo que el PIN que te piden los bancos para poder operar. 
+
+
+¿Puedo activar el doble factor antes de la fecha de activación obligatoria?
+La Universidad ha fijado un día para que el doble factor sea obligatorio. Cada colectivo tiene unas fechas determinadas. Ahora bien, puedes activarlo con antelación si quieres. 
+Es muy sencillo: 
+- Instala una aplicación de autenticación en el móvil o dispositivo que quieras vincular.
+- Accede en el apartado de Mis opciones en UACloud, pestaña de Seguridad, opción de Doble factor. 
+- Activa el doble factor y guarda. 2FA activado 
+- Cierra la sesión de UACloud y vuelve a acceder. 
+- Sigue los pasos para vincular los dispositivos y acaba la configuración.
+
+
+¿Desde dónde activo el doble factor para acceder a UACloud?
+En el momento que la Universidad de Alicante habilito el doble factor, cada colectivo de la UA tendrá una fecha máxima para activarlo de manera voluntaria. 
+Al llegar esta fecha, si no lo has activado antes voluntariamente, se activará automáticamente y, cuando accedas a UACloud, te aparecerá una pantalla con un QR 
+porque configuras el doble factor.
+Si quieres activar el doble factor de manera voluntaria antes de la fecha fijada para tu colectivo, sigue estos pasos: 
+- Instala una aplicación de autenticación en el móvil o dispositivo que quieras vincular.
+- Accede en el apartado de Mis opciones en UACloud, pestaña de Seguridad, opción de Doble factor. 
+- Activa el doble factor y guarda. 2FA activado 
+- Cierra la sesión de UACloud y vuelve a acceder. 
+- Sigue los pasos para vincular los dispositivos y acaba la configuración.
+¡Importante! Lo podrás activar y configurar desde cualquier equipo. Una vez configurado, ya no habrá que repetir la operación excepto que necesitas desvincular el 
+dispositivo en que tienes la aplicación de autenticación.
+
+
+He activado el doble factor en UACloud y cuando vuelvo a acceder a UACloud no me aparece la pantalla para configurarlo.  ¿Qué pasa?
+Si activas el doble factor y después cierras la sesión de UACloud, como te indicamos, pero cuando vuelves a entrar a UACloud no te aparece un código QR.  
+En este caso, parece que estás accediendo a UACloud con el certificado digital, sin usuario y contraseña y por eso no aparece la pantalla del doble factor. 
+Para poder configurarlo, accede a UACloud con usuario y contraseña. A partir del momento en que lo tengas configurado, podrás acceder a UACloud con certificado digital o 
+bien con usuario y contraseña más código TOTP.
+
+
+Quiero cambiar el dispositivo que tengo vinculado para generar el segundo factor. Cómo lo hago?
+Si quieres cambiar el móvil, la tableta o el PC que usas para generar el segundo factor, es muy sencillo:
+- Accede en el apartado de Mis opciones en UACloud, pestaña de Seguridad, y restablece el doble factor. Así se desvinculará de tu cuenta de UACloud el dispositivo actual 
+con el que generas el doble factor.
+- Después, borra la cuenta creada en la aplicación de autenticación del anterior dispositivo.
+- Cierra sesión en UACloud.
+- Vuelve a acceder a UACloud y te solicitará configurar el doble factor.
+- Configura el doble factor con el dispositivo nuevo. Video de ayuda: https://www.youtube.com/watch?v=ljwmawurht4
+
+
+¿Qué dispositivos puedo usar para generar el código del segundo factor?
+Puedes instalar una aplicación para el código del doble factor en teléfonos móviles, tabletas o también un PC. 
+	
+
+¿Puedo usar varios dispositivos para autenticarme con el segundo factor?
+Sí, puedes generar el segundo factor de autenticación con varios dispositivos. ¿Cómo lo haces?
+Cuando se active el doble factor en UACloud y lo configures, aparecerá en pantalla el código QR. Aprovecha para escanearlo con todos los dispositivos en que quieras 
+generar el código del segundo factor: móvil, tableta, PC... Después de escanearlo, coge solo uno de los dispositivos y continúa el proceso de configuración en UACloud 
+como se cuenta en el vídeo: https://www.youtube.com/watch?v=ljwmawurht4
+Si posteriormente quieres vincular más dispositivos, puedes exportar la cuenta desde la aplicación de autenticación. Algunas aplicaciones, como Google Authenticator, 
+lo permiten. Cuando exportas la cuenta, se generará un código QR que podrás escanear desde la aplicación instalada en el otro dispositivo. Así quedará vinculado también 
+el nuevo dispositivo.
+
+
+¿Cómo puedo guardarme una copia de los códigos de seguridad?
+Copia los códigos de seguridad seleccionando los códigos con el ratón y copiándolos y pegándolos en un documento. Este documento se tiene que guardar 
+en un lugar seguro (si puede ser una carpeta cifrada, mejor).
+
+
+¿Siempre que entro a UACloud se me pedirá el segundo factor?
+El sistema está configurado para que siempre se haga una autenticación con doble factor. Esto protege tu cuenta, tu información y, también, los sistemas de la universidad. 
+Ahora bien, cuando utilizas un dispositivo de uso habitual (el ordenador de casa, el del despacho...), que tendrías que tener configurado con el antivirus Sophos 
+recomendado por la UA, puedes registrarlo como equipo de confianza porque en los 30 días siguientes no te vuelvo a solicitar el segundo factor de autenticación.
+Si accedes a UACloud con certificado digital, no se te pedirá el doble factor.
+
+
+¿Qué quiere decir registrar un dispositivo como equipo de confianza?
+Cuando introduzcas el código desechable que te da la aplicación de autenticación, el sistema te pedirá si quieres registrar el equipo desde el cual accedes como 
+dispositivo de confianza. Si lo haces, durante los 30 días siguientes el sistema no te pedirá el segundo factor en este equipo. Pasados los 30 días, se te volverá 
+a solicitar el segundo factor (el código temporal de un solo uso) y se te volverá a ofrecer la posibilidad de registrar de nuevo el equipo como equipo de confianza.
+¡Atención! Recomendamos que no registres como equipos de confianza equipos que no estén protegidos con el antivirus de la UA o equipos de 
+uso compartido  (aulas, salas de libre acceso, etc.).
+¡Atención! No desinstales nunca la aplicación de autenticación del móvil. Cuando pasen 30 días desde que hayas marcado el PC como equipo de confianza, volverás a necesitar el doble factor.
+
+
+He marcado mi ordenador como equipo de confianza y me continúa pidiendo el código TOTP cuando accedo a UACloud.
+Cuando marcas un ordenador como equipo de confianza, este registro queda ligado al ordenador y al navegador en que lo has hecho. Por ejemplo, si has registrado tu PC 
+como equipo de confianza desde Chrome y después intentas acceder a UACloud desde Firefox, el sistema te volverá a pedir el código TOTP como si no estuvieras en 
+un equipo de confianza. No te preocupes, si en Firefox también marcas el equipo como equipo de confianza, dejará de preguntarte en este navegador también.
+También es probable que no tengas activadas las cookies del navegador y tengas desactivado el historial de navegación. Tendrás que activar las cookies y el 
+historial si quieres que funcione la opción de equipo de confianza.
+	
+	
+Si restablezco el segundo factor (y, por lo tanto, desvinculo mis dispositivos vinculados al doble factor), ¿se eliminan también mis equipos de confianza?
+No, son cosas diferentes. Si restableces el doble factor (y, por lo tanto, desvinculas los dispositivos), los equipos de confianza quedan como estaban.
+
+
+Cuando intento confirmar la activación del doble factor, el sistema me propone una contraseña y después salta un error. ¿Qué pasa?
+Si el navegador te propone una contraesenya cuando estás accediendo con el doble factor, es porque estás accediendo a través de Firefox y tienes activada una 
+funcionalidad que te permite guardar las contraseñas. 
+Solución: ignora la contraseña que te propone el navegador y escribe el código que genera la aplicación de autenticación.
+
+
+¿El doble factor es nuevo en la UA?
+En realidad, no. Es nuevo para acceder a UACloud, pero ya teníamos varios tipos de autenticación con doble factor cuando firmas en 
+el Portafirmas de e-Administración (con la tarjeta de coordenadas) o cuando firmas las actas en UACloud (también con tarjeta de coordenadas). 
+Además tienes un mecanismo de doble factor casi idéntico al del acceso a UACloud en la VPN y en el ISL.
+
+
+¿Puedo desactivar el doble factor?
+No, no puedes desactivar la autenticación de doble factor. Es un mecanismo que tiene que poner en marcha la UA, entre otros motivos, porque es una obligación legal. 
+	
+
+No quiero usar un dispositivo móvil para generar el segundo factor. ¿Qué hago?
+Te recomendamos que utilices el móvil para generar el segundo factor de UACloud, porque es el más seguro, el más práctico y el más cómodo. 
+Aun así, si prefieres no hacerlo, siempre puedes recurrir a estas alternativas:
+- Usar otros dispositivos, como por ejemplo tabletas o el PC. 
+- Acceder a UACloud con certificado digital. Puedes consultar la página del Registro General de la UA (https://sar.ua.es/va/registro/certificado/certificat-digital.html) 
+para saber cómo lo puedes obtener. También puedes usar el DNI electrónico, aunque necesitarás un dispositivo que te permita leerlo.
+	
+	
+¿Podré acceder a UACloud desde casa o desde otros lugares si tengo activo el doble factor?
+¡Y tanto! El acceso con doble factor se puede hacer desde cualquier ordenador. De hecho, el doble factor de autenticación hará que entrar a UACloud desde ordenadores 
+más expuestos sea más seguro. Recuerda llevar siempre contigo el dispositivo móvil con la aplicación de autenticación. 
+	
+	
+¿Puedo vincular más tarde un nuevo dispositivo a la autenticación de doble factor de UACloud?
+Sí. Si posteriormente quieres vincular más dispositivos, puedes exportar la cuenta desde la aplicación de autenticación. 
+Algunas aplicaciones, como Google Authenticator (https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=ca&gl=us&pli=1), lo permiten. 
+Cuando exportas la cuenta, se generará un código QR que podrás escanear desde la aplicación instalada en el otro dispositivo. Así quedará vinculado también el nuevo dispositivo. 
+Si no puedes exportarla, sigue este procedimiento:
+- Accede al apartado de Mis opciones en UACloud, pestaña de Seguridad (https://cvnet.cpd.ua.es/uadatper/segundofactor) y desvincula el dispositivo actual.
+- Después de desvincularlo, elimina la cuenta de UACloud de la aplicación de autenticación.
+- Después, cierra sesión en UACloud.
+- Vuelve a acceder a UACloud y te solicitará configurar el doble factor.
+- Configura el doble factor en todos los dispositivos que necesites. Video de ayuda: https://www.youtube.com/watch?v=ljwmawurht4
+
+
+¿Me cuesta dinero recibir el código del segundo factor en el móvil?
+No, los códigos para autenticarte con el doble factor no cuestan dinero y los genera la aplicación gratuitamente, como mínimo en las aplicaciones que la UA recomienda. 
+No podemos responder otras aplicaciones que hay en el mercado y que te puedes haber instalado en el móvil.
+	
+	
+¿Qué servicios de la UA afecta el doble factor?
+El doble factor ya hace tiempo que se utiliza en la UA. Por ejemplo, la firma de las actas o la firma del portafirmas se hacen con un sistema de doble factor, 
+en el cual la tarjeta de coordenadas funciona como segundo factor de autenticación. Además, también tenemos otros sistemas con doble factor de autenticación, 
+cada uno con su sistema independiente. A partir de ahora, los servicios con doble factor en la UA serán los siguientes:
+- UACloud: el acceso a UACloud a través del navegador tiene activado el doble factor desde el año 2023. El segundo factor se obtiene con una aplicación de autenticación 
+instalada en un dispositivo vinculado. Es un sistema independiente de los otros.
+- VPN: el acceso a la VPN de la UA tiene activado el doble factor desde el año 2021. En este caso, el segundo factor también se hace a través de una aplicación de autenticación 
+instalada en un dispositivo vinculado. Es un sistema independiente de todos los otros.
+- ISL: el acceso al ISL de la UA tiene activado el doble factor en pruebas desde el año 2022 y se extenderá a todos los usuarios a lo largo del 2023. También funciona con una 
+aplicación de autenticación y es independiente de todos los otros.
+- Actas: la firma de actas se hace con un doble factor de autenticación desde hace años. El segundo factor es una tarjeta de coordenadas.
+- Portafirmas: para firmar los documentos con el portafirmas de la UA también usamos un segundo factor con la tarjeta de coordenadas.
+ 
+ 
+¿Continuaré necesitando la tarjeta de coordenadas en los servicios en que lo tengo que usar actualmente?
+Sí, la tarjeta de coordenadas continúa vigente para servicios como por ejemplo firmar actas o utilizar el Portafirmas.
+	
+	
+Si cambio la contraseña de UACloud, ¿tengo que volver a vincular un dispositivo para el doble factor?
+No, cuando cambias la contraseña de UACloud, bien porque no la recuerdas o porque tiene más de 6 meses, el doble factor continúa funcionando con normalidad. 
+No tendrás que revincular el dispositivo ni hacer ninguna acción añadida.  
+
+
+¿El doble factor de UACloud me sirve también para la VPN?
+No. :-) El doble factor de UACloud es independiente de otros dobles factores de la UA como el de la VPN o el del ISL.
+Cuando quieras acceder a UACloud tendrás que usar el código TOTP que te genera tu cuenta UACloud en la aplicación de autenticación. 
+Y cuando quieras entrar en la VPN, el código que te genera la cuenta sslvpn.ua.es en la aplicación de autenticación.
+
+
+¿Puedo tener una aplicación para generar el segundo factor en el PC?
+Sí. Te recomendamos que utilices una de las aplicaciones que te indicamos: 
+- Windows 2Fast (https://apps.microsoft.com/store/detail/2fast-%E2%80%93-two-factor-authenticator/9P9D81GLH89Q?hl=can-se&gl=se)
+- iOS Step Two (https://apps.apple.com/us/app/step-two/id1291130842)
+- Linux Oath Toolkit (https://www.nongnu.org/oath-toolkit/)
+
+	 
+No tengo cobertura en el móvil. ¿Funcionará la aplicación de autenticación para generarme el código del segundo factor?
+Sí. Las aplicaciones de TOTP no necesitan conexión a Internet para generar el código del segundo factor.
+¡Atención! La primera vez que configuras la autenticación con dos factores sí que necesitas, lógicamente, conexión a internet para acceder a UACloud e iniciar el proceso.
+	
+	
+¿El doble factor afecta también las cuentas institucionales como unidades, proyectos de investigación, etc.?
+Sí, el doble factor afecta a toda la comunidad universitaria y todas las cuentas UA.
+
+
+¿Cómo gestionamos el doble factor en las cuentas institucionales de las unidades, proyectos, etc.?
+Funciona del mismo modo que el doble factor en la cuenta personal. Ahora bien, en el caso de las cuentas institucionales es probable que haya más de una persona accediendo. Para que todos puedan tener un dispositivo vinculado, hay dos maneras de hacerlo.
+- En el momento que se active el doble factor, las diversas personas que quieran acceder a la cuenta tendrán que escanear el código QR que aparece en pantalla. 
+Después, una sola de las personas acaba la activación añadiendo el código generado en la aplicación de autenticación.
+- Otra posibilidad para vincular nuevos dispositivos del personal que acceda a la cuenta es exportar la cuenta desde la aplicación de autenticación. 
+Algunas aplicaciones, como Google Authenticator, lo permiten. Cuando exportes la cuenta, se generará un código QR que los compañeros y compañeras podrán escanear desde su aplicación. 
+Así quedarán vinculados sus dispositivos.
+
+
+¿Qué pasa cuando alguien ya no tiene que acceder a una cuenta institucional (por cambio de lugar, cambio de competencias, etc.)?
+Cuando alguien ya no tiene que acceder a una cuenta institucional, tiene que eliminar la cuenta que se ha creado en la aplicación de autenticación del dispositivo vinculado. 
+¡Importante! Si la información que se tiene en la cuenta de UACloud es confidencial, habrá que restablecer el doble factor. Así se desvincularán todos los dispositivos vinculados. 
+Después, se tienen que volver a vincular solo los dispositivos de las personas que tienen que tener acceso a la cuenta.

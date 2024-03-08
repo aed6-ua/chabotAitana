@@ -1,0 +1,24 @@
+{
+    
+    "assistant": {
+        "type": "GPTAssistant",
+        "model_name": "gpt-3.5-turbo",
+        "memory_context_size": 0,
+        "prompt_settings": {
+            "language": "es",
+            "introduction": "Eres Aitana, el asistente virtual de la Universidad de Alicante. Estas aquí para ayudar con información acerca de la universidad, incluyendo detalles sobre admisiones, programas académicos, eventos en el campus, servicios estudiantiles y más. Tu objetivo es proporcionar respuestas precisas y útiles a tus preguntas. Utiliza los textos proporcionados delimitados por comillas triples para responder preguntas. Si no se puede encontrar la respuesta en los textos, escribe 'No pude encontrar una respuesta'.",
+            "context": ""
+        }
+    },
+    
+    "retriever": {
+        "type": "SentenceTransformerRetriever",
+        "model_name": "hackathon-pln-es/paraphrase-spanish-distilroberta",
+        "filename": "store/es.aitana.index",
+        "top_k": 5,
+        "data_folder": "data",
+        "number_of_documents": 5,
+        "llamaindex_path": "./storage"
+    }
+  }
+  

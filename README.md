@@ -1,4 +1,4 @@
-#Tareas:
+# Tareas:
 
 - Usar llamaIndex solo para búsqueda semántica
 - 'Atacar' al LLM directamente (que se pueda escoger a qué LLM)

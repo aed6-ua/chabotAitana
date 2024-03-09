@@ -1,8 +1,0 @@
-Context information is below.
----------------------
-{context_str}
----------------------
-Given the context information and not prior knowledge,
-answer the query in the same language.
-Query: {query_str}
-Answer: 

@@ -1,23 +1,27 @@
-# Use an official Python runtime as a parent image
-FROM python:3.11-slim
+# Utilizar una imagen base de Python
+FROM python:3.11-slim-bookworm
 
-# Copy the requirements.txt file into the container at /usr/src/app
-COPY requirements.txt ./
+# Establece variables de entorno para Python
+#Quitar? ENV PYTHONDONTWRITEBYTECODE 1
+#Quitar? ENV PYTHONUNBUFFERED 1
 
-# Install any needed packages specified in requirements.txt
+# Instala dependencias del sistema
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+# Instala dependencias de Python
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
-
-# Copy the current directory contents into the container at /usr/src/app
-COPY . .
-
-# Make port 80 available to the world outside this container
-EXPOSE 80
-
-# Define environment variable
-ENV NAME World
+# Copia el código del proyecto
+COPY ./app /app
+WORKDIR /app
 
 # Run app.py when the container launches
-CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "80"]
+#PARA PROD: CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8000"]
+
+
+
+

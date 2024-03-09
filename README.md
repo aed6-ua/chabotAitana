@@ -1,3 +1,9 @@
+# Comandos:
+
+- Iniciar container:  docker-compose up -d
+- Ejacutar en el container: docker exec uatutobot python p.py argumentos
+- Parar container: docker stop uatutobot
+
 # Tareas:
 
 - Parametrizar todas las constantes y datos posibles en un env.

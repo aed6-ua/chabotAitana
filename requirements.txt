@@ -1,6 +1,12 @@
 fastapi
 uvicorn
 pydantic
+pypdf
 openai
 sentence_transformers
 llama-index
+requests
+transformers
+huggingface
+langchain
+llama-index-embeddings-langchain

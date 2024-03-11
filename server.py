@@ -12,6 +12,7 @@ class MessageSchema(BaseModel):
 # Import classes here
 from Conversation import Conversation
 from GPTAssistant import GPTAssistant
+from LocalAssistant import LocalAssistant
 from Retriever import SentenceTransformerRetriever
 from Retriever import LlamaIndexRetriever
 from LlamaindexAssistant import LlamaindexAssistant
@@ -45,9 +46,11 @@ def create_assistant(config, retrieval_tool=None):
     #memory_context_size = config["assistant"]["memory_context_size"]
 
     if assistant_type == "GPTAssistant":
-        return GPTAssistant(model_name=config_assistant["model_name"], retrieval_tool=retrieval_tool, prompt_settings=config_assistant["prompt_settings"])
+        return GPTAssistant(retrieval_tool=retrieval_tool, prompt_settings=config_assistant["prompt_settings"])
     elif assistant_type == "LlamaindexAssistant":
         return LlamaindexAssistant(model_name=config_assistant["model_name"])
+    elif assistant_type == "LocalAssistant":
+        return LocalAssistant(retrieval_tool=None, prompt_settings=config_assistant["prompt_settings"])
     else:
         raise ValueError(f"Unsupported assistant type: {assistant_type}")
     

@@ -1,11 +1,11 @@
 from Assistant import Assistant
-from Model import OpenAIGenerationModel
+from Model import LocalGenerationModel
 import logging
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-class GPTAssistant(Assistant):
+class LocalAssistant(Assistant):
     def __init__(self, model=None, retrieval_tool=None, prompt_settings=None):
         super().__init__(tools=[retrieval_tool] if retrieval_tool is not None else [])
         self.prompt_settings = prompt_settings if prompt_settings is not None else {
@@ -14,11 +14,10 @@ class GPTAssistant(Assistant):
             "context": ""
         }
         if model is None:
-            self.model = OpenAIGenerationModel()
+            self.model = LocalGenerationModel("NickyNicky/dolphin-2_6-phi-2_oasst2_chatML_V2")
         else:
             self.model = model
         
-
     def process_message(self, message, context):
         try:
             enhanced_context = self._use_retrieval_tool_if_available(message, context)

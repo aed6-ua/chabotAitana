@@ -1,8 +1,9 @@
 from abc import ABC, abstractmethod
-from sentence_transformers import SentenceTransformer, util
+from sentence_transformers import util
 import pickle
 import logging
 from llama_index.core import StorageContext, load_index_from_storage
+from Model import EmbeddingsModel
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -15,10 +16,10 @@ class RetrievalStrategy(ABC):
 
 # Implement Concrete Retrieval Strategies
 class SentenceTransformerRetriever(RetrievalStrategy):
-    def __init__(self, model_name='all-MiniLM-L6-v2', filename='embeddings', top_k=5):
+    def __init__(self, model: EmbeddingsModel, filename='embeddings', top_k=5):
             logging.info("Initializing SentenceTransformerRetrieval...")
-            self.model = SentenceTransformer(model_name)
-            logging.info(f"Loaded SentenceTransformer model: {model_name}")
+            self.model = model
+            logging.info(f"Loaded SentenceTransformer model: {model}")
             self.corpus_embeddings = []
             self.corpus_texts_es = []
             self.corpus_texts_en = []
@@ -41,7 +42,7 @@ class SentenceTransformerRetriever(RetrievalStrategy):
 
     def retrieve(self, query):
         # Tokenize the query
-        query_embedding = self.model.encode(query, convert_to_tensor=True)
+        query_embedding = self.model.run(query)
 
         # Compute the cosine similarity between the query and the corpus
         hits = util.semantic_search(query_embedding, self.corpus_embeddings, top_k=self.top_k)[0]

@@ -7,7 +7,11 @@
 # TODO:
 
 - Parametrizar todas las constantes y datos posibles en un env.
-- index manager dentro de retriever
+- indexManager dentro de retriever
+- vore codi Eduard: model, etc.
+- Embeddings:
+    - SentenceTransformer
+    - LlamaIndex
 - Retrievers:
     - SentenceTransformer
     - LlamaIndex
@@ -21,3 +25,9 @@
 - 'Atacar' al LLM directamente (que se pueda escoger a qué LLM)
 - crear LocalLLMAssistant
 - Tema multicontexto
+
+# DONE
+
+- retrieverstrategy, poner los métodos abstractos de retriever, hacer lo mismo con embeddings (o similar)
+- transformar el env en json o integrar en el config.json
+- unificar en un fichero el retriver, assistant y embeddings

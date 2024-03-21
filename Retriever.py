@@ -50,18 +50,50 @@ class SentenceTransformerRetriever(RetrievalStrategy):
         results = [(self.corpus_texts_es[hit['corpus_id']], hit['score']) for hit in hits] if self.corpus_texts_es else [(self.corpus_texts_en[hit['corpus_id']], hit['score']) for hit in hits]
         return results
 
+from llama_index.core import Settings
 class LlamaIndexRetriever(RetrievalStrategy):
     def __init__(self, index_path="./storage"):
+        Settings.embed_model = CustomEmbeddings()
         storage_context = StorageContext.from_defaults(persist_dir=index_path)
         # load index
         self.index = load_index_from_storage(storage_context)
+        self.retriever = self.index.as_retriever()
         logging.info("LlamaIndex loaded successfully.")
 
     def retrieve(self, query):
         # Use llamaindex to find the most relevant documents for the query
-        results = self.index.search(query)
+        results = self.retriever.retrieve(query)
         return results
 
+
+from llama_index.core.embeddings import BaseEmbedding
+from llama_index.core.bridge.pydantic import PrivateAttr
+from sentence_transformers import SentenceTransformer
+import asyncio
+from typing import List
+
+
+class CustomEmbeddings(BaseEmbedding):
+    _model: SentenceTransformer = PrivateAttr()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.model_name = 'hackathon-pln-es/paraphrase-spanish-distilroberta'
+        self._model = SentenceTransformer('hackathon-pln-es/paraphrase-spanish-distilroberta')
+
+    def _get_query_embedding(self, query: str) -> List[float]:
+        return self._model.encode(query, convert_to_numpy=True).tolist()
+
+    async def _aget_query_embedding(self, query: str):
+        # If the model doesn't natively support asyncio, you can use executor to run the synchronous method in an asynchronous manner
+        loop = asyncio.get_running_loop()
+        return await loop.run_in_executor(None, self._get_query_embedding, query)
+
+    def _get_text_embedding(self, text: str) -> List[float]:
+        return self._model.encode(text, convert_to_numpy=True).tolist()
+
+    async def _aget_text_embedding(self, text: str):
+        loop = asyncio.get_running_loop()
+        return await loop.run_in_executor(None, self._get_text_embedding, text)
 
 class Retriever:
     def __init__(self, strategy: RetrievalStrategy):
@@ -80,3 +112,5 @@ class Retriever:
         """
         # Placeholder for retrieval logic, e.g., database lookup, web search, etc.
         return f"Information related to {query}"
+    
+

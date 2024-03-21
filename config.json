@@ -12,7 +12,8 @@
     },
     
     "retriever": {
-        "type": "SentenceTransformerRetriever",
+        "type": "LlamaIndexRetriever",
+        "index_path": "./storage",
         "model_name": "hackathon-pln-es/paraphrase-spanish-distilroberta",
         "filename": "store/es.aitana.index",
         "top_k": 5,

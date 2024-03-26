@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from log import config, log_info, log_error
+from log import config, logger
 
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.core import ServiceContext, SimpleDirectoryReader, Settings, VectorStoreIndex
@@ -44,22 +44,22 @@ class LlamaIndexEmbeddings(EmbeddingsStrategy):
 
         self.reader=SimpleDirectoryReader(self.data_path)
         documents = self.reader.load_data()
-        log_info(f"Read {len(documents)} documents.")
+        logger.info(f"Read {len(documents)} documents.")
         
         self.index =  VectorStoreIndex.from_documents(documents, service_context=service_context_embedding, show_progress=True)
         self.index.storage_context.persist(persist_dir=self.index_path)
-        log_info("LlamaIndex embeddings created successfully.")
+        logger.info("LlamaIndex embeddings created successfully.")
 
 #############################################################################################
 #############################################################################################
 #############################################################################################
 class SentenceTransformerEmbeddings(EmbeddingsStrategy):
     def __init__(self, model_name='all-MiniLM-L6-v2', filename='embeddings', top_k=5):
-            log_info("Initializing SentenceTransformerRetrieval...")
+            logger.info("Initializing SentenceTransformerRetrieval...")
             
             self.model = SentenceTransformer(model_name)
             
-            log_info(f"Loaded SentenceTransformer model: {model_name}")
+            logger.info(f"Loaded SentenceTransformer model: {model_name}")
 
             self.corpus_embeddings = []
             self.corpus_texts

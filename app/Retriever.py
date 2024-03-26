@@ -3,8 +3,7 @@ from llama_index.core import StorageContext, load_index_from_storage
 from sentence_transformers import SentenceTransformer, util
 import pickle
 
-from log import config, log_info, log_error
-
+from log import config, logger
 
 # Define the Retrieval Strategy Interface
 class RetrievalStrategy(ABC):
@@ -44,7 +43,7 @@ class LlamaIndexRetriever(RetrievalStrategy):
     def load_embeddings(self):
         self.storage_context = StorageContext.from_defaults(persist_dir=self.index_path)
         self.index = load_index_from_storage(self.storage_context)
-        log_info("LlamaIndex embeddings loaded successfully.")
+        logger.info("LlamaIndex embeddings loaded successfully.")
     
     def retrieve(self, query):
         if (self.index is None):
@@ -59,10 +58,10 @@ class LlamaIndexRetriever(RetrievalStrategy):
 #############################################################################################
 class SentenceTransformerRetriever(RetrievalStrategy):
     def __init__(self, model_name, filename, top_k):
-            log_info("Initializing SentenceTransformerRetrieval...")
+            logger.info("Initializing SentenceTransformerRetrieval...")
             
             self.model = SentenceTransformer(model_name)
-            log_info(f"Loaded SentenceTransformer model: {model_name}")
+            logger.info(f"Loaded SentenceTransformer model: {model_name}")
 
             self.corpus_embeddings = []
             self.corpus_texts
@@ -71,7 +70,7 @@ class SentenceTransformerRetriever(RetrievalStrategy):
             self.top_k = top_k
 
     def load_embeddings(self):
-        log_info("Loading embeddings from file...")
+        logger.info("Loading embeddings from file...")
         
         # Load the embeddings from the file
         with open(self.filename, 'rb') as file:
@@ -79,13 +78,13 @@ class SentenceTransformerRetriever(RetrievalStrategy):
         
         # Restaura los embeddings y textos desde el diccionario
         self.corpus_embeddings = loaded_data['corpus_embeddings']
-        log_info(f"Loaded {len(self.corpus_embeddings)} embeddings.")
+        logger.info(f"Loaded {len(self.corpus_embeddings)} embeddings.")
         
         self.corpus_texts_es = loaded_data.get('corpus_texts_es', [])
-        log_info(f"Loaded {len(self.corpus_texts_es)} Spanish texts.")
+        logger.info(f"Loaded {len(self.corpus_texts_es)} Spanish texts.")
         
         self.corpus_texts_en = loaded_data.get('corpus_texts_en', [])
-        log_info(f"Loaded {len(self.corpus_texts_en)} English texts.")
+        logger.info(f"Loaded {len(self.corpus_texts_en)} English texts.")
 
 
 

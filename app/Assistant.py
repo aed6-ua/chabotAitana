@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from log import config, log_info, log_error
+from log import config, logger
 
 from openai import OpenAI
 
@@ -49,7 +49,7 @@ class GPTAssistant(Assistant):
             response = self._generate_response(message, enhanced_context)
             return response
         except Exception as e:
-            log_error(f"Error processing message: {e}")
+            logger.error(f"Error processing message: {e}")
             return "I'm sorry, I encountered an error processing your request."
 
     def _use_retrieval_tool_if_available(self, message, context):
@@ -60,7 +60,7 @@ class GPTAssistant(Assistant):
                 # Convert to string with each result between triple quotes
                 return "\n\n".join([f'"""{result}"""' for result, _ in retrieval_result])
             except Exception as e:
-                log_error(f"Retrieval tool failed: {e}")
+                logger.error(f"Retrieval tool failed: {e}")
         return context
 
     def _generate_response(self, message, context):
@@ -76,7 +76,7 @@ class GPTAssistant(Assistant):
             response = chat_completion.choices[0].message.content
             return response.strip()
         except Exception as e:
-            log_error(f"Failed to generate response: {e}")
+            logger.error(f"Failed to generate response: {e}")
             # Instead of just raising the exception, we handle it gracefully
             return "I'm sorry, I encountered an error trying to generate a response. Please try again later."
         
@@ -134,7 +134,7 @@ class LlamaindexAssistant(Assistant):
             response = self._generate_response(message)
             return response
         except Exception as e:
-            log_error(f"Error processing message: {e}")
+            logger.error(f"Error processing message: {e}")
             return "I'm sorry, I encountered an error processing your request."
 
     def _generate_response(self, prompt):

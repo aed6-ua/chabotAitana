@@ -1,14 +1,15 @@
 import logging, json
 
-# Configure logging
-logging.basicConfig(level=logging.INFO, filename='server.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
-
 class Log:
     def __init__(self, config_path):
         # Accessing the configuration
         self.load_config(config_path)
         self.log = self.config["global"]["log"]
         self.verbose = self.config["global"]["verbose"]
+
+        # Configure logging
+        log_filename = self.config["global"]["log_folder"] + 'server.log'
+        logging.basicConfig(level=logging.INFO, filename=log_filename, filemode='a', format='%(asctime)s - %(levelname)s - %(message)s')
 
         self.logger = logging.getLogger(__name__)
 

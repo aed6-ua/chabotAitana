@@ -1,6 +1,7 @@
 {
     "global": {
         "assistant": "GPTAssistant",
+        ""
         "retriever": "LlamaindexRetriever",
         "embeddings": "LlamaindexEmbeddings",
 

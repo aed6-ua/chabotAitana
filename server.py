@@ -10,7 +10,7 @@ class MessageSchema(BaseModel):
     message: str
 
 # Import classes here
-from Conversation import Conversation
+from conversation import Conversation
 from factory import create_assistant, create_retrieval_tool
 
 # Configure logging
@@ -30,8 +30,7 @@ def load_config(config_path):
 config = load_config("config.json")
 
 # Load models
-from Model import OpenAIGenerationModel
-from Model import EmbeddingsModel
+from model import OpenAIGenerationModel, EmbeddingsModel
 embeddings_model = EmbeddingsModel(config["retriever"]["model_name"])
 generation_model = OpenAIGenerationModel(config["assistant"]["model_name"])
 

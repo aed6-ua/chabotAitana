@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 from sentence_transformers import SentenceTransformer
 from transformers import AutoTokenizer, AutoModelForCausalLM
-import torch
 
 class Model(ABC):
 
@@ -65,3 +64,14 @@ class OpenAIGenerationModel(Model):
             )
         response = chat_completion.choices[0].message.content
         return response
+
+class TestModel(Model):
+    def __init__(self):
+        print("Initializing test model")
+
+    def load_model(self, model_path):
+        # No need to load the model, it's already loaded
+        pass
+
+    def run(self, input):
+        return f"Test response to input: {input}"

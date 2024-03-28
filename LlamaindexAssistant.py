@@ -1,5 +1,5 @@
 import logging
-from Assistant import Assistant
+from assistant import Assistant
 from llama_index.core import StorageContext, load_index_from_storage
 from llama_index.core.llms import ChatMessage, MessageRole
 from llama_index.core.prompts.base import ChatPromptTemplate

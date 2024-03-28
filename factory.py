@@ -1,9 +1,9 @@
-from GPTAssistant import GPTAssistant
-from LocalAssistant import LocalAssistant
-from Retriever import SentenceTransformerRetriever
-from Retriever import LlamaIndexRetriever
+from assistant import GPTAssistant, LocalAssistant, TestAssistant
+from retrieval import SentenceTransformerRetriever
+from retrieval import LlamaIndexRetriever
 from LlamaindexAssistant import LlamaindexAssistant
-from Model import EmbeddingsModel
+from index import IndexManager
+
 
 
 # Factory function temporarily placed here
@@ -19,6 +19,8 @@ def create_assistant(config, retrieval_tool=None, generation_model=None):
         return LlamaindexAssistant(model_name=config_assistant["model_name"])
     elif assistant_type == "LocalAssistant":
         return LocalAssistant(model=generation_model, retrieval_tool=retrieval_tool, prompt_settings=config_assistant["prompt_settings"])
+    elif assistant_type == "TestAssistant":
+        return TestAssistant(model=generation_model, retrieval_tool=retrieval_tool, prompt_settings=config_assistant["prompt_settings"])
     else:
         raise ValueError(f"Unsupported assistant type: {assistant_type}")
     
@@ -30,6 +32,6 @@ def create_retrieval_tool(config, embeddings_model=None):
     if retrieval_type == "SentenceTransformerRetriever":
         return SentenceTransformerRetriever(model=embeddings_model, filename=config_retrieval["filename"], top_k=config_retrieval["top_k"])
     elif retrieval_type == "LlamaIndexRetriever":
-        return LlamaIndexRetriever(index_path=config_retrieval["index_path"])
+        return LlamaIndexRetriever(IndexManager(config_retrieval["index_path"]).load_index())
     else:
         raise ValueError(f"Unsupported retrieval type: {retrieval_type}")

@@ -9,7 +9,7 @@ class Log:
 
         # Configure logging
         log_filename = self.config["global"]["log_folder"] + 'server.log'
-        logging.basicConfig(level=logging.INFO, filename=log_filename, filemode='a', format='%(asctime)s - %(levelname)s - %(message)s')
+        logging.basicConfig(level=logging.INFO, filename=log_filename, datefmt='%Y/%m/%d %H:%M:%S', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s')
 
         self.logger = logging.getLogger(__name__)
 

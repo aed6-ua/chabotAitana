@@ -3,6 +3,7 @@ app/data/
 OLD/
 app/models/
 app/storage/
+app/__pycache__
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

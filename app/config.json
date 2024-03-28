@@ -1,7 +1,6 @@
 {
     "global": {
         "assistant": "GPTAssistant",
-        ""
         "retriever": "LlamaindexRetriever",
         "embeddings": "LlamaindexEmbeddings",
 
@@ -38,8 +37,8 @@
         "%_sim_relevance": 40,
         "number_of_documents": 5,
 
-        "data_folder": "data",
-        "model_folder": "model/",
+        "data_folder": "data/",
+        "model_folder": "models/",
         "vector_folder": "storage/"
     },
 
@@ -50,23 +49,27 @@
         "%_sim_relevance": 40,
         "number_of_documents": 5,
 
-        "data_folder": "data",
-        "model_folder": "model/",
+        "data_folder": "data/",
+        "model_folder": "models/",
         "vector_folder": "storage/"
     },
 
     "SentenceTransformerEmbeddings": {
         "model_name": "hackathon-pln-es/paraphrase-spanish-distilroberta",
-        "data_folder": "data",
-        "model_folder": "model/",
-        "vector_folder": "storage/"
+        "data_folder": "data/",
+        "model_folder": "models/",
+        "vector_folder": "storage/",
+        "chunk_size": 1000,
+        "chunk_overlap": 32
     },
 
     "LlamaindexEmbeddings": {
         "model_name": "hackathon-pln-es/paraphrase-spanish-distilroberta",
-        "data_folder": "data",
-        "model_folder": "model/",
-        "vector_folder": "storage/"
+        "data_folder": "data/",
+        "model_folder": "models/",
+        "vector_folder": "storage/",
+        "chunk_size": 1000,
+        "chunk_overlap": 32
     },
 
     "special_tokens": {

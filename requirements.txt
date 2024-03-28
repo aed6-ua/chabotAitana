@@ -9,4 +9,5 @@ requests
 transformers
 huggingface
 langchain
+langchain-community
 llama-index-embeddings-langchain

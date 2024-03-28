@@ -11,10 +11,7 @@ class MessageSchema(BaseModel):
 
 # Import classes here
 from Conversation import Conversation
-from GPTAssistant import GPTAssistant
-from Retriever import SentenceTransformerRetriever
-from Retriever import LlamaIndexRetriever
-from LlamaindexAssistant import LlamaindexAssistant
+from factory import create_assistant, create_retrieval_tool
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, filename='app.log', filemode='a',
@@ -32,39 +29,23 @@ def load_config(config_path):
 # Accessing the configuration
 config = load_config("config.json")
 
+# Load models
+from Model import OpenAIGenerationModel
+from Model import EmbeddingsModel
+embeddings_model = EmbeddingsModel(config["retriever"]["model_name"])
+generation_model = OpenAIGenerationModel(config["assistant"]["model_name"])
+
 app = FastAPI()
 
 # In-memory storage for conversations
 conversations = {}
 
-# Factory function temporarily placed here
-# Factory function to create an instance of the assistant
-def create_assistant(config, retrieval_tool=None):
-    config_assistant = config["assistant"]
-    assistant_type = config_assistant["type"]
-    #memory_context_size = config["assistant"]["memory_context_size"]
+# Dictionary to store the assistants with their IDs
+assistants = {}
 
-    if assistant_type == "GPTAssistant":
-        return GPTAssistant(model_name=config_assistant["model_name"], retrieval_tool=retrieval_tool, prompt_settings=config_assistant["prompt_settings"])
-    elif assistant_type == "LlamaindexAssistant":
-        return LlamaindexAssistant(model_name=config_assistant["model_name"])
-    else:
-        raise ValueError(f"Unsupported assistant type: {assistant_type}")
-    
-# Factory function to create an instance of the retrieval tool
-def create_retrieval_tool(config):
-    config_retrieval = config["retriever"]
-    retrieval_type = config_retrieval["type"]
-
-    if retrieval_type == "SentenceTransformerRetriever":
-        return SentenceTransformerRetriever(model_name=config_retrieval["model_name"], filename=config_retrieval["filename"], top_k=config_retrieval["top_k"])
-    elif retrieval_type == "LlamaIndexRetriever":
-        return LlamaIndexRetriever(index_path=config_retrieval["index_path"])
-    else:
-        raise ValueError(f"Unsupported retrieval type: {retrieval_type}")
-    
 # Create an instance of the assistant
-assistant = create_assistant(config)
+base_assistant = create_assistant(config, generation_model=generation_model, retrieval_tool=create_retrieval_tool(config, embeddings_model=embeddings_model))
+assistants["base"] = base_assistant
 
 @app.exception_handler(StarletteHTTPException)
 async def http_exception_handler(request, exc):
@@ -76,14 +57,25 @@ async def validation_exception_handler(request, exc):
     logger.error(f"Validation error: {exc}")
     return JSONResponse(status_code=400, content={"message": "Validation Error"})
 
+# List all assistants
+@app.get("/assistants")
+async def list_assistants():
+    return {"assistants": list(assistants.keys())}
+
+# Create new assistant
+@app.post("/create_assistant")
+async def create_assistant_endpoint():
+    return {"message": "Not implemented"}
+
 @app.post("/start")
 async def start_conversation():
     conversation_id = str(uuid4())
     conversations[conversation_id] = Conversation(conversation_id)
     return {"conversation_id": conversation_id}
 
+@app.post("/send/{conversation_id}/{assistant_id}")
 @app.post("/send/{conversation_id}")
-async def send_message(conversation_id: str, message_body: MessageSchema):
+async def send_message(conversation_id: str, message_body: MessageSchema, assistant_id=None):
     message = message_body.message
     conversation = conversations.get(conversation_id)
     if not conversation:
@@ -91,7 +83,9 @@ async def send_message(conversation_id: str, message_body: MessageSchema):
 
     # Process the message with the assistant
     context = conversation.get_context()
-    response = assistant.process_message(message, context)
+    if assistant_id is None:
+        assistant_id = "base"
+    response = assistants[assistant_id].process_message(message, context)
     conversation.add_message("user", message)
     conversation.add_message("assistant", response)
     

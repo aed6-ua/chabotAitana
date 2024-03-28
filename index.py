@@ -47,7 +47,7 @@ class IndexManager:
         self.text_splitter = SentenceSplitter(chunk_size=1024, chunk_overlap=32)
         # Global settings
         Settings.embed_model = CustomEmbeddings()
-        self.storage_context = StorageContext.from_defaults(persist_dir=persist_dir)
+        self.persist_dir = persist_dir
 
     def read(self, data_folder):
         reader = SimpleDirectoryReader(data_folder)
@@ -61,9 +61,10 @@ class IndexManager:
     def index_from_directory(self, data_folder, index_id="es.aitana.index"):
         documents = self.read(data_folder)
         index = self.create_index(documents, index_id=index_id)
-        index.storage_context.persist()
+        index.storage_context.persist(self.persist_dir)
         return index
     
     def load_index(self, index_id="es.aitana.index"):
-        return load_index_from_storage(self.storage_context, index_id=index_id)
+        storage_context = StorageContext.from_defaults(self.persist_dir)
+        return load_index_from_storage(storage_context, index_id=index_id)
 

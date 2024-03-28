@@ -1,12 +1,13 @@
 # Test the IndexnManager with ./data
 
-from IndexManager import IngestionManager, VectorStoreManager
+from index import IndexManager
 
-ingestion_manager = IngestionManager()
-documents = ingestion_manager.read()
-print(f"Read {len(documents)} documents.")
-vector_store_manager = VectorStoreManager()
-index = vector_store_manager.create_index(documents)
+index_manager = IndexManager()
+index = index_manager.index_from_directory("./data")
 
-# Save the index
-index.storage_context.persist()
+# Test the LlamaIndexRetriever with the index
+from retrieval import LlamaIndexRetriever
+
+retriever = LlamaIndexRetriever(index)
+results = retriever.retrieve("hola")
+print(results)

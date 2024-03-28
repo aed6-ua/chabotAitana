@@ -2,6 +2,8 @@ OK.env.py
 a borrar/
 log/
 data_assistant
+data/
+storage/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

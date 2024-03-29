@@ -23,7 +23,7 @@ class EmbeddingsModel(Model):
         return SentenceTransformer(model_path)
 
     def run(self, input):
-        return self.model.encode(input, convert_to_tensor=True)
+        return self.model.encode(input, convert_to_numpy=True)
 
 class LocalGenerationModel(Model):
     def __init__(self, model_path):

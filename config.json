@@ -12,14 +12,15 @@
     },
     
     "retriever": {
-        "type": "LlamaIndexRetriever",
+        "type": "ChromaDBRetriever",
         "index_path": "./storage",
         "model_name": "hackathon-pln-es/paraphrase-spanish-distilroberta",
         "filename": "store/es.aitana.index",
         "top_k": 5,
         "data_folder": "data",
         "number_of_documents": 5,
-        "llamaindex_path": "./storage"
+        "llamaindex_path": "./storage",
+        "collection_name": "chatbot_documents"
     }
   }
   

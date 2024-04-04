@@ -1,13 +1,16 @@
-# Test the IndexnManager with ./data
+# Test the ChromaDB Retriever
 
-from index import IndexManager
+from retrieval import ChromaDBRetriever
+from model import EmbeddingsModel
 
-index_manager = IndexManager()
-index = index_manager.index_from_directory("./data")
+# Load the embeddings model
+embeddings_model = EmbeddingsModel("hackathon-pln-es/paraphrase-spanish-distilroberta")
 
-# Test the LlamaIndexRetriever with the index
-from retrieval import LlamaIndexRetriever
+# Create the retriever
+retriever = ChromaDBRetriever(embeddings_model, collection_name="chatbot_documents")
 
-retriever = LlamaIndexRetriever(index)
-results = retriever.retrieve("hola")
+# Test the retriever
+query = "¿Que transporte hay para llegar a la UA?"
+results = retriever.retrieve(query)
+
 print(results)

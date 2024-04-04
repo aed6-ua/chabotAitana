@@ -7,8 +7,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 
 class Assistant:
-    def __init__(self, tools=None, prompt_settings=None, type=None):
+    def __init__(self, tools=None, prompt_settings=None, description="default"):
         self.tools = tools or []
+        self.description = description
         self.prompt_settings = prompt_settings or {
             "language": "es",
             "introduction": "Eres Aitana, el asistente virtual de la Universidad de Alicante. Estas aquí para ayudar con información acerca de la universidad, incluyendo detalles sobre admisiones, programas académicos, eventos en el campus, servicios estudiantiles y más. Tu objetivo es proporcionar respuestas precisas y útiles a tus preguntas. Utiliza los textos proporcionados delimitados por comillas triples para responder preguntas. Si no se puede encontrar la respuesta en los textos, escribe 'No pude encontrar una respuesta'.",
@@ -54,8 +55,8 @@ class Assistant:
 
 
 class LocalAssistant(Assistant):
-    def __init__(self, model=None, retrieval_tool=None, prompt_settings=None):
-        super().__init__(tools=[retrieval_tool] if retrieval_tool is not None else [], prompt_settings=prompt_settings)
+    def __init__(self, model=None, **kwargs):
+        super().__init__(**kwargs)
         if model is None:
             self.model = LocalGenerationModel("NickyNicky/dolphin-2_6-phi-2_oasst2_chatML_V2")
         else:
@@ -63,16 +64,16 @@ class LocalAssistant(Assistant):
 
 
 class GPTAssistant(Assistant):
-    def __init__(self, model=None, retrieval_tool=None, prompt_settings=None):
-        super().__init__(tools=[retrieval_tool] if retrieval_tool is not None else [], prompt_settings=prompt_settings)
+    def __init__(self, model=None, **kwargs):
+        super().__init__(**kwargs)
         if model is None:
             self.model = OpenAIGenerationModel()
         else:
             self.model = model
 
 class TestAssistant(Assistant):
-    def __init__(self, model=None, retrieval_tool=None, prompt_settings=None):
-        super().__init__(tools=[retrieval_tool] if retrieval_tool is not None else [], prompt_settings=prompt_settings)
+    def __init__(self, model=None, **kwargs):
+        super().__init__(**kwargs)
         if model is None:
             self.model = TestModel()
         else:

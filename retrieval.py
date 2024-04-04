@@ -28,8 +28,8 @@ class Retriever(ABC):
     
     @staticmethod
     def factory(retriever_type, **kwargs):
-        if retriever_type == "sentence_transformer":
-            return SentenceTransformerRetriever(**kwargs)
+        if retriever_type == "simple_transformer":
+            return SimpleRetriever(**kwargs)
         elif retriever_type == "llama_index":
             return LlamaIndexRetriever(**kwargs)
         else:
@@ -37,7 +37,8 @@ class Retriever(ABC):
 
 
 # Implement Concrete Retrieval Strategies
-class SentenceTransformerRetriever(Retriever):
+class SimpleRetriever(Retriever):
+    """Simple in-memory retriever using a SentenceTransformer model and a precomputed set of embeddings."""
     def __init__(self, model: SentenceTransformer, filename='embeddings', top_k=5):
         logging.info("Initializing SentenceTransformerRetrieval...")
         self.model = model
@@ -71,8 +72,36 @@ class SentenceTransformerRetriever(Retriever):
         # Format the results as a list of tuples
         results = [(self.corpus_texts_es[hit['corpus_id']], hit['score']) for hit in hits] if self.corpus_texts_es else [(self.corpus_texts_en[hit['corpus_id']], hit['score']) for hit in hits]
         return results
+    
 
 
+# Retriever using ChromaDB and Unstructured
+import chromadb
+
+class ChromaDBRetriever(Retriever):
+    def __init__(self, model: SentenceTransformer, collection_name):
+        client = chromadb.HttpClient(host='localhost', port=8000)
+        self.model = model
+        self.collection = client.get_collection(collection_name)
+        logging.info(f"ChromaDB retriever initialized for collection: {collection_name}")
+
+    def retrieve(self, query, top_k=10, where=None, where_document=None):
+        query_embedding = self.model.run(query).tolist()
+        results = self.collection.query(
+            query_embeddings=query_embedding,
+            n_results=top_k,
+            #where={"metadata_field": "is_equal_to_this"},
+            #where_document={"$contains":"search_string"}
+        )
+        # We get a dictionary of lists, so we need to return a list of tuples with the document content and the score
+        #print(results)
+        results = [(doc, score) for doc, score in zip(results["documents"], results["distances"])]
+        return results
+
+
+
+
+# Retriever using LlamaIndex
 from llama_index.core.retrievers import BaseRetriever
 from llama_index.core.indices.query.embedding_utils import get_top_k_embeddings
 from llama_index.core import QueryBundle

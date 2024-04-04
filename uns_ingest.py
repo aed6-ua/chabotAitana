@@ -6,13 +6,13 @@ if __name__ == "__main__":
     runner = LocalRunner(
         processor_config=ProcessorConfig(
             verbose=True,
-            output_dir="local-ingest-output",
+            output_dir="../local-ingest-output",
             num_processes=2,
         ),
         read_config=ReadConfig(),
         partition_config=PartitionConfig(),
         connector_config=SimpleLocalConfig(
-            input_path="data",
+            input_path="../data",
             recursive=True,
         ),
     )

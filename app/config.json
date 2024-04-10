@@ -2,7 +2,7 @@
     "global": {
         "assistant": "GPTAssistant",
         "retriever": "LlamaindexRetriever",
-        "embeddings": "LlamaindexEmbeddings",
+        "embeddings": "SentenceTransformerEmbeddings",
         "log": "Y",
         "log_folder": "log/",
         "verbose": "Y"

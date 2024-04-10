@@ -1,23 +1,19 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 from log import config, logger
 
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.core import ServiceContext, SimpleDirectoryReader, Settings, VectorStoreIndex
-from sentence_transformers import SentenceTransformer
-import pickle
 
-# Define the Embeddings Strategy Interface
-class EmbeddingsStrategy(ABC):
-    @abstractmethod
-    def embeddings(self, query):
-        pass
+from langchain_community.embeddings import HuggingFaceEmbeddings
+
+import pickle
 
 #############################################################################################
 #############################################################################################
 #############################################################################################
 class Embeddings:
-    def __init__(self, strategy: EmbeddingsStrategy):
-        self.strategy = strategy
+    def __init__(self):
+        pass
 
     def create_embeddings(self):
         # Placeholder for loading the corpus
@@ -26,19 +22,17 @@ class Embeddings:
 #############################################################################################
 #############################################################################################
 #############################################################################################
-class LlamaIndexEmbeddings(EmbeddingsStrategy):
-    def __init__(self, index_path, data_folder, model_name, model_folder, chunk_size, chunk_overlap):
-        self.index_path = index_path #-->env["embeddings_folder"]
-        self.data_path = data_folder #-->env["data_folder"]
-        self.model_name = model_name #-->env["embedding_model_name"]
-        self.model_folder = model_folder #-->env["model_folder"]
-        self.chunk_size = chunk_size #-->env["chunk_size"]
-        self.chunk_overlap = chunk_overlap #-->env["chunk_overlap"]
-
-
+class LlamaIndexEmbeddings():
+    def __init__(self, config, datafolder):
+        self.index_path = config["vector_folder"] + datafolder
+        self.data_path = config["data_folder"] + datafolder
+        self.model_name = config["model_name"]
+        self.model_folder = config["model_folder"]
+        self.chunk_size = config["chunk_size"]
+        self.chunk_overlap = config["chunk_overlap"]
 
     def create_embeddings(self):
-        self._model = SentenceTransformer(self.model_name, cache_folder=self.model_folder) 
+        self._model = HuggingFaceEmbeddings(model_name=self.model_name, cache_folder=self.model_folder)
         self.text_splitter = SentenceSplitter(chunk_size=self.chunk_size, chunk_overlap=self.chunk_overlap)
         service_context_embedding = ServiceContext.from_defaults(llm=None, embed_model=self._model, transformations=[self.text_splitter])
 
@@ -53,21 +47,26 @@ class LlamaIndexEmbeddings(EmbeddingsStrategy):
 #############################################################################################
 #############################################################################################
 #############################################################################################
-class SentenceTransformerEmbeddings(EmbeddingsStrategy):
-    def __init__(self, model_name='all-MiniLM-L6-v2', filename='embeddings', top_k=5):
-            logger.info("Initializing SentenceTransformerRetrieval...")
+class SentenceTransformerEmbeddings():
+    def __init__(self, config, datafolder):
+            self.index_path = config["vector_folder"] + datafolder
+            self.data_path = config["data_folder"] + datafolder
+            self.model_name = config["model_name"]
+            self.model_folder = config["model_folder"]
+            self.chunk_size = config["chunk_size"]
+            self.chunk_overlap = config["chunk_overlap"]
+
+            # logger.info("Initializing SentenceTransformerRetrieval...")
             
-            self.model = SentenceTransformer(model_name)
+            # self.model = SentenceTransformer(model_name)
             
-            logger.info(f"Loaded SentenceTransformer model: {model_name}")
+            # logger.info(f"Loaded SentenceTransformer model: {model_name}")
 
-            self.corpus_embeddings = []
-            self.corpus_texts
+            # self.corpus_embeddings = []
+            # self.corpus_texts
 
-            self.filename = filename
-            self.top_k = top_k
-
-
+            # self.filename = filename
+            # self.top_k = top_k
 
     def create_embeddings(self): #TODO: fer!
         pass

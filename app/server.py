@@ -1,16 +1,17 @@
 import sys, getopt
 from log import config, logger
+from util import do_embeddings, do_retrieve, do_assistant
 
 def help():
     print ('server.py -m [embeddings|retriever|assistant] -d folder')
 
 def do_work(mode, datafolder):
     if mode=="embeddings":
-        logger.info(f"Working creating Embeddings from data folder: {datafolder}")
+        do_embeddings(datafolder)
     elif mode=="retriever":
-        logger.info(f"Working as retriever from context folder: {datafolder}")
+        do_retrieve(datafolder)
     elif mode=="assistant":
-        logger.info(f"Working as Asistant from RAG context: {datafolder}")
+        do_assistant(datafolder)
     else:
         msg_error="Error, value not valid for '-m'. Valid values are: embeddings, retriever, assistant"
         print(msg_error)

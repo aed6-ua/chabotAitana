@@ -26,6 +26,13 @@ class Retriever(ABC):
         # Placeholder for retrieval logic, e.g., database lookup, web search, etc.
         return f"Information related to {query}"
     
+    @abstractmethod
+    def get_config(self):
+        """
+        Get a JSON representation of the retriever configuration for storage. The retriever can be reconstructed using the configuration.
+        """
+        pass
+
     @staticmethod
     def factory(retriever_type, **kwargs):
         if retriever_type == "simple_transformer":
@@ -39,7 +46,7 @@ class Retriever(ABC):
 # Implement Concrete Retrieval Strategies
 class SimpleRetriever(Retriever):
     """Simple in-memory retriever using a SentenceTransformer model and a precomputed set of embeddings."""
-    def __init__(self, model: SentenceTransformer, filename='embeddings', top_k=5):
+    def __init__(self, model, filename='embeddings', top_k=5):
         logging.info("Initializing SentenceTransformerRetrieval...")
         self.model = model
         logging.info(f"Loaded SentenceTransformer model: {model}")
@@ -73,20 +80,35 @@ class SimpleRetriever(Retriever):
         results = [(self.corpus_texts_es[hit['corpus_id']], hit['score']) for hit in hits] if self.corpus_texts_es else [(self.corpus_texts_en[hit['corpus_id']], hit['score']) for hit in hits]
         return results
     
+    def get_config(self, config):
+        return {
+                "type": "SimpleRetriever",
+                "local": True,
+                "llm_server": self.model.get_config()["server_url"],
+                "index_path": config["retriever"]["index_path"],
+                "model_name": config["retriever"]["model_name"],
+                "filename": self.filename,
+                "top_k": self.top_k,
+                "data_folder": "data",
+                "number_of_documents": 5,
+                "llamaindex_path": "./storage",
+                "collection_name": "base"
+            }
+    
 
 
 # Retriever using ChromaDB and Unstructured
 import chromadb
 
 class ChromaDBRetriever(Retriever):
-    def __init__(self, model: SentenceTransformer, collection_name):
-        client = chromadb.HttpClient(host='localhost', port=8000)
+    def __init__(self, model, collection_name, chromadb_host='localhost', chromadb_port=8000):
+        client = chromadb.HttpClient(host=chromadb_host, port=chromadb_port)
         self.model = model
         self.collection = client.get_collection(collection_name)
         logging.info(f"ChromaDB retriever initialized for collection: {collection_name}")
 
-    def retrieve(self, query, top_k=10, where=None, where_document=None):
-        query_embedding = self.model.run(query).tolist()
+    def retrieve(self, query, top_k=1, where=None, where_document=None):
+        query_embedding = self.model.run(query)
         results = self.collection.query(
             query_embeddings=query_embedding,
             n_results=top_k,
@@ -94,10 +116,22 @@ class ChromaDBRetriever(Retriever):
             #where_document={"$contains":"search_string"}
         )
         # We get a dictionary of lists, so we need to return a list of tuples with the document content and the score
-        #print(results)
-        results = [(doc, score) for doc, score in zip(results["documents"], results["distances"])]
-        return results
+        return results["documents"][0]
 
+    def get_config(self, config):
+        return {
+                "type": "ChromaDBRetriever",
+                "local": True,
+                "llm_server": self.model.get_config()["server_url"],
+                "index_path": config["retriever"]["index_path"],
+                "model_name": config["retriever"]["model_name"],
+                "filename": config["retriever"]["filename"],
+                "top_k": config["retriever"]["top_k"],
+                "data_folder": "data",
+                "number_of_documents": 5,
+                "llamaindex_path": "./storage",
+                "collection_name": self.collection.name
+            }
 
 
 
@@ -169,7 +203,7 @@ class HybridRetriever(BaseRetriever):
         for full_score, node in result_tups:
             node.score = full_score
 
-        return [n for _, n in result_tups][:out_top_k]
+        return [n for _, n in result_tups][:self.out_top_k]
     
 from llama_index.core.schema import MetadataMode
 

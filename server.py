@@ -1,4 +1,6 @@
 import logging
+import os
+import pickle
 from fastapi import Body, FastAPI, UploadFile
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
@@ -10,6 +12,9 @@ import shutil
 
 class MessageSchema(BaseModel):
     message: str
+    top_k: int
+    max_tokens: int
+    temperature: float
 
 # Import classes here
 from conversation import Conversation
@@ -32,9 +37,13 @@ def load_config(config_path):
 config = load_config("config.json")
 
 # Load models
-from model import OpenAIGenerationModel, EmbeddingsModel
-embeddings_model = EmbeddingsModel(config["retriever"]["model_name"])
-generation_model = OpenAIGenerationModel(config["assistant"]["model_name"])
+from model import OpenAIGenerationModel, EmbeddingsModel, LocalGenerationModel
+try:
+    embeddings_model = EmbeddingsModel(config["retriever"]["llm_server"])
+    generation_model = LocalGenerationModel(config["assistant"]["llm_server"])
+        #generation_model = OpenAIGenerationModel(config["assistant"]["model_name"])
+except Exception as e:
+    logger.error(f"Error loading models: {e}")
 
 app = FastAPI()
 
@@ -43,6 +52,19 @@ conversations = {}
 
 # Dictionary to store the assistants with their IDs
 assistants = {}
+
+# Load stored assistants
+if os.path.exists("assistants") and os.listdir("assistants"):
+    for file in os.listdir("assistants"):
+        assistant_id = file.split(".")[0]
+        if file.endswith(".pkl"):
+            with open(f"assistants/{assistant_id}.pkl", "rb") as file:
+                loaded_config = pickle.load(file)
+                assistants[assistant_id] = create_assistant(loaded_config, retrieval_tool=create_retrieval_tool(loaded_config, embeddings_model=embeddings_model), generation_model=generation_model, description=loaded_config["assistant"]["description"])
+                logger.info(f"Loaded assistant {assistant_id}")
+else:
+    logger.error("No assistants found in the 'assistants' directory.")
+        
 
 # Create an instance of the assistant
 base_assistant = create_assistant(config, generation_model=generation_model, retrieval_tool=create_retrieval_tool(config, embeddings_model=embeddings_model), description="Base assistant")
@@ -118,6 +140,9 @@ async def start_conversation():
 @app.post("/send/{conversation_id}")
 async def send_message(conversation_id: str, message_body: MessageSchema, assistant_id=None):
     message = message_body.message
+    top_k = message_body.top_k
+    max_tokens = message_body.max_tokens
+    temperature = message_body.temperature
     conversation = conversations.get(conversation_id)
     if not conversation:
         raise StarletteHTTPException(status_code=404, detail="Conversation not found")
@@ -127,25 +152,33 @@ async def send_message(conversation_id: str, message_body: MessageSchema, assist
     if assistant_id is None:
         assistant_id = "base"
     logger.info(f"Processing message with assistant {assistant_id}")
-    response = assistants[assistant_id].process_message(message, context)
-    conversation.add_message("user", message)
+    response, message_context = assistants[assistant_id].process_message(message, context, top_k=top_k, max_tokens=max_tokens, temperature=temperature)
+    conversation.add_message("user", message_context)
     conversation.add_message("assistant", response)
     
     return {"response": response}
 
-def store_conversation(conversation_id):
+def store_conversation(conversation_id, stars):
     conversation = conversations[conversation_id]
+    conversation.stars(stars)
     serialized_conversation = str(conversation)
     with open(f"conversations/{conversation_id}.log", "w") as file:
         file.write(serialized_conversation)
     logger.info(f"Conversation {conversation_id} stored")
 
+class StarsSchema(BaseModel):
+    stars: int
+
 @app.post("/end/{conversation_id}")
-async def end_conversation(conversation_id: str):
+async def end_conversation(conversation_id: str, stars: StarsSchema | None = None):
+    if stars is not None:
+        stars = stars.stars
+    else:
+        stars = -1
     if conversation_id not in conversations:
         raise StarletteHTTPException(status_code=404, detail="Conversation not found")
     
-    store_conversation(conversation_id)
+    store_conversation(conversation_id, stars)
     del conversations[conversation_id]  # Optionally remove from active conversations
     return {"message": "Conversation ended and stored"}
 
@@ -153,3 +186,13 @@ async def end_conversation(conversation_id: str):
 @app.get("/")
 async def read_root():
     return {"Hello": "World"}
+
+@app.on_event("shutdown")
+def shutdown_event():
+    logger.info("Shutting down...")
+    # Store all assistants as JSON config files
+    for assistant_id, assistant in assistants.items():
+        with open(f"assistants/{assistant_id}.pkl", "wb") as file:
+            pickle.dump(assistant.get_config(config), file)
+    logger.info("Stored all assistants")
+

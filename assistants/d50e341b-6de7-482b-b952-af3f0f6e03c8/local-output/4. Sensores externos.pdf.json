@@ -1,0 +1,106 @@
+[
+  {
+    "type": "CompositeElement",
+    "element_id": "7d8ad0f1761a7e0bf059ec0c03e531a2",
+    "text": "TECNOLOGÍA Y ARQUITECTURA ROBÓTICA\n\nTema 2. Tecnologías robóticas\n\nSensores externos de proximidad\n\nSensores externos\n\n¨ Estos sensores dan información acerca del estado del\n\nmundo que rodea al robot, es decir, monitorizan dinámicamente la relación de un robot con su entorno, y el desarrollo de la ejecución de una tarea.\n\n¨ Idealmente, deben alterar lo menos posible el entorno\n\nque monitoricen.\n\nTAR\n\n3\n\nSensores de proximidad\n\n¨ Señalan la distancia entre el punto del robot, y otros objetos. Pueden ser de contacto, o sin contacto físico.\n\n¨ La primera clase de sensores responde al contacto\n\nfísico y suelen servir como indicadores de algún evento. ¨ Los sensores sin contacto se basan en la respuesta de un\n\ndetector a las variaciones en la radiación electromagnética o acústica.\n\n¨ Los ejemplos más destacados de los sensores sin contacto miden el alcance, la proximidad y las propiedades visuales de un objeto.\n\nTAR\n\n4\n\nSensores de contacto\n\n¨ Son simples interruptores colocados en lugares concretos del robot donde se piense que puede existir un choque.\n\n¨ Posibles usos:\n\n¤ Detectar el contacto entre el robot y objetos externos,\n\ncomo paredes.\n\n¤ Detectar el contacto con partes de movimiento interno\n\ndel robot (como en un brazo robótico).\n\n¤ Elemento de Entrada – pulsador o control “remoto”.\n\nTAR\n\n5\n\nSensores de contacto\n\nCorriente Eléctrica electrical flow\n\nfuerza force\n\nvoltage Medición de measurement Voltaje\n\nUn interruptor simple\n\nTAR\n\n6\n\nSensores de reflexión\n\n¨ La reflexión es uno de los principios más fáciles e\n\ninmediatos para aprovechar: cuanto más cerca esté un objeto, más reflejará la luz o el sonido dirigido hacia él. ¨ Esto permite medir fácilmente la distancia a objetos que reflejan bien la señal y que no están demasiado lejos.\n\n¨ Para hacer que estos sensores sean lo más\n\nindependientes posible del color del objeto (aunque no completamente independientes), la longitud de onda más comúnmente elegida al usar luz es el infrarrojo.\n\n¨ Por otro lado, el sonido no se ve afectado por el color\n\nde una superficie, sino por las propiedades y características de absorción de la superficie.\n\n¨ Un sensor de distancia basado en la reflexión está\n\ncompuesto por dos componentes: un emisor (que emite una señal, por ejemplo, luz infrarroja) y un receptor (encargado de medir la fuerza de la señal reflejada).\n\nTAR\n\n7\n\nSensores de reflexión (luz)\n\n¨ Se usan en numerosas aplicaciones: ¤ Detectar la presencia de un objeto ¤ Detectar la distancia a un objeto ¤ Detectar alguna característica de una superficie (pared o líneas",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/d50e341b-6de7-482b-b952-af3f0f6e03c8\\4. Sensores externos.pdf",
+        "date_created": "2024-04-18 15:31:53.413368",
+        "date_modified": "2024-04-18 15:31:53.414368",
+        "date_processed": "2024-04-18T13:31:57.394108",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\d50e341b-6de7-482b-b952-af3f0f6e03c8",
+      "filename": "4. Sensores externos.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-18T15:31:53",
+      "page_number": 1
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "d9bee70a010b93437eea8e2b9ea0df88",
+    "text": "para seguimiento)\n\n¨ La reflexión depende del color y de la textura de la\n\nsuperficie. ¤ Las superficies con colores claros reflejan mejor ¤ Una superficie negra mate puede no reflejar en absoluto la luz ¤ Objetos claros lejanos aparentan estar más cerca que objetos\n\noscuros cercanos.\n\n¨ La luz ambiental interfiere en la medida del sensor\n\n¤ ¿Cómo distingue un robot entre una mayor reflexión de un objeto\n\ny un incremento en la luminosidad del entorno del robot?\n\nTAR\n\n8\n\nSensores de color LEGO\n\n¨ Se usa para la detección de objetos, seguir líneas, clasificar objetos, etc. ¨ Permite distinguir hasta 7 colores, así\n\ncomo la intensidad de la luz.\n\n¨ Cuando se mide la intensidad de la\n\nluz reflejada por una superficie, se ha de tener en cuenta que colores claros (blanco, amarillo) reflejan mayor cantidad de luz (80-90%).\n\n¨ Colores oscuros (negro, azul) reflejan menor cantidad de luz (10 -20%).\n\nTAR\n\n9\n\nSensores láser\n\n¨ La reflexión solo puede ser precisa si las distancias son\n\ncortas.\n\n¨ En lugar de medir la fuerza (amplitud) de la señal reflejada, los sensores de distancia láser miden la diferencia o desplazamiento de fase de la onda reflejada.\n\n¨ Para hacer esto, estos sensores emiten láser en una secuencia de impulsos cortos, a una frecuencia de 5 MHz (encendiéndose y apagándose 5 millones de veces por segundo)\n\nTAR\n\n10\n\nSensores láser\n\n¨ Dado que la velocidad de la luz c = 300,000 km/s, la longitud de onda en\n\neste caso es λ = c/f = 60 m. ¤ La longitud de onda es la distancia de un pico de onda hasta el siguiente ¤ Un sensor láser es por tanto útil hasta 30 m (λ/2)\n\n¨ Cuando un obstáculo está a 30 m, la onda reflejada coincide exactamente\n\ncon la original\n\n¨ Al acercarse al obstáculo, se produce un desplazamiento de fase que se\n\npuede medir. ¤ La diferencia de fase entre dos puntos depende de la distancia entre esos dos\n\npuntos\n\n¨ Como el emisor conoce la forma de la onda que emitió, puede calcular la\n\ndiferencia de fase entre la señal emitida y la recibida.\n\n¨ Como este proceso es en su mayoría independiente de la luz ambiental, las\n\nestimaciones pueden ser muy precisas.\n\nTAR\n\n11\n\nSensores láser\n\n¨ Suelen combinarse con espejos giratorios para escanear áreas más\n\ngrandes, conocidos como Laser Range Scanners o LIDAR.\n\n¨ Dichos sistemas se han combinado en sensores con hasta 64 láseres. ¨ Los sensores laser envían una serie de M rayos laser en un\n\ndeterminado plano (horizontal, vertical, …)\n\n¨ Una lectura del sensor se representa mediante un conjunto de M\n\nvalores {ri, i=1,…,M}, donde ri es la distancia al objeto más cercano en el ángulo βi",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/d50e341b-6de7-482b-b952-af3f0f6e03c8\\4. Sensores externos.pdf",
+        "date_created": "2024-04-18 15:31:53.413368",
+        "date_modified": "2024-04-18 15:31:53.414368",
+        "date_processed": "2024-04-18T13:31:57.394108",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\d50e341b-6de7-482b-b952-af3f0f6e03c8",
+      "filename": "4. Sensores externos.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-18T15:31:53",
+      "page_number": 8
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "ca41e607bb3356914b631e20e64324d8",
+    "text": "TAR\n\n12\n\nSensores infrarrojos\n\n¨ La luz IR trabaja a una frecuencia diferente que la\n\nluz ambiental\n\n¨ Los sensores IR se usan de la misma manera que los\n\nsensores de luz visible, pero son más robustos ¨ El sensor mide la cantidad de iluminación global ¤ luz ambiental y la que genera la fuente de luz\n\n¨ Manera robusta de usar los sensores IR:\n\n¤ Modulación/demodulación: apagar y encender\n\nrápidamente la fuente de luz\n\nTAR\n\n13\n\nModulación/demodulación\n\n¨ Los infrarrojos modulados se suelen usar con frecuencia en comunicaciones\n\n¨ La modulación se realiza mediante una fuente de luz\n\nintermitente a una determinada frecuencia\n\n¨ La señal se detecta por un demodulador sintonizado a\n\nesa misma frecuencia\n\n¨ Este sistema ofrece gran inmunidad a la luz ambiental ¤ Los flashes de luz se pueden detectar aunque sean débiles\n\nTAR\n\n14\n\nSensores de proximidad con IR\n\n¨ Es una aplicación perfecta para los sensores IR con\n\nmodulación/demodulación\n\n¨ La luz del emisor se refleja en el\n\ndetector desde un objeto cercano, indicando si un objeto está presente ¤ El emisor y el detector LED apuntan en la\n\nmisma dirección\n\n¨ La luz modulada es mucho menos sensible a cambios en el entorno: ¤ la luz ambiental ¤ la reflexión en diferentes objetos\n\nTAR\n\n15\n\nSensores de ultrasonidos\n\n¨ Son uno de los tipos más usados de sensores de\n\nproximidad.\n\n¨ También se los conoce como sensores sónar. ¨ Se basan en emitir pulsos de ultrasonidos y medir el tiempo de vuelo entre la emisión y la recepción. ¨ La frecuencia de emisión es fija, normalmente 40-50\n\nKHz.\n\n¨ Se suelen emitir pulsos de aproximadamente 1 ms. ¨ Emiten pulsos a varias frecuencias para evitar que\n\nalguna frecuencia desaparezca debido a la forma o características de reflexión del objeto.\n\nTAR\n\n16\n\nSensores de ultrasonidos\n\n¨ Principio básico de trabajo:\n\n¤ Emitir una ráfaga rápida de ultrasonidos, entre 40-50kHz (oído\n\nhumano: 20Hz a 20kHz)\n\n¤ Medir el tiempo transcurrido hasta que el receptor indica que se ha\n\ndetectado un eco.\n\n¤ Determinar la distancia del objeto más cercano al robot.\n\n¤ La velocidad del sonido es, aproximadamente, de 340 m/s.\n\nTAR\n\n17\n\nSensores de ultrasonidos\n\n¨ Aplicaciones:\n\n¤ Medición de la distancia ¤ Mapeado: mapas de proximidad de objetos cercanos\n\nal robot\n\nDoorway\n\no h c E\n\nRobot\n\nf o h t g n e L\n\nchair\n\nchair\n\nScan moving from left to right\n\nTAR\n\n18\n\nSensores de ultrasonidos\n\n¨ Distribución de intensidad típica en un sensor sónar\n\n0°\n\nCono de medida\n\n30°\n\n30°\n\n60°\n\n60°\n\nAmplitud [dB]\n\n¨ Normalmente se utiliza un conjunto de sónares para",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/d50e341b-6de7-482b-b952-af3f0f6e03c8\\4. Sensores externos.pdf",
+        "date_created": "2024-04-18 15:31:53.413368",
+        "date_modified": "2024-04-18 15:31:53.414368",
+        "date_processed": "2024-04-18T13:31:57.394108",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\d50e341b-6de7-482b-b952-af3f0f6e03c8",
+      "filename": "4. Sensores externos.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-18T15:31:53",
+      "page_number": 12
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "f1920003b18b7cf91d901e23c5ab9167",
+    "text": "cubrir todo el espacio.\n\nTAR\n\n19\n\nEfectos de los sónares\n\nTAR\n\nDibuja el rango de lectura que el sónar propor- ciona en cada caso.\n\n20",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/d50e341b-6de7-482b-b952-af3f0f6e03c8\\4. Sensores externos.pdf",
+        "date_created": "2024-04-18 15:31:53.413368",
+        "date_modified": "2024-04-18 15:31:53.414368",
+        "date_processed": "2024-04-18T13:31:57.394108",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\d50e341b-6de7-482b-b952-af3f0f6e03c8",
+      "filename": "4. Sensores externos.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-18T15:31:53",
+      "page_number": 19
+    }
+  }
+]

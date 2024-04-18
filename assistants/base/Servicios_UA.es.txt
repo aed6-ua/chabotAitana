@@ -1,0 +1,620 @@
+﻿Documentación sobre los servicios que ofrece la Universidad de Alicante para la comunidad universitaria
+
+Introducción:
+El propósito de este documento es proporcionar la información sobre los servicios que ofrece la UA que permitan generar respuestas adecuadas en conversaciones 
+con los usuarios del chatbot Aitana.
+El enfoque principal es proporcionar una descripción de cada uno de los servicios en algunos casos aportando enlaces de interés 
+
+Descripción de los servicios:
+La UA ofrece a la comunidad universitaria una serie de servicios que se pueden agrupar en 6 bloques principales:
+- Servicios de Alojamiento
+- Servicios de transporte
+- Deportes
+- Bibliotecas (BUA)
+- Centro de Apoyo al Estudiante (CAE)
+- Cultura 
+
+Servicios de Alojamiento:
+	Las opciones de alojamiento son variadas, pudiendo optar por alojarte en pisos particulares, en residencias universitarias, 
+	alojamiento solidario con personas mayores o dependientes, etc. 
+	¿Qué quieres saber sobre alojamiento?
+
+	Bolsa de alojamiento:
+	La bolsa de alojamiento recoge ofertas de viviendas ofrecidas por particulares.  
+	Puedes consultar la oferta de viviendas en https://cvnet.cpd.ua.es/Alojamiento
+	También podrás consultarla a través de las aplicaciones descargables en App Store (UAlojamiento), Google Play (UAapps Alojamiento) y Windows Store (UAapps Alojamiento).
+
+	Anuncios de alojamiento:
+	Cualquier persona que disponga de algún alojamiento, piso amueblado para alquilar, habitación en familia, o estudiantes que busquen completar su vivienda, 
+	podrán hacerlo a través del formulario online disponible en https://cvnet.cpd.ua.es/Alojamiento/es/SolicitudWeb/SolicitudWeb
+	Los anuncios, salvo renovación o baja, estarán visibles durante 2 meses.
+
+	Renovar o modificar una oferta de alojamiento:
+	La modificación, renovación o baja de una oferta de alojamiento, se realizará a través de https://cvnet.cpd.ua.es/Alojamiento/UsuarioWeb/LogOn
+	En caso de querer renovar o dar de baja la oferta, sin realizar ningún cambio en los datos, se indicará en el campo de información adicional.
+
+	Registro en la web de alojamiento:
+	Si has introducido un email la primera vez que rellenes el formulario, quedarás registrado/a online y recibirás un email con la confirmación, 
+	indicándote la contraseña que se te ha generado. 
+	En el caso de facilitarnos el email posteriormente, no recibirás un correo, pero podrás generarte una clave en https://cvnet.cpd.ua.es/Alojamiento/es/SolicitudWeb/OlvidaPassword
+
+	Olvido de la Contraseña de la web de alojamiento:
+	En caso de no recordar la contraseña, se podrá solicitar una nueva a través de https://cvnet.cpd.ua.es/Alojamiento/es/SolicitudWeb/OlvidaPassword
+
+	Añadir fotos a mi oferta:
+	Una vez publicado tu anuncio, si quieres añadir nuevas fotos, deberás enviarlas a informacio@ua.es para que procedamos a su publicación.
+
+	Alojamiento Solidario:
+	El programa de Alojamiento Solidario consiste en que personas mayores o dependientes ofrecen, en su domicilio alojamiento a estudiantes, a cambio de su compañía y 
+	colaboración en las tareas domésticas. 
+	Puedes contactar con el CAE, centro que gestiona este servicio, a través de:
+		- Si ya eres estudiante de la UA, a través de UACloud – Apoyo estudiantes.
+		- Si aún no eres estudiante de la UA o quieres ofrecerte como alojador/a, mediante correo electrónico a cae@ua.es o por teléfono 96 590 9402. 
+	Consulta más información en https://web.ua.es/es/cae/asuntos-sociales/alojamiento-solidario/alojamiento-solidario.html
+
+	Centro Superior De Idiomas (servicio de alojamiento):
+	El Centro Superior de Idiomas ofrece un servicio de alojamiento dirigido principalmente a estudiantes internacionales. 
+	Las opciones de alojamiento disponibles son: pisos compartidos, familias y residencias universitarias.
+	También facilitan otras opciones de alojamiento (estudios, pisos, hoteles) a profesorado/visitantes internacionales en la Universidad de Alicante.
+	Puedes consultar más información sobre este servicio en https://www.csidiomas.ua.es/es/servicios/alojamiento
+
+	Residencias universitarias:
+	Existe una amplia oferta de residencias universitarias cercanas a la Universidad de Alicante, en las que el estudiantado podrá alojarse. 
+	Puedes consultar la información sobre las diferentes residencias en https://web.ua.es/es/oia/alojamientos/residencias-universitarias-y-complejos-residenciales.html
+
+	Ayudas para el alojamiento:
+	Para hacer frente a los gastos de alojamiento, el estudiantado dispone de ayudas económicas o plazas en residencias y albergues juveniles.
+	Puedes consultar las convocatorias anuales en https://web.ua.es/es/oia/becas-ayudas/alojamiento.html
+	Además, existen programas dirigidos a facilitar la búsqueda de viviendas con condiciones beneficiosas para el alumnado universitario. 
+	Consulta más información en https://web.ua.es/es/oia/alojamientos/
+
+Servicios de Transporte:
+	La Universidad de Alicante tiene buena accesibilidad, ya sea en coche, autobús, tren de cercanías, tranvía o bicicleta. 
+	¿Qué quieres saber sobre el transporte y el acceso a la Universidad?
+
+	Lanzadera:
+	Las y los usuarios de la línea C-3 de cercanías de Renfe disponen del servicio Lanzadera de la UA, que es gratuito, y consiste en autobuses lanzadera que conectan 
+	el apeadero con la zona de ampliación del campus (donde se encuentran los Servicios Técnicos de Investigación (SSTTI)) y con la Universidad en una única parada 
+	situada en el Bosque Ilustrado, en aproximadamente 5 minutos.
+	Puedes consultar más información en https://web.ua.es/es/oia/transporte-universitario/linea-c-3-de-renfe-cercanias.html
+
+	Autobús:
+	Podrás acceder a la universidad en autobús, bien a través del TAM (Transporte Metropolitano de Alicante) o bien a través de otras líneas interurbanas. 
+
+	TAM (Transporte Metropolitano de Alicante):
+	El Transporte Metropolitano de Alicante (TAM) comprende las líneas de autobús urbanas de Alicante ciudad y las interurbanas entre Alicante y El Campello, 
+	San Juan de Alicante, San Vicente y Muchamiel. 
+	El servicio lo realiza el grupo Vectalia SuBus a través de las empresas que lo integran.
+	Puedes consultar la información sobre las líneas con conexión a la universidad en https://web.ua.es/es/oia/transporte-universitario/lineas-urbanas.html
+
+	Otras Líneas interurbanas:
+	Los servicios de transporte universitario en autobús desde otras poblaciones están gestionados por asociaciones de estudiantes, ayuntamientos o empresas de transporte.
+	Normalmente, sólo prestan servicio en periodo lectivo.
+	Además, algunas poblaciones disponen de líneas regulares con destino o parada intermedia en la Universidad.
+	Puedes consultar más información en https://web.ua.es/es/oia/transporte-universitario/lineas-interurbanas.html
+
+	Tren:
+	La línea C-3 de cercanías de Renfe, que enlaza Alicante con la población de San Vicente del Raspeig, tiene un apeadero en la zona de expansión del Campus de la UA 
+	(a unos 600 m aprox. del actual Campus).
+	Además, existe la posibilidad de enlazar con otras poblaciones de la provincia efectuando transbordo con la línea C-1 del mismo servicio de Cercanías.
+	RENFE ofrece diferentes abonos para estudiantes de la universidad.
+	Puedes consultar más información en https://web.ua.es/es/oia/transporte-universitario/linea-c-3-de-renfe-cercanias.html
+
+	Tranvia:
+	La línea 2 del TRAM conecta a la Universidad de Alicante con varios puntos de Alicante y San Vicente.
+	Se ofrecen diversas opciones de descuentos y bonos.
+	Puedes consultar más información en https://web.ua.es/es/oia/transporte-universitario/linea-l2-del-tram.html
+
+	Transporte Adaptado:
+	El transporte adaptado es un servicio específico que, a petición propia y bajo su responsabilidad, se presta a estudiantado con movilidad reducida que cursando sus 
+	estudios en esta Universidad, necesiten un transporte alternativo, adaptado a sus necesidades, para la asistencia a las clases en el Campus de San Vicente del Raspeig.
+	Para la prestación de este servicio, contamos con una furgoneta adaptada que realiza el servicio en horario de mañana y de tarde. 
+	Más información en https://web.ua.es/es/cae/discapacidad-y-neae/transporte-adaptado-en-la-ua.html (URL NO EXISTEIX)
+
+	Bicisanvi (préstamo gratuito de bicicletas):
+	Bicisanvi es un sistema de préstamo gratuito de bicicletas promovido por la Agencia Valenciana de Energía y el Ayuntamiento de San Vicente del Raspeig.
+	El préstamo/devolución de las bicicletas se lleva a cabo en la Biblioteca General de la Universidad de Alicante y en diferentes puntos de San Vicente del Raspeig. 
+	Para poder participar en el programa Bicisanvi hay que registrarse.
+	Puedes consultar más información en https://bicisanvi.es/
+
+	Compartir Coche:
+	La Universidad de Alicante pone en marcha una app móvil para compartir coche en tus desplazamientos diarios y promover la movilidad sostenible.
+	El uso de la aplicación será gratuito para la comunidad universitaria.
+	Bastará con descargarse la aplicación en https://hoopcarpool.com/ y registrarse. Marca el código asignado para la comunidad universitaria #UA-21SA
+	Puedes consultar más información en https://web.ua.es/es/oia/transporte-universitario/compartir-coche.html
+
+	Puntos de Recarga (vehículos eléctricos):
+	La Universidad de Alicante ha instalado en su campus, ocho puntos de recarga para vehículos eléctricos a disposición de todos los miembros de la comunidad universitaria.
+	Consulta más información en https://web.ua.es/es/ecocampus/movilidad-sostenible/puntos-de-recarga.html
+
+	Aparcamiento (parkings):
+	Puedes consultar los parkings del campus en https://web.ua.es/es/sigua/parkings.html
+
+	Horario de Apertura (acceso al campus):
+	Puedes consultar los horarios de apertura de acceso al campus en https://web.ua.es/es/vr-infraestructures/seguridad/documentos/horarios-apertura-accesos-al-campus.pdf
+
+	Ayudas al transporte universitario:
+	Anualmente, la Conselleria en materia de educación convoca ayudas al transporte universitario, consistentes en subvenciones a los servicios de transporte ya 
+	constituidos o que se constituyan, con el fin de trasladar a estudiantes desde sus poblaciones a los centros universitarios donde cursen sus estudios. 
+	Podrán solicitar estas ayudas los ayuntamientos, las asociaciones de estudiantes universitarios, las cooperativas de consumidores y usuarios cuyo objeto 
+	sea el transporte universitario y, subsidiariamente (y para aquellas rutas donde no concurran alguno de éstos), las empresas de transporte público regular permanente de uso general.
+	Además, conviene consultar con la empresa que presta el servicio, la posibilidad de otros descuentos como bonos.
+
+	Información sobre transporte universitario:
+	Puedes consultar información sobre transporte universitario en https://web.ua.es/es/oia/transporte-universitario/ o a través del Servicio de Información 
+	(Planta Baja del Aulario II, 96 590 3456, informacio@ua.es).
+
+Deportes:
+	La Universidad de Alicante dispone de una amplia oferta para la práctica deportiva y una completa dotación de instalaciones deportivas.
+	¿Qué quieres saber sobre el deporte en la universidad?
+
+	Oferta deportiva:
+	La Universidad de Alicante cuenta con una amplia oferta deportiva de actividades dirigidas, práctica libre o a través de competiciones.
+	Puedes consultar más información en https://sd.ua.es/es/actividades/actividades.html
+
+	Instalaciones deportivas:
+	El campus cuenta con una completa dotación de instalaciones deportivas.
+	Cualquier persona puede hacer uso de nuestras instalaciones, aunque el precio por su uso varía en función del colectivo al que pertenezca.
+	Las reservas podrán hacerse de forma online o presencial, en el Pabellón Polideportivo.
+	Tenemos instalaciones al aire libre y en el Pabellón Polideportivo.
+
+	Instalaciones al Aire Libre:
+	La universidad ofrece:
+		- 3 pistas de tenis
+		- 1 pista de baloncesto
+		- 1 campo de hockey de hierba artificial
+		- 1 campo de rugby/fútbol de hierba artificial
+		- 1 pista de atletismo
+		- 1 pista polideportiva semicubierta (fútbol sala, baloncesto, balonmano y hockey sala)
+		- 3 pistas de pádel
+		- 1 pista de vóley playa
+		- 1 circuito natural de unos 700 metros con aparatos de gimnasia (situado en el Bosque Ilustrado)
+	Puedes consultar más información en https://sd.ua.es/es/instalaciones/instalaciones-deportivas.html
+
+	Instalaciones del Pabellón Polideportivo:
+	La universidad ofrece:
+		- En la pista central polideportiva: 2 canchas de baloncesto, 1 pista de fútbol sala, 1 pista de balonmano, 2 pistas de voleibol y 1 pista de hockey sala.
+		- 1 rocódromo
+		- 1 piscina cubierta climatizada
+		- 4 pistas de squash
+		- 1 gimnasio de musculación
+		- 1 sala de aeróbic
+		- 1 gimnasio de entrenamiento
+		- 1 sala de tenis de mesa
+		- 1 gimnasio para equipos
+		- 1 sala de tatami-esgrima
+		- Un SPA con duchas de contraste, pediluvio, sauna de vapor y sauna finlandesa.
+	Puedes consultar más información en https://sd.ua.es/es/instalaciones/instalaciones-deportivas.html
+
+	Bonos:
+	Si utilizas habitualmente nuestras instalaciones deportivas, el Servicio de Deportes te recomienda:
+		- Tarjeta Deportiva Universitaria (TDU) JA NO EXISTEIX COM A TAL
+		- Abono piscina
+		- Bono por usos
+
+	Tarjeta Deportiva Universitaria (TDU): JA NO EXISTEIX COM A TAL
+	La Tarjeta Deportiva Universitaria (TDU) permite un amplio uso de las instalaciones deportivas durante su periodo de vigencia.
+	Puede solicitarla cualquier persona, ya sea alumnado universitario, otros colectivos universitarios o cualquier otra persona sin vinculación con la UA.
+	Dependiendo del colectivo al que se pertenece, el coste de la TDU es diferente.
+	Puedes solicitarla de forma online o presencial, en el Pabellón Polideportivo.
+	Consulta más información en https://sd.ua.es/es/abonos/tarjeta-deportiva-universitaria-tdu.html
+
+	Abono Piscina:
+	El abono de piscina es trimestral y solo para la piscina en horario de baño libre
+	Dependiendo del colectivo al que se pertenece, el coste del abono es diferente.
+	Puedes solicitarlo de manera online o presencial, en el Pabellón Polideportivo.
+	Consulta más información en https://sd.ua.es/es/abonos/abono-trimestral-piscina.html
+
+	Bono por Usos:
+	El abono por usos contiene 13 usos por el precio de 10. 
+	Tiene vigencia de 1 año y su precio varía dependiendo del colectivo al que se pertenece.
+	Puedes solicitarlo en la máquina virtual (TPV) situada en la entrada del Pabellón Polideportivo, previo registro.
+	Consulta más información en https://sd.ua.es/es/abonos/bono-por-usos.html
+
+	Equipos UA:
+	La Universidad de Alicante cuenta equipos oficiales, tanto federados como universitarios, que compiten representando a la UA.
+	Puedes consultar más información en https://competicio.ua.es/
+
+	Ligas Internas:
+	Las ligas internas son competiciones en las que puede participar toda la comunidad universitaria, previa inscripción del equipo.
+	Los deportes que se ofertan son: baloncesto 3x3, fútbol 8, fútbol sala, pádel, tenis y vóley-playa.
+	Puedes consultar más información en https://competicio.ua.es/es/ligas-internas/ligas-internas.html
+
+	Ayudas al deportista:
+	La Universidad de Alicante desarrolla diversos programas para ayudar a sus deportistas:
+		- Ayudas al estudiantado por rendimiento deportivo
+		- Ayudas al deporte federado universitario de alto nivel
+		- Premios Fundación Trinidad Alfonso
+		- Reglamento para la Promoción y Apoyo al Deportista Universitario/a (reconocimiento de créditos).
+
+	Ayudas al estudiantado por rendimiento deportivo:
+	Las ayudas al estudiantado por rendimiento deportivo se convocan anualmente.
+	Las y los beneficiarios tendrán derecho a ayudas económicas, que irán destinadas prioritariamente a sufragar gastos de matrícula y/o material (deportivo y docente), 
+	como incentivo económico en consideración a las exigencias de sus resultados deportivos junto con las de sus estudios.
+	Puedes consultar más información en https://competicio.ua.es/es/ayudas/ayudas-por-rendimiento-deportivo.html
+
+	Ayudas al deporte federado universitario de alto nivel:
+	Las ayudas al deporte federado universitario de alto nivel se convocan anualmente.
+	Son ayudas para atender las necesidades de alojamiento, manutención y gastos básicos de la participación en competiciones federadas.
+	Puedes consultar más información en https://competicio.ua.es/es/ayudas/ayudas-deporte-federado-universitario-de-alto-nivel.html
+
+	Premios Fundación Trinidad Alfonso:
+	Los Premios Fundación Trinidad Alfonso están dirigidos a premiar a la y el mejor deportista de la Universidad de Alicante que compaginen la vida académica con el 
+	deporte de competición, en el marco del Proyecto UniEsport.
+	Además, la Fundación Trinidad Alonso también dota otros 2 premios para la y el mejor deportista titulado de las 7 universidades valencianas que hayan finalizado 
+	sus estudios con mejores calificaciones, compaginándolos con el deporte de alto nivel.
+	Puedes consultar más información en https://competicio.ua.es/es/ayudas/premios-fundacion-trinidad-alfonso.html
+
+	Reglamento para la Promoción y Apoyo al Deportista Universitario/a:
+	La persona deportista universitaria que cumpla con los requisitos de cada grupo, tendrá derecho a obtener créditos de libre elección curricular. 
+	Además, se les tendrá en cuenta para el cambio de horario, grupos y exámenes que coincidan con su actividad deportiva.
+	A estos efectos, se considera deportista universitario o universitaria, la o el incluido en la relación de Deportistas Universitarios 
+	que elabora el Secretariado de Deportes de la Universidad de Alicante. 
+	En esa relación se encuentra:
+		-El estudiantado que represente a la universidad en competiciones universitarias u oficiales
+		-Las monitoras o monitores de actividades deportivas por haber obtenido una beca de colaboración con el Servicio de Deportes.
+	Puedes consultar más información sobre este reglamento en https://sd.ua.es/es/documentos/administracion/normativa/reg-padu.pdf
+
+	Deporte Adaptado:
+	El Servicio de Deportes viene trabajando sobre el proyecto de “inclusión deportiva”, que pretende ampliar su programa de actividad física dirigida y de escuelas 
+	con diferentes modalidades de deportes adaptados e inclusivos: baloncesto adaptado en silla de ruedas, natación inclusiva...
+	Este deporte está dirigido a aquellas personas que presentan diversidad funcional de la comunidad educativa de la UA (PAS, PDI y alumnado), además de otras asociaciones.
+
+	Voluntariado de deportes:
+	El voluntariado de deportes e inclusión te ofrece la oportunidad de colaborar con la Universidad de Alicante a través de diferentes programas y actividades 
+	vinculadas a la práctica de la actividad física y el deporte. 
+	Esta colaboración está orientada al apoyo en la organización de grandes eventos y jornadas deportivas; la participación en los programas de deporte adaptado 
+	e inclusivo para personas con diversidad funcional, con riesgo de exclusión social o con algún tipo de necesidad especial; colaboración y asistencia en las 
+	acciones de comunicación y retransmisiones en eventos y competiciones deportivas. 
+	La participación en los diversos voluntariados tiene reconocimiento de créditos por curso académico, hasta un máximo de 6 créditos.
+	Puedes consultar más información en https://web.ua.es/es/voluntariado-ua/
+
+	Tienda deportiva:
+	El Servicio de Deportes cuenta con una tienda de ropa deportiva, en la que podrás adquirir camisetas, sudaderas, mochilas y bolsas de deporte.
+	Se encuentra ubicada en la Conserjería del Pabellón Polideportivo.
+	Puedes consultar más información sobre la tienda en https://sd.ua.es/es/tienda-de-ropa-deportiva.html
+
+	Academia UA (de deporte):
+	La Academia UA nace como un programa de desarrollo del talento deportivo para estudiantes de la ESO y Bachillerato, con el objetivo de que puedan hacer uso 
+	de las instalaciones deportivas de la Universidad de Alicante.
+	Para pertenecer al programa, las y los deportistas deben formar parte de un club que tenga convenio al efecto con la UA o pertenecer a la propia Sección Deportiva de la UA.
+	Puedes consultar más información en https://web.ua.es/es/spe/programas/academia-ua.html
+
+	Mujer y Deporte:
+	El programa "Mujer y Deporte" tiene como principal objetivo incrementar la participación de la mujer en las actividades deportivas.
+	Actualmente, se compone de tres proyectos:
+		- Jornadas “Mujer y Deporte”. Son una serie de jornadas para el fomento de la actividad deportiva femenina que se realizan en 
+		conmemoración del día Internacional de la Mujer.
+		- Campaña “Con Nombre de Mujer. Deportistas UA”. Cada curso se reconoce la figura de una deportista de alto nivel, con una carrera relevante 
+		y significativa, que haya sido, o sea en la actualidad, miembro de los equipos de la Universidad de Alicante.
+		- Deportistas equipos femeninos federados de la Universidad de Alicante. La Universidad de Alicante organiza y financia con especial interés 
+		sus equipos femeninos que participan en competiciones federadas.
+	Consulta más información en https://web.ua.es/es/spe/programas/mujer-y-deporte/mujer-y-deporte.html
+
+	Ejercicio para personas de 55 años y más:
+	La actividad de Ejercicio para Mayores, es un programa de entrenamiento específico, con el objetivo de disminuir los efectos del envejecimiento, 
+	tanto biológicos como psicológicos y sociales.
+	Este servicio se ofrece, con exclusividad y de forma gratuita, al estudiantado, PAS y PDI de la Universidad de Alicante, mayores de 55 años.
+	Puedes consultar más información en https://web.ua.es/es/spe/programas/running/ejercicio-para-personas-de-55-y-mas.html
+
+	Runners UA:
+	Runners UA es un programa de entrenamiento para corredores populares, con el objetivo de llevar los conocimientos científicos a la práctica deportiva.
+	El programa ofrece la oportunidad de que nuestra comunidad universitaria tenga a su disposición un programa y estructura de actividad física adaptada 
+	al corredor/a con el propósito de recuperar la motivación, entrenar en grupo y disfrutar de la carrera a pie.
+	Dispondrás de un entrenador cualificado y graduado en Ciencias de la Actividad Física y el Deporte, que se encargará de dirigir las sesiones de entrenamiento.
+	Puedes consultar más información en https://web.ua.es/es/spe/programas/running/runners-ua.html
+
+	Clubs deportivos:
+	La Universidad de Alicante, con el objeto de promocionar y fomentar el deporte universitario, ha favorecido un espacio de colaboración con federaciones, 
+	instituciones, clubes y entidades deportivas de su entorno, creando sinergias y compromisos mutuos que fortalezcan los proyectos en beneficio del deporte formativo, 
+	saludable y solidario, con atención especial al deporte femenino.
+	Para ello, se han concretado convenios de colaboración con clubes y entidades deportivas de la provincia de Alicante.
+	Puedes consultar los convenios que la UA tiene vigentes en https://web.ua.es/es/spe/clubes-vinculados.html
+
+	Competición (deportiva):
+	Diversos equipos oficiales compiten representando a la Universidad de Alicante tanto en competiciones federadas como en competiciones interuniversitarias.
+	Consulta cuáles son estos equipos en https://competicio.ua.es/
+
+Bibliotecas:
+	La Biblioteca de la Universidad de Alicante (BUA) es un servicio universitario de apoyo al aprendizaje, la docencia, la investigación, la cultura 
+	y las actividades relacionadas con el funcionamiento y la gestión de la Universidad en su conjunto.
+	¿Qué quieres saber sobre las bibliotecas universitarias?
+
+	¿Qué bibliotecas hay?:
+	Contamos con 7 bibliotecas distribuidas en su mayoría dentro del campus universitario. 
+	Listado de bibliotecas:
+	- Filosofía y Letras (ubicada en la 1ª y 2ª planta del edificio de la Biblioteca General)
+	- Politécnica y Ciencias de la Salud (ubicada en la planta baja del edificio de la Biblioteca General)
+	- Económicas (ubicada en la Facultad de Ciencias Económicas y Empresariales)
+	- Derecho (ubicada en la Facultad de Derecho)
+	- Ciencias (ubicada en la Facultad de Ciencias, Fase II)
+	- Geografía (ubicada en el edificio de Institutos Universitarios)
+	- Educación (ubicada en la 2ª planta de la Facultad de Educación)
+	Todas ellas cuentan con puestos de lectura y ordenadores de uso público.
+	También disponemos de una sala de estudios 24 horas (ubicada en la planta baja de la Biblioteca General) y otra en el Edificio San Fernando (C/ San Fernando, 40 Alicante).
+	Puedes consultar más información en https://biblioteca.ua.es/es/bibliotecas-y-otras-colecciones.html
+
+	Requisitos de uso de los servicios de las bibliotecas:
+	Para usar los servicios que la Biblioteca ofrece únicamente a toda la Comunidad Universitaria, necesitas la Tarjeta de Identificación Universitaria (TIU) 
+	y en su defecto cualquier documento oficial (DNI, carnet de conducir, pasaporte, NIE o carnet de identidad de tu país si perteneces a la UE).
+	Para hacer uso de los servicios de apertura extraordinaria será necesaria la siguiente acreditación como persona usuaria:
+	- TIU: para el personal perteneciente a la comunidad universitaria de la UA.
+	- Tarjeta identificativa de su universidad: para estudiantes de otras universidades.
+	- Carnet de Usuario Externo Temporal junto con el DNI: para personal avalado o perteneciente a colectivos que tienen establecido un convenio con 
+	la biblioteca de la Universidad de Alicante. Este carnet puede solicitarse en PuntBIU.
+
+	Horario:
+	El horario habitual de apertura de las bibliotecas es de lunes a viernes (excepto festivos), de 8:30 h a 21:00 h (durante el mes de julio hasta las 20:30 h). 
+	Permanecerán cerradas los días festivos aprobados en el calendario laboral.
+	Puedes consultar los horarios de la Sala San Fernando y la apertura extraordinaria por exámenes en https://biblioteca.ua.es/es/conocenos/horario-bibliotecas.html
+
+	PuntBIU:
+	En PuntBIU encontrarás una selección de libros, revistas, mapas y planos relacionados con los viajes, el turismo, el ocio y los deportes.
+	Se encuentra ubicado en la planta baja del Edificio de la Biblioteca General.
+	Dispone además de prensa diaria local, nacional e internacional y una serie de revistas de carácter divulgativo y temática general, destacando las especializadas en viajes.
+	Puedes consultar más información en https://biblioteca.ua.es/es/puntbiu/punt-biu-punto-de-formacion-e-informacion.html
+
+	Mediateca:
+	La Mediateca ofrece una amplia colección de fondos audiovisuales y multimedia. Para ello dispone de soportes digitales en formatos CD, CD-ROM, DVD y Blu-Ray.
+	La temática de los fondos es amplia: cine, música, ciencia y técnica, medio ambiente, historia, literatura, arte, viajes, etc. 
+	Puedes consultar más información en https://biblioteca.ua.es/es/mediateca/mediateca.html
+
+	Depósito:
+	El Depósito cuenta con un fondo multidisciplinar compuesto por libros, diarios oficiales, tesis, prensa, revistas, DVDs y CD ROMs que se considera de menor uso, 
+	o que por sus características de conservación no deben estar en acceso libre. 
+	Los fondos, identificados con la signatura DP, están a disposición del usuario a través del servicio de consulta y préstamo proporcionado por el personal del Depósito.
+	El Depósito se ubica en el sótano del edificio de la Biblioteca General. 
+	Puedes consultar más información en https://biblioteca.ua.es/es/deposito/deposito.html
+
+	Espacios:
+	La Biblioteca Universitaria cuenta con:
+	- Salas de trabajo en grupo
+	- 3 aulas de formación/trabajo 
+	- Cabinas multimedia de autoservicio: para la creación y edición de contenidos audiovisuales
+	- Fotocopias y escáner
+	- Impresión digital (en Biblioteca General y Biblioteca de Educación)
+	- Ordenadores de uso público
+	- Puestos de visionado y audición
+	- Sala de estudio 24 horas
+	- Sala de investigadores Russell P. Sebold
+	- Sala Multimedia
+	- Taquillas (de uso personal o de carga de dispositivos electrónico)
+	Puedes consultar más información en https://biblioteca.ua.es/es/utiliza-la-biblioteca/espacios-y-equipo/espacios-y-equipos.html
+
+	Compra de ejemplares:
+	Si no encuentras lo que buscas puedes:
+	- Solicitar el documento a otra biblioteca fuera de la Universidad de Alicante (A través del préstamo interbibliotecario)
+	https://biblioteca.ua.es/es/utiliza-la-biblioteca/prestamo-interbibliotecario/prestamo-interbibliotecario.html
+	- Solicitarnos su compra, enviándonos una desiderata.
+	https://biblioteca.ua.es/es/utiliza-la-biblioteca/solicita-una-compra.html
+
+	Catálogo:
+	En el Catálogo de la BUA podrás:
+	- Conocer la disponibilidad y localización de los documentos.
+	- Acceder a tu ficha de usuario/a, ver y renovar tus préstamos y realizar reservas.
+	- Consultar la colección impresa y electrónica de la Biblioteca (libros, revistas, tesis, artículos, videos, etc.)
+	- Acceder al texto completo de un gran número de documentos.
+	- Generar citas y exportar los resultados a gestores bibliográficos o enviarlos por correo electrónico. 
+	Puedes acceder al Catálogo de la BUA en https://cat.biblioteca.ua.es/discovery/search?vid=34CVA_UA:VU1&amp;lang=es
+
+	Préstamo:
+	La BUA dispone de préstamo de:
+	- Libros: dependiendo el colectivo al que perteneces podrás llevarte un número limitado de libro (Ej.: estudiantes de grado pueden tener hasta 8 documentos en préstamo).
+	- Ordenadores portátiles: préstamo durante todo el día, sin sacarlos de la sala.
+	- Atriles: préstamo durante todo el día, sin sacarlos de la sala.
+	- Dispositivos ebooks: préstamo durante 14 días.
+	Puedes consultar otros materiales que ofrece la BUA en https://biblioteca.ua.es/es/utiliza-la-biblioteca/prestamo/prestamo.html
+	Además, dispone del servicio de Préstamo Interbibliotecario, para facilitar el acceso a documentos que no se encuentren en la biblioteca de la Universidad, 
+	así como facilitar a otras instituciones externas documentos existentes en nuestra universidad.
+	Puedes consultar más información en https://biblioteca.ua.es/es/utiliza-la-biblioteca/prestamo-interbibliotecario/prestamo-interbibliotecario.html
+
+	Repositorio Institucional de la Universidad de Alicante (RUA):
+	El Repositorio Institucional de la Universidad de Alicante (RUA) ofrece acceso abierto al texto completo en formato digital de los documentos generados 
+	por los miembros de la Universidad de Alicante en su labor de docencia e investigación
+	RUA recoge todo tipo de materiales digitales, tanto preprints como postprints, comunicaciones a congresos, documentos de trabajo, materiales docentes 
+	y objetos de aprendizaje, revistas editadas por la Universidad de Alicante, así como documentos y materiales resultantes de la actividad institucional 
+	realizada por sus centros, unidades y servicios.
+	Puedes consultar el repositorio en https://rua.ua.es/dspace/?locale=es
+
+	Investigación:
+	La Biblioteca ofrece apoyo al personal investigador de la comunidad universitaria, proporcionándole la información, formación y asesoramiento necesario en la 
+	elaboración de publicaciones, en sus tareas de editor de revistas científicas o en cuestiones relativas a la evaluación investigadora.
+	El Servicio de Apoyo a la Investigación está ubicado en la planta baja de la Biblioteca General, detrás de la Mediateca.
+	Puedes consultar más información en https://biblioteca.ua.es/ o a través del correo electrónico apoyoinves@ua.es
+
+	Centro de Documentación Europea:
+	El Centro de Documentación Europea pone a disposición de la comunidad universitaria y del público en general la documentación generada por las instituciones comunitarias de la Unión Europea. 
+	Está ubicado en la Biblioteca de la Facultad de Derecho.
+	Puedes consultar más información en https://biblioteca.ua.es/es/cde/centro-de-documentacion-europea.html
+
+	Discapacidad:
+	Si eres usuaria o usuario con diversidad funcional, consulta todas las facilidades que la biblioteca te ofrece, como el doble de tiempo de préstamo, 
+	ayuda por parte del personal de biblioteca o puestos de estudio accesibles.
+	Puedes consultar más información en https://biblioteca.ua.es/es/utiliza-la-biblioteca/servicios-para-personas-con-diversidad-funcional.html (NO VA)
+
+	Donaciones:
+	La Biblioteca de la Universidad de Alicante acepta legados y donaciones de particulares e instituciones que contribuyen al crecimiento de sus recursos de información.
+	Puedes consultar como hacerla en https://biblioteca.ua.es/es/conocenos/donaciones.html
+
+Centro de Apoyo al Estudiante (CAE):
+	El Centro de Apoyo al Estudiante (CAE) es un servicio que da respuesta a una amplia gama de necesidades que inciden directa o indirectamente en la vida académica del estudiantado.
+	¿Qué necesitas saber?
+
+	Adaptaciones curriculares CAE:
+	Las adaptaciones curriculares son modificaciones o ajustes que te facilitan el acceso, permanencia y aprovechamiento del curso que aun no siendo importantes 
+	te permitirán adquirir todas las competencias profesionales y contenidos académicos que necesitarás para ejercer como profesional.
+	¿Qué necesitas saber sobre las adaptaciones curriculares?
+
+	Adaptaciones CAE ¿Que son?:
+	Las adaptaciones se pueden aplicar en dos niveles: apoyo en el aula y en las pruebas de evaluación.
+	Son adaptaciones de apoyo en el aula: adecuar la iluminación o la calidad del sonido, adaptar las prácticas o los contenidos académicos, incluso utilizar un sistema de 
+	comunicación alternativo o complementario.
+	Son adaptaciones en las pruebas de evaluación, por ejemplo, una ampliación del tiempo de la misma o transcribir las pruebas a otro sistema de comunicación alternativo.
+	Puedes consultar más información en https://web.ua.es/es/cae/adaptaciones-discapacidad-neae/adaptaciones-curriculares/reglamento-de-adaptacion-curricular-de-la-universidad-de-alicante.html
+
+	Adaptaciones CAE ¿quien puede optar?:
+	Se distinguen dos grandes grupos:
+	- El primer grupo formado por estudiantes con un grado igual o superior al 33% de discapacidad física, sensorial o psíquica, incluyendo a estudiantes Erasmus. 
+	También pertenecen a este grupo, estudiantes con necesidades específicas de apoyo educativo.
+	- El segundo grupo los formarían estudiantes con altas capacidades, deportistas de élite o que representen a la UA, las víctimas de violencia de género, 
+	embarazadas o en proceso de adopción/acogimiento, estudiantes con un hijo/a menor de 3 años a su cargo o un familiar dependiente, con una jornada laboral incompatible 
+	con las clases o estudiantes en un programa de movilidad y algún caso más.
+
+	Adaptaciones CAE ¿Cuando se pueden solicitar? ¿Como se solicitan?:
+	El plazo general para solicitar las adaptaciones se establece durante las dos primeras semanas del comienzo del curso o del semestre, aunque queda abierto 
+	excepcionalmente el plazo para solicitudes por situaciones sobrevenidas.
+	Se tramitarán a través de la plataforma UAcloud - Apoyo Estudiantes.
+	Puedes consultar más información en https://web.ua.es/es/cae/adaptaciones-discapacidad-neae/adaptaciones-curriculares/reglamento-de-adaptacion-curricular-de-la-universidad-de-alicante.html
+
+	Ayudas Económicas de Emergencia:
+	Las Ayudas Económicas de Emergencia tienen como objetivo atender las necesidades básicas del alumnado de la UA que se encuentre en situaciones socioeconómicas 
+	personales o familiares imprevistas, que le dificulte la continuación de sus estudios.  
+	Podrán solicitarse para los siguientes conceptos:
+	- Menú de comedor de mediodía para los días lectivos.
+	- Ayuda para transporte universitario, tanto urbano como interurbano, para la asistencia a clase y/o exámenes.
+	- Material para el estudio: papelería, impresiones, fotocopias y libros.
+	- Ayuda para alojamiento en período lectivo.
+	- Ayuda y préstamo de material tecnológico para el seguimiento de la docencia dual.
+	- Otros, para ayudas excepcionales que no estén recogidas en las anteriores modalidades y con el mismo objetivo.
+	Podrán solicitarse a través de UACloud - Apoyo Estudiantes, en el plazo que se establezca en la correspondiente convocatoria anual.
+	Puedes consultar más información en https://web.ua.es/es/cae/asuntos-sociales/asuntos-sociales-ayudas-economicas-de-emergencia/ayudas-economicas-de-emergencia.html
+
+	Voluntariado del CAE:
+	A través del voluntariado del Centro de Apoyo al Estudiante, el alumnado ofrece su apoyo a otras y otros compañeros en actividades cotidianas y así desde la proximidad 
+	y con pequeñas acciones mejoran la calidad de vida en el entorno universitario. 
+	La participación en los diversos voluntariados tiene reconocimiento de créditos por curso académico, hasta un máximo de 6 créditos.
+	Tanto si quieres ofrecerte como voluntaria o voluntario, como si necesitas de apoyo, puedes solicitarlo en https://web.ua.es/es/cae/asuntos-sociales/voluntariado/voluntariado-centro-de-apoyo-al-estudiante.html
+
+	Asesoramiento CAE:
+	El CAE ofrece diversos servicios de asesoramiento:
+	- Asesoramiento Sexológico: para problemas ligados a la esfera sexual o de pareja.
+	- Asesoramiento Social: este recurso proporciona al estudiantado información, asesoramiento, orientación técnica, y mediación, con el fin de poner a su alcance todos los 
+	recursos sociales que la Universidad de Alicante como otras entidades públicas o privadas pudieran ofrecer.
+	- Asesoramiento Psicológico:  ante las dificultades relacionadas con el rendimiento académico o de carácter general, el CAE te ofrece una respuesta completa con 
+	actuaciones individuales o de grupo. También presta asesoramiento a estudiantes con altas capacidades intelectuales.
+	Si necesitas cualquiera de ellos, solicita una cita a través de UACloud - Apoyo a Estudiantes.
+	Puedes consultar más información en https://web.ua.es/es/cae/centro-de-apoyo-al-estudiante.html
+
+	Observatorio CAE:
+	A través del Centro de Apoyo al Estudiante, se desarrolla un trabajo con entidades asociativas de personas con discapacidad de la provincia de Alicante, 
+	entidades públicas locales y profesionales del ámbito universitario, con el objetivo de conocer la situación de las personas con discapacidad y sensibilizar a la sociedad en general.
+	Puedes consultar más información en https://web.ua.es/es/cae/adaptaciones-discapacidad-neae/recursos-accesibles-en-la-ua/observatorio-para-la-igualdad-de-oportunidades.html 
+
+Cultura:
+	La Universidad de Alicante dispone de una amplia oferta cultural para complementar y enriquecer tu formación universitaria.
+	¿Qué quieres saber sobre la actividad cultural en la universidad?
+
+	Información cultural:
+	Puedes consultar más información en https://cultura.ua.es/ o contactando con nosotros en:
+	- Punto de Información Cultural (PIC): 96 590 3725 o cultura@ua.es
+	- Museo Información Cultura (MIC): 96 590 9387 o infomua@ua.es
+
+	Agenda cultural:
+	La Agenda Cultural de la Universidad de Alicante (ACUA) recoge una variada programación de música, teatro, danza, circo, exposiciones y cine.
+	Esta programación se caracteriza por su carácter alternativo y por su calidad, en la que tienen cabida espectáculos de producción propia (aulas de teatro, coral, danza, etc.), 
+	así como propuestas de especial interés.
+	Puedes ver la programación de ACUA en https://veu.ua.es/es/noticias/2023/9/programacion-paranimf-de-artes-escenicas-para-el-primer-cuatrimestre-del-curso-2023-2024.html
+
+	Revista cultural:
+	La Revista Cultural de la Universidad de Alicante (VEU) es la publicación oficial del Vicerrectorado de Cultura, Deporte y Extensión Universitaria de la UA, 
+	a través de la cual se puede seguir la actualidad cultural de la universidad y sus sedes. 
+	Además, informa de otras actividades de ámbito cultural a las que la universidad proporciona su apoyo así como de la actividad deportiva más significativa. 
+	Consúltala en https://veu.ua.es/
+
+	Formación Servicio de Cultura:
+	El Servicio de Cultura ofrece:
+	- Talleres Culturales: son propuestas de desarrollo cultural y artístico centradas en varias materias, como por ejemplo fotografía, teatro, cine y escritura. 
+	- Cursos y clases magistrales de cultura: oferta de una serie de cursos intensivos especializados y de clases magistrales vinculados a las Aulas de Teatro, Danza y Música de la UA. 
+	Esta oferta formativa está destinada a la comunidad universitaria y a la ciudadanía en general.
+	Puedes consultar toda la oferta formativa en https://cultura.ua.es/es/talleres/
+
+	Becas Colaboracion cultura:
+	Anualmente, se convocan becas para colaborar con las actividades del Museo de la Universidad de Alicante.
+	El alumnado seleccionado desempeñará tareas de acompañamiento y guía de los grupos de visitantes, apoyo en talleres didácticos y otras relacionadas 
+	con la programación del Museo, pudiendo participar en algunas de las actividades culturales que se desarrollen desde el propio Servicio de Cultura.
+	Puedes consultar más información sobre estas becas de colaboración en https://cultura.ua.es/es/becas-colaboracion/convocatorias-becas-colaboracion-actividades-culturales.html
+
+	Coral de la Universidad de Alicante:
+	La Coral de la Universidad de Alicante tiene entre sus objetivos, que la comunidad universitaria interesada en la música vocal tenga acceso a una formación pedagógica y musical específica.
+	La dinámica de trabajo se basa en un ensayo semanal en el campus junto a clases específicas de formación vocal. 
+	Las entrevistas de acceso se realizan en octubre y están abiertas a cualquier integrante de la comunidad universitaria.
+	La Coral de la UA realiza una serie de conciertos, tanto en Paraninfo como en sedes. Además, participa en los actos académicos de la universidad, en certámenes, en festivales, etc.
+	Puedes consultar más información en cultura.ua.es/es/aula/musica/coral-ua.html
+
+	Orquesta Filarmónica de la Universidad de Alicante (OFUA):
+	La Orquesta Filarmónica de la Universidad de Alicante (OFUA) se creó en noviembre de 2005 y está integrada por alrededor de 50 personas.
+	La OFUA lleva a cabo una importante labor formativa para sus miembros, y constituye el medio de encuentro entre el estudiantado universitario y los distintos conservatorios de la provincia.
+	Durante el mes de octubre se convocan pruebas de acceso para nuevos integrantes.
+	Puedes consultar más información en https://cultura.ua.es/es/orquesta-filarmonica-ua/orquesta-filarmonica-de-la-universidad-de-alicante.html
+
+	Museo de la Universidad de Alicante (MUA):
+	El Museo de la Universidad de Alicante (MUA) acoge diversas exposiciones y actividades con una doble vertiente: la promoción y difusión del arte contemporáneo 
+	y la divulgación de los resultados de investigaciones universitarias. 
+	Además, el MUA realiza visitas guiadas y talleres didácticos dirigidos a centros educativos adaptando sus contenidos a la formación de los grupos visitantes 
+	y lanza distintas convocatorias de creación artística a las cuales los colectivos de la Universidad de Alicante se pueden presentar.
+	En el MUA encontramos diversas salas de exposiciones que se renuevan periódicamente y otras donde se realizan talleres, conferencias, proyecciones y conciertos.
+	Salas: Sala Àgora, Sala Arcadi Blasco, Sala El Cub, Sala Eusebi Sempere, Sala l’Alcúdia, Sala Naia, Sala Polivalent y Sala Vilamuseu.
+	Puedes consultar más información sobre el MUA en http://www.mua.ua.es/
+
+	Exposiciones de arte:
+	Durante todo el curso, y dentro del propio campus, podrás visitar exposiciones de artes plásticas, pintura, fotografía, cartelismo, humor gráfico, escultura e instalaciones. 
+	La mayoría de estas exposiciones se reparten entre el Museo de la Universidad de Alicante, la Sala Aifos y la Sala Trànsito.
+	Además, la Universidad de Alicante cuenta con el Programa de Exposiciones Itinerantes que permite la cesión temporal de material para realizar exposiciones en diferentes localidades.
+	culturaExposicionesAifos
+	La Sala Aifos, ubicada en el Edificio C de la Facultad de Filosofía y Letras (Edif. Nº18 del Plano de la UA), cuenta con unas instalaciones que permiten albergar exposiciones 
+	y otras actividades asociadas.
+	Puedes consultar más información sobre esta sala en https://cultura.ua.es/es/espacios-expositivos/sala-aifos.html
+
+	Exposiciones Salas de Tránsito:
+	Las Salas Tránsito están ubicadas en los halls de los distintos edificios del Campus de San Vicente del Raspeig, se dedican a formatos menores, 
+	pero son ampliamente visitadas por su posición estratégica en zonas con mucha afluencia de estudiantes.
+	Puedes consultar más información sobre estas salas en https://cultura.ua.es/es/espacios-expositivos/sala-transit.html
+
+	Exposiciones Itinerantes:
+	El Programa de Exposiciones Itinerantes de la Universidad de Alicante, pone a disposición de las diferentes entidades públicas, de forma totalmente gratuita, 
+	material para la realización de exposiciones en diversas localidades.
+	Puedes consultar las exposiciones disponibles o como solicitar el material en https://cultura.ua.es/es/exposiciones/
+
+	Salas culturales:
+	La Universidad de Alicante dispone de salas de Teatro, Cine, Danza y Música donde se llevan a cabo diversas actividades culturales.
+	Si quieres saber más información sobre alguna de ellas pulsa en el botón correspondiente
+
+	Salas de Cine:
+	El Aula de Cine y Audiovisual de la Universidad de Alicante, en su voluntad de extender la cultura cinematográfica, organiza actividades que incluyen ciclos de películas 
+	(tanto en el campus como en las distintas Sedes y Aulas universitarias), conferencias, seminarios, etc.
+	También dispone de una selecta biblioteca.
+	El Aula prestará especial atención a la accesibilidad de la cultura audiovisual a personas con déficit visual o auditivo, así como a la traducción i
+	nterlingüística de las producciones audiovisuales.
+	Otras actividades del Aula: noticias, ciclos y críticas de cine, boletín de noticias, filmoteca, cursos, revista "Quaderns de Cinema", etc.
+	Puedes consultar más información sobre esta aula en https://cultura.ua.es/es/aula/cine/aula-de-cine-y-audiovisual.html
+
+	Salas de Danza:
+	El Aula de Danza tiene como objetivo esencial aproximar a la comunidad universitaria, la danza y sus variantes, mediante la formación (talleres de diferentes estilos y técnicas), 
+	la promoción de montajes y la participación en espectáculos dirigidos a todos los públicos.
+	La Universidad de Alicante ofrece a entidades públicas que estén interesadas la posibilidad de solicitar una actuación del Aula de Danza.
+	Puedes consultar más información sobre esta aula en https://cultura.ua.es/es/aula/danza/aula-de-danza.html
+
+	Salas de Teatro:
+	El aula de Teatro de la Universidad de Alicante tiene como objetivo esencial conseguir que todos los colectivos universitarios (alumnado, PDI y PAS) puedan profundizar 
+	en la temática de la práctica escénica mediante actividades formativas (talleres de diversa índole) y la concreción de montajes teatrales.
+	En el aula se desarrollan tres tipos de producciones: teatro clásico, teatro contemporáneo y teatro sénior (dirigido al alumnado de la UPUA).
+	La Universidad de Alicante ofrece a entidades públicas que estén interesadas la posibilidad de solicitar las obras de teatro que estén en activo.
+	Puedes consultar más información sobre esta aula en https://cultura.ua.es/es/aula/teatro/aula-de-teatro-de-la-ua.html
+
+	Salas de Música:
+	El Aula de Música realiza actividades con un doble objetivo: ser un lugar de encuentro y especialización musical para toda la comunidad universitaria, 
+	y propiciar la difusión de la música por medio de conciertos dirigidos a todos los públicos.
+	La labor que se desempeña es muy diversa: difusión de la actividad musical por medio de la OFUA (Orquesta Filarmónica de la Universidad de Alicante), 
+	la Coral de la Universidad de Alicante, además de talleres de formación de musical, etc.
+	Puedes consultar más información sobre esta aula en https://cultura.ua.es/es/aula/musica/aula-de-musica.html
+
+	Plataforma InteractUA:
+	InteractUA es una plataforma dirigida a estudiantes con inquietudes e intereses en música, audiovisual, fotografía, escultura, poesía, literatura, pintura, videoarte.
+	Podrá participar el alumnado matriculado en estudios oficiales de la UA, de forma individual o colectiva. 
+	En caso de ser una propuesta con más de un o una integrante, al menos uno de los miembros deber estar matriculado en estudios oficiales de la UA.
+	Puedes consultar más información en https://cultura.ua.es/es/interactua/
+
+	Voluntariado cultural:
+	El Voluntariado Cultural te ofrece la posibilidad de participar en diversas actividades propuestas por el Servicio de Cultura, dando información, resolviendo dudas, ayudando a localizar espacios o actividades, promoviendo redes sociales (Facebook, Instagram) propias del Voluntariado Cultural o las oficiales de las áreas implicadas en cultura en la UA, documentación audiovisual, etc. 
+	La participación en los diversos voluntariados tiene reconocimiento de créditos por curso académico, hasta un máximo de 6 créditos.
+	Puedes consultar más información en https://web.ua.es/es/voluntariado-ua/

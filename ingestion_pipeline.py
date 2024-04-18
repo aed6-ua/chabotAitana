@@ -27,7 +27,7 @@ def run_embedding_pipeline(input_path, output_dir, collection_name="chatbot_docu
             connector_config=SimpleLocalConfig(input_path=input_path),
             read_config=ReadConfig(),
             partition_config=PartitionConfig(),
-            chunking_config=ChunkingConfig(),#chunking_strategy="basic", max_characters=5000, new_after_n_chars=0),
+            chunking_config=ChunkingConfig(chunking_strategy="basic", max_characters=5000, new_after_n_chars=2500),#chunking_strategy="basic", max_characters=5000, new_after_n_chars=0),
             #writer=writer,
             #writer_kwargs={},
         )
@@ -70,7 +70,7 @@ def load_and_store(output_dir, embeddings_model: EmbeddingsModel = None, collect
         for element in elements:
             if embeddings_model is not None:
                 try:
-                    element["embedding"] = embeddings_model.run(element["document"]).tolist()
+                    element["embedding"] = embeddings_model.run(element["document"])
                 except Exception as e:
                     logging.error("Error generating embedding for element: %s" % element)
                     logging.error(e)

@@ -1,23 +1,25 @@
 import logging
-from abc import ABC, abstractmethod
-from model import OpenAIGenerationModel, LocalGenerationModel, TestModel
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+# Open intro.txt file
+with open("intro.txt", "r") as file:
+    introduction = file.read()
+
 
 class Assistant:
-    def __init__(self, tools=None, prompt_settings=None, description="default"):
+    def __init__(self, model, tools=None, prompt_settings=None, description="default"):
         self.tools = tools or []
+        self.model = model
         self.description = description
-        self.prompt_settings = prompt_settings or {
+        self.prompt_settings = {
             "language": "es",
-            "introduction": "Eres Aitana, el asistente virtual de la Universidad de Alicante. Estas aquí para ayudar con información acerca de la universidad, incluyendo detalles sobre admisiones, programas académicos, eventos en el campus, servicios estudiantiles y más. Tu objetivo es proporcionar respuestas precisas y útiles a tus preguntas. Utiliza los textos proporcionados delimitados por comillas triples para responder preguntas. Si no se puede encontrar la respuesta en los textos, escribe 'No pude encontrar una respuesta'.",
+            "introduction": introduction,
             "context": ""
         }
 
-    @abstractmethod
-    def process_message(self, message, context):
+    def process_message(self, message, context, top_k=1, max_tokens=150, temperature=0.7):
         """
         Processes a received message using the provided context.
         
@@ -26,55 +28,53 @@ class Assistant:
         :return: The response message.
         """
         try:
-            enhanced_context = self._use_retrieval_tool_if_available(message, context)
-            message = f"CONTEXTO:\n{enhanced_context}\n\nPREGUNTA:\n{message}"
+            enhanced_context = self._use_retrieval_tool_if_available(message, context, top_k=top_k)
+            message = f"Contexto:\n{enhanced_context}\n\nPregunta: {message}\n\nRespuesta: "
             messages = [
                 {"role": "system", "content": self.prompt_settings["introduction"]},
                 {"role": "user", "content": message},
             ]
             try:
-                return self.model.run(messages)
+                # Debug print
+                #print(messages)
+                return self.model.run(messages, max_tokens, temperature), message
             except Exception as e:
                 logging.error(f"Failed to generate response: {e}")
                 # Instead of just raising the exception, we handle it gracefully
-                return "I'm sorry, I encountered an error trying to generate a response. Please try again later."
+                return "I'm sorry, I encountered an error trying to generate a response. Please try again later.", context
         except Exception as e:
             logging.error(f"Error processing message: {e}")
-            return "I'm sorry, I encountered an error processing your request."
+            return "I'm sorry, I encountered an error processing your request.", context
 
-    def _use_retrieval_tool_if_available(self, message, context):
+    def _use_retrieval_tool_if_available(self, message, context, top_k=1):
         if self.tools and self.tools[0]:
             try:
                 # List of tuples with the retrieved passages and their scores
-                retrieval_result = self.tools[0].retrieve(message)
-                # Convert to string with each result between triple quotes
-                return "\n\n".join([f'"""{result}"""' for result, _ in retrieval_result])
+                retrieval_result = self.tools[0].retrieve(message, top_k=top_k)
+                logging.info(f"Number of chunks retrieved: {len(retrieval_result)}")
+                text = '"""'
+                for passage in retrieval_result:
+                    text = text + f"{passage}\n\n"
+                    logging.info(f"Retrieved passage: {len(passage)}\n\n")
+                text = text + '"""\n\n'
+                return text
             except Exception as e:
                 logging.warning(f"Retrieval tool failed: {e}")
         return context
-
-
-class LocalAssistant(Assistant):
-    def __init__(self, model=None, **kwargs):
-        super().__init__(**kwargs)
-        if model is None:
-            self.model = LocalGenerationModel("NickyNicky/dolphin-2_6-phi-2_oasst2_chatML_V2")
-        else:
-            self.model = model
-
-
-class GPTAssistant(Assistant):
-    def __init__(self, model=None, **kwargs):
-        super().__init__(**kwargs)
-        if model is None:
-            self.model = OpenAIGenerationModel()
-        else:
-            self.model = model
-
-class TestAssistant(Assistant):
-    def __init__(self, model=None, **kwargs):
-        super().__init__(**kwargs)
-        if model is None:
-            self.model = TestModel()
-        else:
-            self.model = model
+    
+    def get_config(self, config):
+        from model import LocalGenerationModel, TestModel
+        return {
+            "assistant": {
+                "test": True if isinstance(self.model, TestModel) else False,
+                "local": True if isinstance(self.model, LocalGenerationModel) else False,
+                "llm_server": config["assistant"]["llm_server"],
+                "model_name": config["assistant"]["model_name"],
+                "memory_context_size": config["assistant"]["memory_context_size"],
+                "prompt_settings": self.prompt_settings,
+                "openai_api_parameters": config["assistant"]["openai_api_parameters"],
+                "description": self.description
+            },
+            
+            "retriever": self.tools[0].get_config(config) if self.tools and self.tools[0] else {}
+        }

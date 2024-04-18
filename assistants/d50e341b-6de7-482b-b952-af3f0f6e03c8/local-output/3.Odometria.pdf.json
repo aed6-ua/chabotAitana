@@ -1,0 +1,106 @@
+[
+  {
+    "type": "CompositeElement",
+    "element_id": "e721d7a092760ee09bc1877b1f2c169a",
+    "text": "TECNOLOGÍA Y ARQUITECTURA ROBÓTICA\n\nTema 2. Tecnologías robóticas\n\nSensores internos. Odometría\n\nSensores internos\n\n Sensores que proporcionan información sobre el estado interno del robot,\n\ncomo:  Movimiento  Posición (x, y, z)  Orientación  Velocidad, aceleración  Temperatura  Nivel de batería  Fuerza o Pares en los actuadores\n\n Ejemplos:\n\n Encoders  Acelerómetros  Giróscopos  Magnetómetro\n\nTAR\n\n3\n\nSensores internos: Sensores de posición\n\n Definen la posición del robot, referida a:\n\n En qué punto de su recorrido permitido se encuentra una\n\narticulación en brazos robóticos\n\n En robots móviles permiten estimar su posición en el entorno\n\nsin sensores externos\n\n En general, los encontramos dentro de los motores que\n\npermiten el movimiento de un robot.\n\n El sensor deberá tener una estructura mecánica\n\nadaptada a la medición de ángulos o de distancias.  Existen dos tipos fundamentales: eléctricos y ópticos.\n\nTAR\n\n4\n\nOptointerruptores\n\n Son sensores de posición de tipo óptico.  Son especialmente importantes por ser los más usados, y basados en ellos nos encontramos con los codificadores o encoders ópticos de posición.\n\n No usan contactos mecánicos, sino un\n\nfotodiodo (o fotoresistencia) y un LED (diodo emisor de luz) que emite frente a él.\n\n Al moverse el motor, un disco o tope acoplado\n\ninterrumpe la luz del LED, dando en el fotodiodo valor ‘0’ que es detectado por la circuitería apropiada.\n\n Hay versión tanto lineal como angular.\n\nTAR\n\n5\n\nCodificadores o Encoders\n\n Un codificador (encoder) puede ser de una de estas dos clases:\n\n Absoluto: Proporciona un código digital de N bits que representa\n\nel valor absoluto la posición de su eje.\n\n Incremental: Proporciona una señal de pulsos a medida que el eje avanza o retrocede, lo que permite conocer la variación de posición.\n\n En función de tipo de posición que miden, los hay de dos tipos:\n\n Lineales: miden velocidad y desplazamiento en línea recta.\n\nNormalmente incrementales.\n\n Rotativos: miden ángulos y velocidades angulares. Son los más\n\nusados. Pueden ser absolutos o incrementales.\n\nTAR\n\n6\n\nEncoders Absolutos\n\n Se construyen como los optointerruptores,\n\npero con numerosas muescas apropiadamente distribuidas.\n\n El disco que gira está impreso de tal\n\nmodo que resulta opaco en ciertas áreas, de modo que se pueden contar el número de transiciones entre “claro” y “oscuro”.  Esta cuenta permite conocer la posición en la que se encuentra el encoder, es decir, cuánto se ha girado.\n\nTAR\n\nEn cuadratura",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/d50e341b-6de7-482b-b952-af3f0f6e03c8\\3.Odometria.pdf",
+        "date_created": "2024-04-18 15:31:53.411367",
+        "date_modified": "2024-04-18 15:31:53.412370",
+        "date_processed": "2024-04-18T13:31:57.397615",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\d50e341b-6de7-482b-b952-af3f0f6e03c8",
+      "filename": "3.Odometria.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-18T15:31:53",
+      "page_number": 1
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "5d1f94bac8dd2992a5df070f04e4d0bf",
+    "text": "Absoluto (código Gray)\n\n7\n\nEncoders Absolutos\n\n Los encoders en cuadratura, se caracterizan por el\n\nnúmero de sectores que los componen. Para N sectores del disco, con una resolución de 360º / N (º/sectores).\n\nTAR\n\n8\n\nEncoders Absolutos\n\n Los codificadores absolutos usan discos con códigos Gray.\n\nCon la codificación Gray se evita que más de un bit pueda cambiar simultáneamente, lo que podría causar a medidas erróneas en las transiciones entre los sectores codificados.\n\nTAR\n\n9\n\nEncoders Absolutos\n\n Los encoders con código Gray, se caracterizan por el número de bits que ofrecen y por su frecuencia de trabajo máxima. Para N bits de salida, el codificador tiene 2𝑁 sectores con una resolución de 360º / 2𝑁.\n\nTAR\n\n10\n\nEncoders Absolutos\n\n Ejercicio: Suponer que se desea usar un\n\nencoder óptico para realizar mediciones con una precisión de ±0.1º.\n\n Determinar el nº de bits que debería poseer el encoder para un encoder con código Gray.\n\n Determinar el nº de ranuras en caso de un encoder\n\nen cuadratura.\n\nTAR\n\n11\n\nMotores de robots Lego\n\n El encoder interno proporciona 360 cuentas por vuelta, es decir, tiene una\n\nresolución de 1º.\n\nTAR\n\n12\n\nSensores internos: Sensores de orientación\n\n Hay tres sensores principales que se utilizan para\n\nobtener la orientación y posición de un objeto en un espacio 2D o 3D, sin ayuda de sistemas externos como satélites o estaciones de radio:  Giroscopio o giróscopo (Gyroscope, gyro). Dispositivo mecánico que mide su cambio de orientación en 1, 2 o 3 ejes.\n\n Acelerómetro. Mide aceleraciones lineales (m/𝑠2) a las que está sometido en 3 direcciones (X, Y, Z).  Compás magnético. Es un magnetómetro que mide el campo magnético de la Tierra en varios ejes, en teslas o gauss, para determinar orientación.\n\nTAR\n\n13\n\nGiróscopos\n\n Los giróscopos permiten mantener de forma constante su orientación respecto a un sistema de ejes de referencia y en relación al origen del movimiento.\n\n Estos sensores pueden determinar la rotación y la\n\norientación del robot en varios ejes, con lo que se pueden medir los ángulos con precisión.\n\n Los giróscopos pueden medir la velocidad de rotación alrededor de tres ejes, que pueden integrarse para obtener la orientación absoluta.\n\n El giro del robot LEGO EV3 mide la velocidad de\n\nrotación en grados por segundo.\n\n También guarda el ángulo de rotación total y, por tanto,\n\npermite medir hasta dónde ha girado el robot.\n\n La precisión del sensor es de ± 3 grados para un giro de\n\n90 grados.\n\nTAR\n\n14\n\nAcelerómetros",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/d50e341b-6de7-482b-b952-af3f0f6e03c8\\3.Odometria.pdf",
+        "date_created": "2024-04-18 15:31:53.411367",
+        "date_modified": "2024-04-18 15:31:53.412370",
+        "date_processed": "2024-04-18T13:31:57.397615",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\d50e341b-6de7-482b-b952-af3f0f6e03c8",
+      "filename": "3.Odometria.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-18T15:31:53",
+      "page_number": 7
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "b137e5b272c151821eb04790c90be018",
+    "text": " Los acelerómetros miden las aceleraciones lineales (o traslacionales)\n\nen tres ejes.\n\n Inferir una posición a partir de la aceleración requiere una doble integración, lo que introduce un posible error significativo en la estimación y hace que los cálculos de posición utilizando acelerómetros sean poco utilizados en la práctica.\n\n Los giroscopios pueden medir la velocidad de rotación en torno a tres ejes, que pueden integrarse para obtener una orientación absoluta.\n\n Como un acelerómetro toma medidas a lo largo de tres ejes de\n\ntraslación, la combinación de ambos sensores puede proporcionar información sobre el movimiento en los seis grados de libertad.  Junto con un magnetómetro (brújula), que proporciona orientación absoluta, esta combinación también se conoce como Unidad de Medición Inercial (Inertial Measurement Unit o IMU)\n\nTAR\n\n15\n\nMagnetómetro\n\n Un compás o brújula digital es un magnetómetro que mide el\n\ncampo magnético de la Tierra en su superficie.  Los magnetómetros suelen tener 2 o 3 DOF: proporcionan medidas para dos (X,Y) o tres (X,Y,Z) componentes del campo magnético captado.\n\n El sensor no debe estar sometido a otros campos magnéticos\n\nu objetos metálicos cercanos que alteren el campo magnético terrestre.\n\n A partir de las medidas de campo magnético se puede\n\ncalcular la orientación con respecto al Norte magnético de la tierra. Después se puede ajustar la orientación respecto al Norte geográfico.\n\nTAR\n\n16\n\nGrados de libertad\n\n El concepto de grado de libertad (degree of freedom o DoF) es importante para definir las posibles posiciones y orientaciones que puede alcanzar un robot.\n\n Cualquier objeto real puede tener hasta seis grados de libertad: adelante/atrás, izquierda/derecha y arriba/abajo, así como rotaciones en torno a esos ejes.  Estas rotaciones se denominan cabeceo, guiñada\n\ny balanceo (o pitch, yaw, roll).\n\n También se utiliza el mismo concepto de\n\nDoF para definir el número de actuadores/articulaciones que se controlan independientemente, por ejemplo, \"4 DoF por pata\".\n\n Este número puede ser muy elevado para\n\nrobots con muchas articulaciones.\n\nTAR\n\nxyz\n\nxyz\n\n2.Locomotion,manipulationandtheirrepresentations\n\nFigure2.6.Acoordinatesystemindicatingthedirectionofthecoordinateaxesandrotationaroundthem.Thesedirectionshavebeenderivedusingtheright-handrules.whichinturnhavepoormaneuverabilityandaredifficulttocontrol(asareference,thinkaboutthecomplexityofparallelparking).2.4.CoordinateSystemsandFramesofReferenceEveryrobotassumesaposeintherealworldthatcanbedescribedbyitsposition(x,y,andz)andorientation(pitch,yaw,androll)alongthethreemajoraxesofaCartesianCoordinatesystem.SuchacoordinatesystemisshowninFigure2.6.Notethatthedirectionsandorientationsofthecoordinateaxesarearbitrary.Thisbookusesthe“righthandrule”,whichisillustratedinFigure2.6todetermineaxeslabelsanddirectionsthroughout.Pitch,yaw,androll,arealsoknownasbank,attitude,andheadinginothercommunities.Thismakessense,consideringthecolloquialuseoftheword“heading”,whichcorrespondstoarotationaroundthez-axisofavehicledrivingonthex-y-plane.42",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/d50e341b-6de7-482b-b952-af3f0f6e03c8\\3.Odometria.pdf",
+        "date_created": "2024-04-18 15:31:53.411367",
+        "date_modified": "2024-04-18 15:31:53.412370",
+        "date_processed": "2024-04-18T13:31:57.397615",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\d50e341b-6de7-482b-b952-af3f0f6e03c8",
+      "filename": "3.Odometria.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-18T15:31:53",
+      "page_number": 15
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "3c52ed4ff8adea6d3ca83d2bdb1d6a6e",
+    "text": "17\n\nOdometría\n\n Es el estudio de la estimación de la posición de vehículos con ruedas durante la navegación.\n\n Consiste en el cálculo de ecuaciones geométricas a\n\npartir de la información suministrada por los encoders.\n\n Tiene la ventaja que no requiere de sensores\n\nexternos y es capaz de dar al robot una estimación de su posición.\n\n La desventaja es que el error de la posición crece\n\nexponencialmente a menos que se use una referencia externa que corrija el error periódicamente.\n\nTAR\n\n18\n\nOdometría\n\n En algunos casos sin otras referencias externas, la odometría es la única información de navegación disponible para un robot.\n\n Se basa en la suposición de que las revoluciones de las ruedas se pueden traducir en desplazamiento lineal con relación al suelo.\n\n Las posiciones estimadas a partir de la odometría\n\nno tienen nada que ver con la localización del robot con respecto al entorno, ya que son relativas al punto de inicio.\n\nTAR\n\n19\n\nEl robot diferencial\n\n=yxp\n\nTAR\n\n+=yxpp\n\n20\n\nEstimación de la posición\n\nDl\n\nDr\n\n Supongamos:\n\n Dl es el desplazamiento de la rueda izquierda  Dr es el desplazamiento de la rueda derecha\n\nTAR\n\nDl\n\n21\n\nEstimación de la posición\n\n Paso 1: Calcular la distancia recorrida por cada una de las ruedas, (𝐷𝑙, 𝐷𝑟), teniendo en cuenta la información de los encoders de cada motor.\n\nTAR\n\n22\n\nEstimación de la posición\n\n\n\nTAR\n\n23\n\nErrores en odometría\n\n Dos principales fuentes de error:\n\n Los diámetros de las ruedas no son iguales  Incertidumbre en el tamaño de la base del robot\n\n Por ejemplo:\n\n Robot empieza en (x0, y0, θ0)  Se mueve en un cuadrado y\n\nno llega al mismo sitio\n\nTAR\n\n24\n\nErrores en odometría\n\n No es posible\n\ndeterminar si los diámetros diferentes o la incertidumbre sobre la base son la fuente de error.\n\n No es posible saber si un error compensa al otro.\n\nTAR\n\n25\n\nErrores en odometría\n\nTAR\n\n26",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/d50e341b-6de7-482b-b952-af3f0f6e03c8\\3.Odometria.pdf",
+        "date_created": "2024-04-18 15:31:53.411367",
+        "date_modified": "2024-04-18 15:31:53.412370",
+        "date_processed": "2024-04-18T13:31:57.397615",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\d50e341b-6de7-482b-b952-af3f0f6e03c8",
+      "filename": "3.Odometria.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-18T15:31:53",
+      "page_number": 17
+    }
+  }
+]

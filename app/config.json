@@ -5,7 +5,8 @@
         "embeddings": "SentenceTransformerEmbeddings",
         "log": "Y",
         "log_folder": "log/",
-        "verbose": "Y"
+        "verbose": "Y",
+        "data_encoding": "utf-8"
     },
     
     "GPTAssistant": {

@@ -1,3 +1,7 @@
+import os
+import glob
+import pickle
+
 from abc import ABC
 from log import config, logger
 
@@ -6,7 +10,7 @@ from llama_index.core import ServiceContext, SimpleDirectoryReader, Settings, Ve
 
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
-import pickle
+from sentence_transformers import SentenceTransformer, util
 
 #############################################################################################
 #############################################################################################
@@ -55,20 +59,40 @@ class SentenceTransformerEmbeddings():
             self.model_folder = config["model_folder"]
             self.chunk_size = config["chunk_size"]
             self.chunk_overlap = config["chunk_overlap"]
+            self.top_k = config["number_of_documents"]
 
-            # logger.info("Initializing SentenceTransformerRetrieval...")
-            
-            # self.model = SentenceTransformer(model_name)
-            
-            # logger.info(f"Loaded SentenceTransformer model: {model_name}")
+            logger.info("Initializing SentenceTransformerEmbbedings...")
+            self.model = SentenceTransformer(self.model_name)
+            logger.info(f"Loaded SentenceTransformer model for embedding: {self.model_name}")
 
-            # self.corpus_embeddings = []
-            # self.corpus_texts
-
-            # self.filename = filename
-            # self.top_k = top_k
+            self.corpus_embeddings = []
+            self.corpus_texts = []
 
     def create_embeddings(self): #TODO: fer!
+        # load documents
+        self.load_documents()
+        # Crear embeddings y añadirlos a corpus_embeddings
+        self.encode_embeddings()
+        # guardar la BD
+        self.save_embeddings()
+
+    def load_documents(self):
+        for filepath in glob.glob(self.data_path):
+            with open(filepath, 'r', encoding=config["data_encoding"]) as f:
+                # Leemos todo el contenido del archivo en una sola cadena
+                content = f.read()
+
+                # Dividimos el contenido en párrafos
+                paragraphs = content.split('\n\n')
+
+                # Extendemos nuestra lista global de fragmentos de texto con estas oraciones
+                self.corpus_texts.extend(paragraphs)
+                
+                logger.info(f"File {filepath} chunked.")
+
+    def encode_embeddings(self):
         pass
 
+    def save_embeddings(self):
+        pass
 

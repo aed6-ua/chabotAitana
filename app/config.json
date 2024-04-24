@@ -1,7 +1,7 @@
 {
     "global": {
         "assistant": "GPTAssistant",
-        "retriever": "LlamaindexRetriever",
+        "retriever": "LlamaIndexRetriever",
         "embeddings": "SentenceTransformerEmbeddings",
         "log": "Y",
         "log_folder": "log/",
@@ -56,11 +56,14 @@
 
     "SentenceTransformerEmbeddings": {
         "model_name": "hackathon-pln-es/paraphrase-spanish-distilroberta",
-        "data_folder": "data/",
-        "model_folder": "models/",
-        "vector_folder": "storage/",
+        "num_chunks": 5,
         "chunk_size": 1000,
-        "chunk_overlap": 32
+        "chunk_overlap": 32,
+
+        "data_folder": "data/",
+        "data_filename": "vectorstore.index",
+        "model_folder": "models/",
+        "vector_folder": "storage/"
     },
 
     "LlamaindexEmbeddings": {

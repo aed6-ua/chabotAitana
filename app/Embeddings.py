@@ -59,10 +59,11 @@ class SentenceTransformerEmbeddings():
             self.model_folder = config["model_folder"]
             self.chunk_size = config["chunk_size"]
             self.chunk_overlap = config["chunk_overlap"]
-            self.top_k = config["number_of_documents"]
+            self.top_k = config["num_chunks"]
+            self.data_filename = config["data_filename"]
 
             logger.info("Initializing SentenceTransformerEmbbedings...")
-            self.model = SentenceTransformer(self.model_name)
+            self.model = SentenceTransformer(self.model_name, cache_folder=self.model_folder)
             logger.info(f"Loaded SentenceTransformer model for embedding: {self.model_name}")
 
             self.corpus_embeddings = []
@@ -77,8 +78,8 @@ class SentenceTransformerEmbeddings():
         self.save_embeddings()
 
     def load_documents(self):
-        for filepath in glob.glob(self.data_path):
-            with open(filepath, 'r', encoding=config["data_encoding"]) as f:
+        for filepath in glob.glob(self.data_path + "/*"):
+            with open(filepath, 'r', encoding=config["global"]["data_encoding"]) as f:
                 # Leemos todo el contenido del archivo en una sola cadena
                 content = f.read()
 
@@ -91,8 +92,16 @@ class SentenceTransformerEmbeddings():
                 logger.info(f"File {filepath} chunked.")
 
     def encode_embeddings(self):
-        pass
+        self.corpus_embeddings = self.model.encode(self.corpus_texts, convert_to_tensor=True)
+        logger.info(f"Embeddings encoded.")
 
     def save_embeddings(self):
-        pass
+        data_to_save = {
+            'corpus_embeddings': self.corpus_embeddings,
+            'corpus_texts': self.corpus_texts
+        }
+        with open(self.index_path + "/" + self.data_filename, 'wb') as f:
+            # Uso de pickle para guardar los datos en el disco de forma serializada.
+            pickle.dump(data_to_save, f)
+        logger.info(f"Embeddings saved to " + self.index_path + "/" + self.data_filename)
 

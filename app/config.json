@@ -16,7 +16,7 @@
         "max_tokens": 500
     },
 
-    "LlamaindexAssistant": {
+    "LlamaIndexAssistant": {
         "model_name": "gpt-3.5-turbo",
         "memory_context_size": 0,
         "temperature": 0.01,
@@ -42,7 +42,7 @@
         "vector_folder": "storage/"
     },
 
-    "LlamaindexRetriever": {
+    "LlamaIndexRetriever": {
         "model_name": "hackathon-pln-es/paraphrase-spanish-distilroberta",
         "num_chunks": 5,
         "chunk_size": 1000,

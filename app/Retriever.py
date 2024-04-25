@@ -5,18 +5,12 @@ import pickle
 
 from log import config, logger
 
-# Define the Retrieval Strategy Interface
-class RetrievalStrategy(ABC):
-    @abstractmethod
-    def retrieve(self, query):
-        pass
-
 #############################################################################################
 #############################################################################################
 #############################################################################################
 class Retriever:
-    def __init__(self, strategy: RetrievalStrategy):
-        self.strategy = strategy
+    def __init__(self):
+        pass
 
     def load_embeddings(self):
         # Placeholder for loading the corpus
@@ -35,7 +29,7 @@ class Retriever:
 #############################################################################################
 #############################################################################################
 #############################################################################################
-class LlamaIndexRetriever(RetrievalStrategy):
+class LlamaIndexRetriever():
     def __init__(self, index_path, model_name):
         self.index_path = index_path #env["embeddings_folder"]
         self.model_name = model_name #env["embedding_model_name"]
@@ -56,7 +50,7 @@ class LlamaIndexRetriever(RetrievalStrategy):
 #############################################################################################
 #############################################################################################
 #############################################################################################
-class SentenceTransformerRetriever(RetrievalStrategy):
+class SentenceTransformerRetriever():
     def __init__(self, model_name, filename, top_k):
             logger.info("Initializing SentenceTransformerRetrieval...")
             

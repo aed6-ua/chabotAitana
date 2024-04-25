@@ -1,0 +1,288 @@
+[
+  {
+    "type": "CompositeElement",
+    "element_id": "1b15958e5a9a948c2ddff44617454bfc",
+    "text": "2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nTema 2: Ramiﬁcaci´on y poda\n\nProfesor: Juan R. Rico Desaf´ıos de programaci´on\n\nDpto. Lenguajes y Sistemas Inform´aticos. Universidad de Alicante\n\nVersi´on 1.0\n\n(Algunas partes de este documento est´an basadas en “Programaci´on Din´amica“ de Rafael C. Carrasco)\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\n´Indice\n\n1 ¿Qu´e es la ramiﬁcaci´on y poda?\n\n2 Funciones de cota\n\n3 Cotas pesimistas\n\n4 Mejoras de la ramiﬁcaci´on y poda\n\n5 Ramiﬁcaci´on y poda con restricciones\n\n6 Respuestas a los ejercicios\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nPresentaci´on\n\nLos algoritmos de ramiﬁcaci´on y poda pueden entenderse como una extensi´on de los algoritmos de retroceso. Mediante esta t´ecni- ca se pueden tratar problemas de optimizaci´on dif´ıciles (incluso de la clase NPH) y encontrar soluciones, al menos aproximadas, para estos problemas.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nActualidad\n\nPor ejemplo, Google plantea un concurso de programaci´on d´onde ﬁguran este tipo de problemas complejos y requiere una soluci´on aproximada. Se tratar´ıa de programar una soluci´on heur´ıstica lo me- jor posible para las entradas que proponen que son desconocidas\n\nGoogle Hash Code: https://hashcode.withgoogle.com/\n\nProblema de las porciones de Pizza: V´ıdeo\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\n´Indice\n\n1 ¿Qu´e es la ramiﬁcaci´on y poda? 2 Funciones de cota 3 Cotas pesimistas\n\n4 Mejoras de la ramiﬁcaci´on y poda 5 Ramiﬁcaci´on y poda con restricciones 6 Respuestas a los ejercicios\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nProblema de reparto de tareas",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\2-RP.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.144109",
+        "date_processed": "2024-04-19T09:53:02.509186",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "2-RP.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 1
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "c3c0771aa118b93e795c4574dbc776ac",
+    "text": "Vamos a considerar el siguiente problema Tenemos que terminar N trabajos que pueden ser realizados por la m´aquina M1 o por la m´aquina M2, que pueden ejecutar simult´aneamente trabajos distintos. El tiempo que necesita cada m´aquina para completar cada trabajo puede ser distinto y necesitamos saber el tiempo m´ınimo preciso para completar todos los trabajos.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nProblema de reparto de tareas\n\n¿Cu´antas formas ´optimas hay de asignar las tareas? Si por ejemplo, N = 4 y los tiempos, expresados en horas de trabajo, para M1 son (cid:126)T1 = (4, 4, 3, 5) y para M2 (cid:126)T2 = (2, 3, 4, 4).\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nProblema de reparto de tareas\n\nTendr´ıamos dos forma ´optimas (M2, M1, M1, M2) y (M1, M2, M1, M2). En cada uno de estos vectores, la componente i indica qu´e m´aquina es responsable de la tarea i. Por ello, en el primer caso, M1 termina en 7 horas y M2 en 6; en el segundo caso, M1 termina en 7 horas y M2 en 7. Ambas asignaciones permiten completar todas las tareas en 7 horas.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nConceptos b´asicos\n\nLlamaremos soluci´on a todos los elementos del dominio del problema D. A la funci´on φ que eval´ua la calidad de las soluciones contenidas en D la llamaremos funci´on objetivo y a las soluciones que optimizan φ, soluciones ´optimas.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nConceptos b´asicos\n\nEn nuestro ejemplo, el dominio D = {M1, M2}4 est´a formado por vectores (binarios) de 4 dimensiones, como la soluci´on (no ´optima) (cid:126)x = (M1, M1, M2, M2) y como la soluci´on ´optima (cid:126)xB = (M2, M1, M1, M2). El valor ´optimo es 7 y la funci´on objetivo que se pretende minimizar es\n\nφ(x1, x2, x3, x4) = m´ax\n\n \n\n(cid:88)\n\nT1n,\n\n(cid:88)\n\nT2n\n\n \n\n\n\nn:xn=M1\n\nn:xn=M2\n\n\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\2-RP.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.144109",
+        "date_processed": "2024-04-19T09:53:02.509186",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "2-RP.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 6
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "d8cec6cd7b67ec886f3196b3a66c5793",
+    "text": "Mejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nAlgoritmo recursivo (ramiﬁcaci´on)\n\nEl problema del reparto puede resolverse trivialmente usando una funci´on recursiva como la siguiente:\n\nbest = Integer.MAX_VALUE;\n\nprivate void minTime (int n, int t1, int t2) {\n\nif ( n == 0 ) {\n\n// no quedan trabajos\n\nbest = Math.min(best, Math.max(t1 , t2));\n\n} else {\n\nminTime(n - 1, t1 + T1[n-1], t2); minTime(n - 1, t1, t2 + T2[n-1]);\n\n}\n\n}\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nPrueba con el algoritmo recursivo\n\nVamos a probar el algoritmo con un vector de N tiempos aleatorios de forma que muestre la respuesta en menos de un minuto.\n\nComo c´odigo de base podemos usar:\n\nimport java.util.Random;\n\nRandom r = new Random(123); int[] T1 = new int[N], T2 = new int[N]; for (int i = 0; i < N; i++) { T1[i] = r.nextInt(10)+1; T2[i] = r.nextInt(10)+1;\n\n}\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\n´Indice\n\n1 ¿Qu´e es la ramiﬁcaci´on y poda? 2 Funciones de cota 3 Cotas pesimistas\n\n4 Mejoras de la ramiﬁcaci´on y poda 5 Ramiﬁcaci´on y poda con restricciones 6 Respuestas a los ejercicios\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nDeﬁnici´on\n\nCualquier funci´on (sencilla de calcular) que permita establecer un l´ımite al valor ´optimo que puede hallarse en una parte del dominio se denomina funci´on de cota.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nSelecci´on (poda)\n\nLas funciones de cota permiten evitar la exploraci´on de zonas del dominio donde no puede haber una soluci´on mejor que la ya encontrada. Para ello es preciso almacenar en una variable global con el mejor valor hallado.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nSelecci´on (poda)\n\nPor ejemplo, en nuestro problema, podemos a˜nadir una comprobaci´on sobre la variable best al c´alculo de la funci´on minTime",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\2-RP.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.144109",
+        "date_processed": "2024-04-19T09:53:02.509186",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "2-RP.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 11
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "80802843c452928104c545c38e74e535",
+    "text": "if ( lowerBound(n, t1, t2) < best ) {\n\n...\n\n}\n\npara que s´olo se generen aquellas llamadas recursivas a minTime que puedan hallar una soluci´on cuyo valor sea mejor que best.\n\nPara que el resultado sea correcto, la funci´on lowerBound de- be ser una cota inferior a todas las soluciones exploradas por minTime(n,t1,t2).\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nReparto de tareas\n\nCon estos ingredientes, el algoritmo se puede reescribir as´ı:\n\nbest = Integer.MAX_VALUE;\n\nprivate void minTime (int n, int t1, int t2) {\n\n//Si podemos mejorar exploramos if ( lowerBound(n, t1, t2) < best ) {\n\nif ( n == 0 ) {\n\n// no quedan trabajos\n\nbest = Math.min(best, Math.max(t1 , t2));\n\n} else {\n\nminTime(n - 1, t1 + T1[n-1], t2); minTime(n - 1, t1, t2 + T2[n-1]);\n\n}\n\n}\n\n}\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nCaracter´ısticas de una funci´on de cota\n\nConsideraciones:\n\nObviamente, el c´alculo de la funci´on de cota debe ser m´as r´apido que el tiempo de c´alculo de la funci´on exacta.\n\nTambi´en es recomendable que en los casos triviales (esto es, en los casos base del proceso recursivo que no generan llamadas recursivas) el valor de la cota coincida con el de la funci´on exacta.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nCaracter´ısticas de una funci´on de cota\n\nCota optimista Una estrategia habitual para obtener cotas optimistas del c´alculo exacto consiste en relajar alguna de las restricciones del problema, de forma que hallar una soluci´on ´optima en ese caso sea trivial (aunque esta soluci´on nunca se alcance realmente).\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nUna cota optimista para el reparto\n\nPor ejemplo, en el problema del reparto podemos suponer que se dar´an las mejores condiciones:\n\ncada trabajo se lleva a cabo con su tiempo m´ınimo;\n\ny con la m´aquina correspondiente para que al ﬁnal terminen ambas m´aquinas a la vez.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\2-RP.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.144109",
+        "date_processed": "2024-04-19T09:53:02.509186",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "2-RP.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 16
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "30be59467c8accafa562de1eb898bad5",
+    "text": "Funciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nUna cota para el reparto de tareas\n\nUna implementaci´on sencilla ser´ıa:\n\nprivate int lowerBound(int n, int t1, int t2) {\n\nint res = 0; for ( int k = 0; k < n; ++k ) {\n\nres += Math.min( T1[k], T2[k] );\n\n} return max(t1,t2,(t1 + t2 + res + 1)/2); // ceiling\n\n}\n\nEjercicio 1\n\n¿por qu´e se suma 1 al resultado antes de dividir por 2?\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nPropiedades de la poda\n\nSe puede comprobar que la aceleraci´on que se obtiene al introducir la poda en el algoritmo recursivo es signiﬁcativa.\n\nEsto ocurre gracias a que la poda elimina muy pronto aquellas ramas de la recursi´on que se dirigen hacia soluciones muy alejadas de la ´optima (en el ejemplo, aquellas que asignan la mayor´ıa de los trabajos a la misma m´aquina).\n\nDe esta forma, el algoritmo no necesita evaluar muchas de las soluciones (lo que ocurre en las hojas del ´arbol recursivo de llamadas).\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\n´Indice\n\n1 ¿Qu´e es la ramiﬁcaci´on y poda? 2 Funciones de cota 3 Cotas pesimistas\n\n4 Mejoras de la ramiﬁcaci´on y poda 5 Ramiﬁcaci´on y poda con restricciones 6 Respuestas a los ejercicios\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nSoluciones sub´optimas\n\nA una soluci´on sub´optima...\n\nhallada mediante un m´etodo aproximado, se le llama a veces cota pesimista (por contraposici´on a las cotas optimistas descritas anteriormente, que calculan un valor mejor o igual que el ´optimo) ya que proporcionan un valor que es peor o igual que el valor ´optimo.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nSoluciones sub´optimas\n\nPara repartir tareas, un procedimiento que se utiliza con frecuencia en las empresas (y que proporciona soluciones sub´optimas razonables) es asignar cada tarea a quien tiene menos trabajo pendiente.\n\nOtro m´etodo frecuente, consiste en asignar el trabajo siempre a la persona o m´aquina m´as r´apida (una estrategia que conviene evitar en nuestra empresa).",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\2-RP.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.144109",
+        "date_processed": "2024-04-19T09:53:02.509186",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "2-RP.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 21
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "1f781019da374e8415348df0949dd1bd",
+    "text": "2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nCota pesimista para el reparto de tareas\n\nEjercicio 2\n\nImplementa una funci´on para calcular r´apidamente una soluci´on sub´optima para el problema del reparto de tareas.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\n´Indice\n\n1 ¿Qu´e es la ramiﬁcaci´on y poda? 2 Funciones de cota 3 Cotas pesimistas\n\n4 Mejoras de la ramiﬁcaci´on y poda 5 Ramiﬁcaci´on y poda con restricciones 6 Respuestas a los ejercicios\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nRamiﬁcaci´on y poda con programaci´on din´amica\n\nAunque la ramiﬁcaci´on y poda y la programaci´on din´amica son t´ecnicas alternativas hay ocasiones en las que se pueden combinar:\n\n1 Cuando PD calcula la soluci´on como caso base. No es lo usual, ya que el\n\ndise˜no de PD se basa en descomponer un problema en menores hasta llegar a casos base con soluciones triviales.\n\n2 Cuando PD calcula la soluci´on de un problema lo hace bas´andose en otros menores. Dado que el c´alculo de las soluciones de los subproblemas es secuencial podemos aprovechar las soluciones de los anteriores problemas en el mismo nivel para podar los posteriores.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nRamiﬁcaci´on y poda con programaci´on din´amica\n\nEjercicio 3\n\nEn este caso del reparto de tareas cumple la primera condici´on de la diapositiva anterior, as´ı que se puede combinar ramiﬁcaci´on y poda con programaci´on din´amica. Cambia el algoritmo anterior para a˜nadir un almac´en al problema y compara la eﬁciencia obtenida.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nConsideraci´on sobre la combinaci´on de t´ecnicas\n\nImportante\n\nAunque la aplicaci´on combinada produce resultados altamente eﬁcientes, tambi´en requiere de habilidades en ambas t´ecnicas, produce un c´odigo m´as complejo y se necesita m´as tiempo de programaci´on que si se aplica una sola.",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\2-RP.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.144109",
+        "date_processed": "2024-04-19T09:53:02.509186",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "2-RP.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 26
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "950ab20055f4dd874c8d5109c1a6fd48",
+    "text": "Usar esta combinaci´on es recomendable para adquirir m´as conocimientos sobre la asignatura durante el curso.\n\nSe desaconseja su uso en el examen.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nEﬁciencia de la poda\n\nEn un problema de minimizaci´on el algoritmo eval´ua solo los problemas cuya cota inferior es menor que el mejor resultado encontrado hasta el momento. En otro caso, se aplicar´ıa la poda.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nEﬁciencia de la poda\n\nPor tanto, la eﬁcacia de la poda depender´a esencialmente de la calidad de:\n\n1 La funci´on de cota; como regla general podemos decir que cuanto m´as\n\ncercana sea la cota al valor ´optimo real, m´as eﬁcaz ser´a.\n\n2 El mejor valor encontrado; si se encuentran buenas soluciones r´apidamente,\n\nel algoritmo no realizar´a apenas exploraciones.\n\n3 La implementaci´on; se debe evitar repetir c´alculos innecesarios cuando se\n\nestiman las cotas.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nEﬁciencia de la poda: cotas\n\nConsideraciones:\n\nPara obtener buenas funciones de cota, esto es, cercanas al valor ´optimo, se deben evitar las suposiciones demasiado dr´asticas cuando se relajan las condiciones del problema.\n\nEste es uno de los motivos por los que conviene que en los casos triviales el valor de la cota coincida con el de la funci´on exacta.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nEﬁciencia de la poda: soluciones aproximadas\n\nPara obtener buenas soluciones r´apidamente cabe:\n\n1 Realizar algunas b´usquedas aproximadas previas (globales o en cada rama),\n\nt´ıpicamente mediante algoritmos voraces.\n\n2 Modiﬁcar la estrategia de recorrido del ´arbol recursivo (hasta ahora, una estrategia ciega), por una estrategia inteligente. Por ejemplo, se puede reemplazar la pila de llamadas recursivas por una cola de prioridad ordenada seg´un el valor de la funci´on de cota.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\2-RP.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.144109",
+        "date_processed": "2024-04-19T09:53:02.509186",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "2-RP.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 30
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "2cb4c243dffe4c8f80729cda1a397805",
+    "text": "Cotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\n´Indice\n\n1 ¿Qu´e es la ramiﬁcaci´on y poda? 2 Funciones de cota 3 Cotas pesimistas\n\n4 Mejoras de la ramiﬁcaci´on y poda 5 Ramiﬁcaci´on y poda con restricciones 6 Respuestas a los ejercicios\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nRP con restricciones\n\nEn algunos problemas, no todos los elementos del dominio satis- facen las especiﬁcaciones. En estos casos, llamamos soluci´on s´olo a aquellos elementos x que cumplen la condici´on c(x). La solu- ci´on ´optima f (D) en un dominio D es, por tanto, la mejor de las soluciones seg´un la funci´on objetivo φ:\n\nf (D) = m´ax\n\nφ(x)\n\nx∈D:c(x)\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nRP con restricciones\n\nCuesti´on: ¿Cu´al debe ser el valor ´optimo f (X ) si X ⊂ D es un subdominio que no contiene soluciones?\n\nRespuesta: El elemento m´ınimo de un conjunto vac´ıo no est´a deﬁnido, por lo que cualquier valor que asignemos es arbitrario.\n\nNo obstante, no es conveniente asignar cualquier valor durante la implementaci´on.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nRP con restricciones\n\nEn efecto, en los problemas de optimizaci´on mediante ramiﬁcaci´on y poda, el valor ´optimo f (X ) se deﬁne como el m´ınimo (o m´aximo) de φ entre todos los subconjuntos (llamadas recursivas) Yk de X . Para que esto sea cierto incluso si alg´un subconjunto Yk es vac´ıo se debe tomar f (∅) = ∞, donde ∞ representan un valor superior (inferior) al de cualquier soluci´on posible.\n\nA continuaci´on sigue un ejemplo.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nUn problema con restricciones\n\nUna fundaci´on debe repartir equitativamente N bienes entre dos socios. Para ello se crear´an dos lotes de valor id´entico con una parte de los bienes y el resto se enajenar´a para repartir su valor en efectivo. Dado que cada venta implica algunos costes ﬁnancieros, se desea maximizar el valor repartido en especie.",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\2-RP.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.144109",
+        "date_processed": "2024-04-19T09:53:02.509186",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "2-RP.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 35
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "0979f6732e21b29346fd65205528cb0f",
+    "text": "2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nUn problema con restricciones\n\nEs importante darse cuenta de que en algunos casos, las opciones x1, . . . , xm tomadas no permitir´an encontrar ninguna soluci´on. En esos casos, ¿cu´al es el valor adecuado para la funci´on recursiva?\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nAlgoritmo recursivo con restricciones\n\nEl problema del reparto puede resolverse trivialmente usando una funci´on recursiva como la siguiente:\n\nbest = -1;\n\nprivate void maxVal (int n, int w1, int w2) {\n\nif ( n == 0 ) {\n\n// no hay elementos\n\nbest = Math.max( best, ( w1 == w2 ) ? w1 : -1);\n\n} else {\n\nmaxVal(n - 1, w1, w2); maxVal(n - 1, w1 + V[n-1], w2); maxVal(n - 1, w1, w2 + V[n-1]) );\n\n}\n\n}\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nUn problema con restricciones\n\nProblema sin soluci´on ´optima En general, cuando la funci´on recursiva no es capaz de encontrar ninguna soluci´on debe devolver un valor que se distinga claramente del de cualquier soluci´on al problema. Adem´as, debe ser p´esimo, es decir, peor que el de cualquier soluci´on para que no sea nunca elegido.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nUn problema con restricciones\n\nObservaci´on: La cota optimista del reparto de bienes debe ser negativa tambi´en en los casos en que no hay soluci´on, lo que ocurre si la diferencia |w1 − w2| es mayor que la suma (cid:80)N k=n Vk−1. En caso contrario, podemos hacer la suposici´on (ﬁcticia) de que todos los bienes restantes pueden asignarse consiguiendo un resultado justo. O dicho de otra forma, que la suma (cid:80)n k=1 Vk−1 puede ser distribuida ´ıntegramente de forma que las asignaciones son id´enticas.\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nUn problema con restricciones\n\nEn ese caso, el valor m´aximo que se puede repartir es",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\2-RP.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.144109",
+        "date_processed": "2024-04-19T09:53:02.509186",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "2-RP.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 40
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "1604ffc8e7e5044ae03c5e67d52e6489",
+    "text": "upperBound(n, w1, w2) =\n\n1 2\n\n(w1 + w2 +\n\nn (cid:88)\n\nk=1\n\nVk−1)\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nNuevo problema: Env´ıo de representantes de productos\n\nEjercicio 4\n\nUna empresa de M trabajadores desea presentar N productos en una convenci´on enviando por cada producto n al menos a uno de los trabajadores involucrados en su desarrollo. Cada trabajador m ha participado en un n´umero de productos Cm y la empresa quiere minimizar el n´umero total de trabajadores enviados. Si las soluciones se representan mediante vectores binarios de M componentes (x1, . . . xM ) y Tmn es 1 si m ha participado en n y 0 en caso contrario, escribe una funci´on de cota (optimista) g en funci´on de T para el dominio X = (x1, . . . , xm, ∗, . . . , ∗), donde los asteriscos representan cualquier valor posible (0 ´o 1).\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\n´Indice\n\n1 ¿Qu´e es la ramiﬁcaci´on y poda? 2 Funciones de cota 3 Cotas pesimistas\n\n4 Mejoras de la ramiﬁcaci´on y poda 5 Ramiﬁcaci´on y poda con restricciones 6 Respuestas a los ejercicios\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nRespuesta\n\nEjercicio 1 Si a˜nadimos 1 a un valor par r , el resultado tras dividir por 2 no cambia, esto es, (r+1)/2 == r/2. En cambio, si a˜nadimos 1 a un impar, se produce un redondeo al alza y (r+1)/2 == r/2+1. Esta opci´on es correcta, pues una cota inferior de 2,5 signiﬁca que el valor ´optimo es como m´ınimo 3.\n\n(cid:34)\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nRespuesta\n\nEjercicio 2 Una soluci´on sub´optima al reparto de tareas.\n\nprivate int suboptimal (int n, int t1, int t2)\n\nfor ( int k = 0; k < n; ++k ) {\n\nif ( t1 + T1[k] <= t2 + T2[k] ) {\n\nt1 += T1[k];\n\n} else {\n\nt2 += T2[k];\n\n}\n\n} return Math.max(t1, t2);\n\n}\n\n(cid:34)\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\2-RP.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.144109",
+        "date_processed": "2024-04-19T09:53:02.509186",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "2-RP.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 44
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "67f916f56ffe9072a5b96cfb4775d867",
+    "text": "Respuestas a los ejercicios\n\nRespuesta\n\nEjercicio 3 Una implentaci´on ser´ıa:\n\nbest=Integer.MAX_VALUE; private int minTime (int n, int t1, int t2) {\n\nint t; if ( A.contains(n,t1,t2)){\n\nt = A.get(n,t1,t2);\n\n} else {\n\nif ( lowerBound(n, t1, t2) < best ) {\n\nif ( n == 0 ) {\n\n// No quedan trabajos\n\nt = Math.max(t1, t2); best = Math.min(best, t);\n\n} else {\n\nt = Math.min( minTime(n - 1, t1 + T1[n-1], t2),\n\nminTime(n - 1, t1, t2 + T2[n-1]) );\n\n}\n\n} else {\n\nt = Integer.MAX_VALUE;\n\n} A.put(n,t1,t2,t);\n\n} return t;\n\n}\n\n(cid:34)\n\n2-RP\n\nJuan R. Rico\n\n¿Qu´e es la ramiﬁcaci´on y poda?\n\nFunciones de cota\n\nCotas pesimistas\n\nMejoras de la ramiﬁcaci´on y poda\n\nRamiﬁcaci´on y poda con restricciones\n\nRespuestas a los ejercicios\n\nRespuesta\n\nEjercicio 4 Una cota optimista para el problema de la selecci´on de representantes:\n\n1 H´agase xi = 0 para i = m + 1, ...M. 2 Sea Q = {m + 1, ..., M} y P el conjunto de productos tales que xi = 0 para i xi Tij = 0}.\n\ntodos los trabajadores i involucrados en ´el, esto es, P = {j : (cid:80)\n\n3 H´agase Q una cola ordenada de mayor a menor productividad de cada\n\ntrabajador, esto es, seg´un el n´umero de productos (cid:80)\n\nj∈P Tij .\n\n4 H´agase n = |P|. 5 Elim´ınese el primer trabajador i de Q; h´agase xi = 1 y n = n − (cid:80) 6 Si n > 0 y |Q| > 0, vu´elvase al paso anterior. 7 Si n > 0 devu´elvase ∞; en caso contrario devu´elvase (cid:80)\n\ni xi .\n\nj∈P Tij .\n\n(cid:34)",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\2-RP.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.144109",
+        "date_processed": "2024-04-19T09:53:02.509186",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "2-RP.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 49
+    }
+  }
+]

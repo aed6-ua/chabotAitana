@@ -182,6 +182,20 @@ async def end_conversation(conversation_id: str, stars: StarsSchema | None = Non
     del conversations[conversation_id]  # Optionally remove from active conversations
     return {"message": "Conversation ended and stored"}
 
+# Raw retrieval endpoint
+@app.post("/retrieve")
+@app.post("/retrieve/{assistant_id}")
+async def retrieve_message(message_body: MessageSchema, assistant_id=None):
+    message = message_body.message
+    top_k = message_body.top_k
+    max_tokens = message_body.max_tokens
+    temperature = message_body.temperature
+    if assistant_id is None:
+        assistant_id = "base"
+    logger.info(f"Retrieving message with assistant {assistant_id}")
+    response = assistants[assistant_id].retrieve(message, top_k=top_k)
+    return {"response": response}
+
 # Hello world route
 @app.get("/")
 async def read_root():

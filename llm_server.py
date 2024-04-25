@@ -16,19 +16,24 @@ class Input(BaseModel):
     temperature: float
 
 # Load the configuration file
+print("Loading configuration file")
 def load_config(config_path):
     with open(config_path, 'r') as file:
         config = json.load(file)
     return config
 
 # Accessing the configuration
+print("Accessing the configuration")
 config = load_config("config.json")
 
+print("Loading models")
 if config["retriever"]["local"] == True:
+    print("Loading embeddings model")
     embeddings_model = SentenceTransformer(config["retriever"]["model_name"])
 if config["assistant"]["local"] == True:
     # "LenguajeNaturalAI/leniachat-gemma-2b-v0"
     import torch
+    print("Loading generation model")
     generation_tokenizer = AutoTokenizer.from_pretrained(config["assistant"]["model_name"], trust_remote_code=True)
     generation_model = AutoModelForCausalLM.from_pretrained(config["assistant"]["model_name"], trust_remote_code=True)
 

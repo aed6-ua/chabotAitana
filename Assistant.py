@@ -19,6 +19,24 @@ class Assistant:
             "context": ""
         }
 
+    def retrieve(self, query, top_k=1):
+        """
+        Retrieves relevant information based on the provided query.
+        
+        :param query: The query to use for retrieval.
+        :return: The retrieved information.
+        """
+        if self.tools and self.tools[0]:
+            retrieval_result = self.tools[0].retrieve(query, top_k=top_k)
+            logging.info(f"Number of chunks retrieved: {len(retrieval_result)}")
+            text = '"""'
+            for passage in retrieval_result:
+                #logging.info(f"Retrieved passage: {passage}")
+                text += passage + "\n\n"
+            text = text + '"""\n\n'
+            return text
+        return None
+
     def process_message(self, message, context, top_k=1, max_tokens=150, temperature=0.7):
         """
         Processes a received message using the provided context.
@@ -55,7 +73,7 @@ class Assistant:
                 text = '"""'
                 for passage in retrieval_result:
                     text = text + f"{passage}\n\n"
-                    logging.info(f"Retrieved passage: {len(passage)}\n\n")
+                    #logging.info(f"Retrieved passage: {len(passage)}\n\n")
                 text = text + '"""\n\n'
                 return text
             except Exception as e:

@@ -1,0 +1,574 @@
+[
+  {
+    "type": "CompositeElement",
+    "element_id": "2f0bb1175e8c6340d4395cb247e73ef4",
+    "text": "ML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n1 / 123\n\nTema 3: Aprendizaje autom´atico (Machine Learning)\n\nProfesor: Juan R. Rico\n\nDesaf´ıos de programaci´on\n\nDpto. Lenguajes y Sistemas Inform´aticos. Universidad de Alicante\n\nVersi´on 1.1\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n2 / 123\n\n´Indice\n\nIntroducci´on\n\n1 2 Estilos de aprendizaje\n\nVecinos m´as cercanos Funci´on de distancia T´ecnica de los k vecinos m´as cercanos Edici´on Condensado Importancia de los prototipos kNNc\n\n´Arboles de decisi´on (DT) M´aquina de vectores soporte (SVM)\n\n3 Redes Neuronales Artiﬁciales (ANN)\n\n4 Validaci´on un modelo\n\n5 Comparaci´on entre clasiﬁcadores\n\n6 Respuestas a los ejercicios\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n3 / 123\n\n1. Introducci´on\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n4 / 123\n\n´Indice\n\n1\n\nIntroducci´on\n\n2 Estilos de aprendizaje\n\nVecinos m´as cercanos ´Arboles de decisi´on (DT)\n\nM´aquina de vectores soporte (SVM)\n\n3 Redes Neuronales Artiﬁciales (ANN) 4 Validaci´on un modelo 5 Comparaci´on entre clasiﬁcadores 6 Respuestas a los ejercicios\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n5 / 123\n\nIntroducci´on I\n\nEn este tema se presentar´a:\n\nlos sistemas predictivos como cambio de paradigma en la soluci´on de problemas;\n\nel concepto de ciencia de los datos (Data Science);\n\nel concepto de Big Data;\n\nla deﬁnici´on de aprendizaje autom´atico (Machine Learning);\n\nla deﬁnici´on de reconocimiento de formas (Pattern Recognition);\n\nlos estilos de los algoritmos predictivos y sus caracter´ısticas;\n\nlas redes neuronales modernas, Deep Learning;\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n6 / 123\n\nSistemas predictivos presente y futuro I\n\nLos sistemas predictivos est´an cambiando la forma en la que se abordan ciertos problemas y que cambiar´an nuestro entorno. Algunos ejemplos:\n\nLa conducci´on aut´onoma de una programaci´on por casos (if/else) se hace inabordable mientras que con la imitaci´on de un humano aprendiendo de su comportamiento es viable; Traducci´on autom´atica de estar basada en reglas a aprender de textos traducidos por humanos; Grandes modelos de lenguaje para contestar a cuestiones concretas, redactar contratos, implementar soluciones (programar), etc. (Ej. de ChatGPT). B´usqueda de empleo de emparejar curr´ıculum vitae con las demandas de empleo a predecir cuales ser´an los mejores candidatos para un trabajo aprendiendo de los emparejamientos previos.",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 1
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "fc68b40a8f82435ce0d05e5ca84eb415",
+    "text": "ML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n7 / 123\n\nSistemas predictivos presente y futuro II\n\nSe puede decir que los datos son la nueva fuente de energ´ıa;\n\nM´as informaci´on en Prediction Machines: The Simple Economics of Artiﬁcial Intelligence por el profesor Ajay Agrawal (fundador de Creative Destruction Lab and co-fundador de AI/robotics company Kindred).\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n8 / 123\n\nAprendizaje autom´atico\n\nEl aprendizaje autom´atico (Machine Learning) (Mitchell, 1997) es una rama de la inteligencia artiﬁcial cuyo objetivo es desarro- llar t´ecnicas que permitan aprender a los ordenadores. Se trata de crear programas capaces de generalizar comportamientos a par- tir de una informaci´on suministrada en forma de ejemplos. Es un proceso de inducci´on del conocimiento. Se centra en el estudio de la complejidad computacional de los problemas y puede ser visto como un intento de automatizar algu- nas partes del m´etodo cient´ıﬁco mediante m´etodos matem´aticos.\n\nPara tener una visi´on general podemos ver la siguiente infograf´ıa.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n9 / 123\n\nTipos de aprendizajes\n\nAprendizaje autom´atico\n\nSupervisado\n\nClasiﬁcaci´on Regresi´on\n\nNo supervisado\n\nPor refuerzo\n\nSupervised\n\nClassiﬁcation\n\nMachine Learning\n\nReinforcement\n\nUnsupervised\n\nRegression\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n10 / 123\n\nSupervisado\n\nSe conocen las caracter´ısticas de entrada y su valor de predicci´on correspondiente, por lo que se pueden usar para realizar predicciones (es el m´as utilizado).\n\nClasiﬁcaci´on: La predicci´on se realiza sobre un conjunto limitado de clases o categor´ıas (opciones o decisiones). Ej.: Estar enfermo o no, identiﬁcaci´on de matr´ıculas o n´umeros de polic´ıa (calle/portal); Regresi´on: La predicci´on es un valor num´erico. Ej. Valor de una casa en venta o probabilidad de aprobar una asignatura.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n11 / 123\n\nNo supervisado\n\n´Unicamente se conocen las caracter´ısticas de los objetos y NO el valor o la clase a la que pertenecen, por lo que solo se pueden usar t´ecnicas de agrupamiento.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 7
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "de4fceef7562bb0af36e25713ad5744e",
+    "text": "Referencias\n\n12 / 123\n\nPor refuerzo\n\nEs un sistema que compuesto por un agente, un entorno, modelo de estados, acciones y recompensas/penalizaciones. Se trata de aprender c´omo el agente puede interactuar con el entorno realizando una serie de acciones de las cuales obtendr´a una recompensa y maximizar su beneﬁcio ﬁnal. El modelo de estados se encarga de almacenar la informaci´on del contexto en cada situaci´on y las posibles acciones asociadas. Se utiliza principalmente en el ´area de videojuegos.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n13 / 123\n\nAlgunos tipos m´as de aprendizaje seg´un la disponibilidad de los ejemplos\n\nOﬄine learning: Disponemos de muchos ejemplos para entrenar el modelo.\n\nOnline learning: Los ejemplos se suministran poco a poco.\n\nActive learning: Es un caso especial de aprendizaje semi-supervisado, donde hay ejemplos etiquetados y la mayor´ıa no lo est´an, pero se puede pedir su etiqueta con un coste.\n\nStream learning: Los ejemplos se suministran de forma r´apida, continua e ininterrumpida. Se necesitan modelos r´apidos y muy eﬁcientes.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n14 / 123\n\nAprendizaje autom´atico vs. programaci´on tradicional\n\nrespuestas\n\nreglas\n\nreglas\n\ndatos\n\ndatos\n\nProgramacióntradicional\n\nAprendizajeAutomático\n\nrespuestas\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n15 / 123\n\nAplicaciones I\n\nPrevisi´on meteorol´ogica: permite crear mapas de predicci´on autom´atica.\n\nReconocimiento de caracteres manuscritos (OCR): posibilita la transcripci´on autom´atica de documentos manuscritos.\n\nReconocimiento de voz: un ejemplo claro son los teleoperadores autom´aticos, transcripci´on a texto directamente de audios/v´ıdeos\n\nAplicaciones en medicina: an´alisis de biorritmos, detecci´on de irregularidades en im´agenes de rayos-x, detecci´on de c´elulas infectadas, marcas en la piel...\n\nReconocimiento de huellas dactilares: identiﬁcaci´on de personas.\n\nReconocimiento de caras: veriﬁcaci´on de entrada/salida de un puesto de trabajo, detecci´on de personas en una escena/foto, seguimiento de personas y detecci´on de riesgos para las mismas...\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n16 / 123\n\nAplicaciones II\n\nInterpretaci´on de fotograf´ıas a´ereas y de sat´elite: gran utilidad para la agricultura, geolog´ıa, geograf´ıa, planiﬁcaci´on urbana...",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 12
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "8c66838b501815c4ce6187b01bfb2601",
+    "text": "Predicci´on de magnitudes m´aximas de terremotos.\n\nReconocimiento de objetos: con importantes aplicaciones para personas con discapacidad visual, rob´otica,...\n\nReconocimiento de m´usica: identiﬁcar el tipo de m´usica o la canci´on concreta que suena, transcripci´on de partituras (modernas, cl´asicas o antiguas), interpretaci´on de una partitura con estilos aprendidos autom´aticamente...\n\nAutomoci´on: veh´ıculo de conducci´on asistida o aut´onoma.\n\nSector ﬁnanciero: sistemas de inversi´on asistidos, an´alisis de riesgos (pr´estamos)...\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n17 / 123\n\nAhora podemos pensar en nuevas aplicaciones...\n\n?\n\nFormamos grupos de 2 ´o 3 personas y durante 10’ pensamos nuevas aplicaciones donde interesara usar t´ecnicas de reconocimiento de formas/aprendizaje autom´atico para mejorar un problema, una situaci´on o una carencia actual.\n\nA continuaci´on exponemos en com´un la idea principal, c´omo obtener datos y qu´e tendr´ıa que aprender el modelo/aplicaci´on.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n18 / 123\n\nNotas sobre extracci´on de caracter´ısticas\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n19 / 123\n\nExtracci´on de caracter´ısticas I\n\nProceso que genera caracter´ısticas para la posterior clasiﬁcaci´on de los datos.\n\nEn ocasiones lo precede un preprocesado de la se˜nal, para ﬁltrar errores del sensor, o para preparar los datos.\n\nLas caracter´ısticas elementales est´an expl´ıcitamente presentes en los datos adquiridos mientras que las de un orden alto son derivadas de las elementales mediante transformaciones.\n\nLa estructura de las caracter´ısticas ser´a un vector, una cadena, un ´arbol o un grafo seg´un se necesite. Esta elecci´on determinar´a el tipo de algoritmos que usaremos en la siguiente etapa.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n20 / 123\n\nExtracci´on de caracter´ısticas II\n\ncadena(contorno)\n\nárbol\n\nvector\n\ngrafoImagen original\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n21 / 123\n\nSelecci´on de variables\n\nConsiste en seleccionar cu´al es el tipo de caracter´ısticas o rasgos m´as adecuados para describir los objetos.\n\nSe deben localizar los rasgos que inciden en el problema de manera determinante.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 16
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "03e7b0df9d1537fcb0d9ded9a5dcab12",
+    "text": "ANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n22 / 123\n\nAlgoritmos predictivos\n\nLa predicci´on trata de asignar valores num´ericos continuos (regresi´on), o discretos (clasiﬁcaci´on), bas´andose en las carac- ter´ısticas extra´ıdas. En esta etapa se usa el aprendizaje autom´ati- co, cuyo objetivo es desarrollar t´ecnicas que permitan aprender a a partir de ejemplos a los ordenadores.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n23 / 123\n\n2. Estilos de aprendizaje\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n24 / 123\n\n´Indice\n\n1\n\nIntroducci´on\n\n2 Estilos de aprendizaje\n\nVecinos m´as cercanos ´Arboles de decisi´on (DT)\n\nM´aquina de vectores soporte (SVM)\n\n3 Redes Neuronales Artiﬁciales (ANN) 4 Validaci´on un modelo 5 Comparaci´on entre clasiﬁcadores 6 Respuestas a los ejercicios\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n25 / 123\n\nPrincipales estilos de aprendizaje\n\nSeg´un la estrategia usada para aprender\n\nEstilo\n\nLos k-vecinos m´as Cercanos (kNN) / distancias ´Arboles de Decisi´on (DT) M´aquina de Vectores Soporte (SVM) Redes Neuronales Artificiales (ANN)\n\nTipos estructurados\n\nS´ı\n\nNo\n\nNo\n\nNo\n\nIntr´ınsecamente explicables\n\nS´ı\n\nS´ı (1) / No (N)\n\nNo\n\nNo\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n26 / 123\n\n´Indice\n\n1\n\nIntroducci´on\n\n2 Estilos de aprendizaje\n\nVecinos m´as cercanos ´Arboles de decisi´on (DT)\n\nM´aquina de vectores soporte (SVM)\n\n3 Redes Neuronales Artiﬁciales (ANN) 4 Validaci´on un modelo 5 Comparaci´on entre clasiﬁcadores 6 Respuestas a los ejercicios\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n27 / 123\n\nDeﬁnici´on\n\nLa funci´on de distancia o de disimilitud devuelve un valor que indica la diferencia entre las caracter´ısticas de diferentes prototipos.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n28 / 123\n\nEjemplos de distancias entre dos prototipos I\n\nVectores Se aplica a vectores de n´umeros reales.",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 22
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "ff9e069a4ef17102521d15973e5fea94",
+    "text": "Manhattan ´o L1: Distancia en bloques rectil´ıneos y se deﬁne como dL1(−→x , −→y ) = (cid:80) Eucl´ıdea ´o L2: Es la m´as utilizada y se deﬁne como dL2(−→x , −→y ) = (cid:112)(cid:80)\n\ni (cid:107)xi − yi (cid:107) (Craw, 2010).\n\ni (xi − yi )2.\n\nCadenas Se aplica a cadenas de s´ımbolos.\n\nEdici´on de cadenas o Levenshtein: Se deﬁne como la m´ınima cantidad de operaciones para convertir una cadena en otra y fue implementada eﬁcientemente por (Wagner and Fischer, 1974).\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n29 / 123\n\nEjemplos de distancias entre dos prototipos II\n\nOtras estructuras\n\nEdici´on de ´arboles: Distancia entre ´arboles con nodos y aristas etiquetados y ordenados (Zhang and Shasha, 1989).\n\nEdici´on de grafos: La distancia entre dos grafos es un problema NP-completo (Kubicka et al., 1990), por lo que solo encontraremos aproximaciones a la soluci´on a este problema en tiempo polin´omico.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n30 / 123\n\nEjercicio 1\n\nImplementa en Java un programa para calcular la distancia m´ınima entre dos cadenas cualquiera.\n\nPara que sea m´as sencillo se puede acceder a Wikipedia, buscar distancia de edici´on entre dos cadenas e implementar el programa.\n\n¿Qu´e distancia hay entre “aab” y “ab”?\n\n¿Y entre “aabcc” y “ccbaa”?\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n31 / 123\n\nSeries temporales\n\nDTW (Dynamic Time Warping)\n\nSe aplica en an´alisis de series temporales cuando hay variaci´on de tiempo o velocidadGupta et al. (1996).\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n32 / 123\n\nT´ecnica de los k vecinos m´as cercanos\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n33 / 123\n\nDeﬁnici´on\n\nEl m´etodo k-NN, k Nearest Neigh- bors (Silverman and Jones, 1989), es un m´etodo habitualmente usado para clasiﬁcaci´on supervisada que estima la funci´on de densidad que nos sirve para calcular la probabilidad a pos- teriori, ˆP(ωi |x) = ki /k, de que un ejemplo x pertenezca a la clase ωi (ki es el n´umero de vecinos de la clase i).",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 28
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "ffce66225bdd6da0757b9e246daa0d5d",
+    "text": "Ejemplo K=5\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n34 / 123\n\nCaracter´ısticas destacables\n\nF´acil de implementar.\n\nEl error de la predicci´on est´a acotado por el doble del m´ınimo error de Bayes (Cover and Hart, 1967).\n\nEn muchas ocasiones la t´ecnica del 1-NN es suﬁciente para obtener una buena tasa de clasiﬁcaci´on. Sea Dn = {(x1, θ1), (x2, θ2), . . . , (xn, θn)} un conjunto de prototipos donde θi = {ω1, . . . , ωc } es la clase del elemento xi y x un nuevo ejemplo. La t´ecnica del kNN se enunciar´ıa como:\n\n(cid:32)\n\n(cid:32)\n\n(cid:33)(cid:33)\n\nmode\n\nθk\n\narg mink xi ∈Dn\n\n{d(x, xi )}\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n35 / 123\n\nAcelerar las b´usquedas en k-NN\n\nEn principio para conocer el vecino m´as cercano de un prototipo, x, a un conjunto Dn se necesitan calcular todas las distancias, n. Existen varios algoritmos (basado en t´ecnicas de ramiﬁcaci´on y poda) para acelerar estas b´usquedas. Un ejemplo son los conocidos como AESA (Approximation-Elimination Search Algorithm (Vidal, 1986)) y sus extensiones (Mic´o et al., 1994, 1996).\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n36 / 123\n\nLos prototipos previsiblemente conﬂictivos\n\nExisten t´ecnicas llamadas de edici´on (Editing) que eliminan los prototipos que pueden estar mal etiquetados, o pertenecer a una zona de solapamiento entre clases. Como ejemplo tenemos el algoritmo de WilsonWilson (1972).\n\nArrayList < Example > Editing ( int k , ArrayList < Example > T ) { // Training set ArrayList < Example > S = new ArrayList < Example >( T ) , // Edited set\n\nR = new ArrayList < Example >();\n\n// Misclassified set\n\nfor ( Example p : S ) {\n\nif (! p . labelClass . equals ( p . getClasskNN (k ,S -{ p }))) { // Misclassified example\n\nR . add ( p );\n\n// Remove example\n\n} } // for S . removeAll ( R );\n\n// Remove all misclassified examples\n\nreturn S ;\n\n}\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n37 / 123\n\nLos prototipos m´as importantes",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 33
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "c5dd5fa5a0f20eae8e9f1b68b04283a4",
+    "text": "Existen t´ecnicas sencillas de condensado (Condensing) de prototipos como CNN (The condensed nearest neighbor rule (Hart, 1968)) y derivadas.\n\nArrayList < Example > CNN ( int k , ArrayList < Example > T ) { // Traning set\n\nArrayList < Example > S = new ArrayList < Example >(); // CNN set boolean updated ;\n\nCollections . shuffle ( T ); do {\n\n// Shuffle array elements\n\nupdated = false ; for ( Example p : T ) {\n\nif (! p . labelClass . equals ( p . getClasskNN (k , S ))) { // Misclassified\n\nS . add ( p ); updated = true ;\n\n// It ’s needed\n\n}\n\n}\n\n} while ( S . size () < T . size () && updated );\n\nreturn S ;\n\n}\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n38 / 123\n\nConsideraciones: edici´on / condensado\n\nLa intenci´on de las t´ecnicas de edici´on es eliminar los prototipos mal etiquetados en base a unos criterios, pero no estaremos seguros si eliminamos un prototipo etiquetado correctamente. Dependemos del conjunto de entrenamiento.\n\nLa intenci´on de las t´ecnicas de condensado es eliminar los prototipos superﬂuos pero tampoco podemos veriﬁcar si ´estos afectan a la tasa de clasiﬁcaci´on ﬁnal que es lo que m´as nos interesa.\n\nSi aplicamos repetidamente la t´ecnica de edici´on hasta que todos los prototipos se clasiﬁquen correctamente se conoce como Multiedit.\n\nSi combinamos ambas t´ecnicas se conoce como Multiedit Condensing.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n39 / 123\n\nEstimar la relevancia de cada prototipo\n\nUna aproximaci´on para conocer cuan importante es cada prototipo en una futura clasiﬁcaci´on (Rico-Juan and I˜nesta, 2012).\n\n1 1-FN (Fartest Neighbor): Sistema de votaci´on al amigo (misma clase) m´as\n\nlejano previo al enemigo (distinta clase) m´as cercano.\n\n2 1-NE (Nearest Enemy): Sistema de votaci´on al amigo m´as cercano que est´e\n\ncerca del enemigo m´as cercano para una clasiﬁcaci´on correcta.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n40 / 123\n\n1-FN (Fartest Neighbor)\n\n1 Se recorrer´ıa todo el conjunto de entrenamiento. En este caso, a es el\n\nprototipo que se examina actualmente. 2 b es el enemigo m´as cercano al prototipo a. 3 c es el prototipo m´as alejado de a antes de b y su presencia permite clasiﬁcar",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 37
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "5d4cfbf66be4d45c5ca5491555f638c9",
+    "text": "correctamente al prototipo a.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n41 / 123\n\n1-NE (Nearest Enemy)\n\n1 Se recorrer´ıa todo el conjunto de entrenamiento. a es el prototipo que se\n\nexamina actualmente.\n\n2 b es el enemigo m´as cercano al prototipo a. 3 c es el prototipo de la misma clase que a y m´as cercano a c. Con su presencia\n\nse clasiﬁcar´ıa correctamente el prototipo a.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n42 / 123\n\nAcelerar la clasiﬁcaci´on\n\nAlgoritmo kNNc para acelerar y mejorar la clasiﬁcaci´on en presencia de ruido\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n43 / 123\n\nkNNc acelera la clasiﬁcaci´on en dos pasos I\n\nEsta t´ecnica permite descartar clases muy distintas al prototipo desconocido x cuando se clasiﬁca. Se puede utilizar cuando el problema predice m´ultiples clases (Calvo-Zaragoza et al., 2015). Descripci´on:\n\n1 Seleccionar un conjunto representativo, P, de prototipos a partir del inicial, T .\n\n2 Para clasiﬁcar un nuevo prototipo desconocido x, solicitar las c clases m´as\n\ncercanas en P.\n\n3 Usar k-NN para clasiﬁcar x ´unicamente con las c clases m´as cercanas.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n44 / 123\n\nkNNc acelera la clasiﬁcaci´on en dos pasos II\n\nx?\n\nC=2\n\nP\n\nK-NN-CK-NN-C\n\nT\n\nSelección\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n45 / 123\n\nkNNc sin ruido\n\n0\n\n35\n\n40\n\n25\n\n85\n\n80\n\n100\n\n10\n\n70\n\n40\n\nc=2\n\nc=3\n\n90\n\n30\n\n0\n\n95\n\n40\n\n15\n\n5\n\n75\n\n3NN3 CNN3NN3 FCNN3NN3 MFCNN3NN2 MFCNN3NN2 MCNN5NN3 MCNN3NN2 1-NE0.303NN2 2-NE0.303NN2 1-NE0.201NN MCNN3NN MCNN1NN 1-NE0.301NN CHC1NN 1-NE0.10\n\n20\n\n20\n\n20\n\n100\n\n80\n\n80\n\n60\n\n60\n\nNN\n\nAccuracy (%)Distances computed (%)Nondominated\n\n0\n\nPS\n\n100\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad Funci´on de distancia k-NN Edici´on Condensado Importancia prototipos kNNc DT SVM",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 40
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "b4b8ea5355915349ac397adce55a081e",
+    "text": "ANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n46 / 123\n\nkNNc con 40 % ruido\n\n0\n\n0\n\n30\n\n90\n\nc=3\n\nc=2\n\n35\n\n7NN3 2-NE0.307NN3 MFCNN5NN2 2-NE0.205NN2 MFCNN3NN2 2-FN0.103NN2 2-NE0.101NN 2-NE0.201NN 2-FN0.105NN 2-NE0.10\n\n95\n\n80\n\n100\n\n85\n\n25\n\n40\n\n10\n\nPS\n\n15\n\n5\n\n75\n\n20\n\n20\n\n20\n\n80\n\n80\n\n60\n\n60\n\nNN\n\nAccuracy (%)Distances computed (%)Nondominated\n\n0\n\n40\n\n100\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n47 / 123\n\n´Indice\n\n1\n\nIntroducci´on\n\n2 Estilos de aprendizaje\n\nVecinos m´as cercanos ´Arboles de decisi´on (DT)\n\nM´aquina de vectores soporte (SVM)\n\n3 Redes Neuronales Artiﬁciales (ANN) 4 Validaci´on un modelo 5 Comparaci´on entre clasiﬁcadores 6 Respuestas a los ejercicios\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n48 / 123\n\n´Arboles de decisi´on (DT)\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n49 / 123\n\n´Arbol de decisi´on (DT)\n\nUn ´arbol de decisi´on (Decision Tree) es un diagrama jer´arquico cuyos nodos representan estados y sus ramas posibles decisiones. En general se construye a partir un conjunto de vectores de ca- racter´ısticas etiquetados. Cada nodo del ´arbol genera particiones de s´ı mismo formando el siguiente nivel, para ello se siguen ciertos criterios (decisiones) que minimizan alguna estimaci´on de error. Este proceso se aplica recursivamente a cada nodo hasta agotar los elementos o conseguir alcanzar el error deseado.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n50 / 123\n\nAlgoritmos\n\nAlgoritmos representativos b´asicos\n\nID3 y C4.5 son algoritmos presentados por Quinlan y recopilados en el libro (Quinlan, 2014).\n\nPodemos consultar m´as detalles en Wikipedia ID3 y C4.5. La intenci´on es tener una idea general y NO aprender los detalles de los algoritmos. Ejemplos en v´ıdeo:\n\nC´omo funcionan los ´arboles de decisi´on. Ejemplo ID3 paso a paso.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n51 / 123\n\nEvoluci´on de los ´arboles de decisi´on\n\nAlgoritmos avanzados\n\nDe todas formas, los ´arboles de decisi´on tienen una dependencia elevada de los datos, es decir, si realizamos unos pocos cambiamos en los datos originales los ´arboles resultantes son muy distintos.\n\nUna soluci´on es generar muchos ´arboles y calcular una soluci´on promedio como hace Random Forest (Breiman, 2001) o Rotation Forest Rodriguez et al. (2006).",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 46
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "9e0684639b461ecf83e30c756a76a265",
+    "text": "Existen tambi´en algoritmos recientes como XGB (eXtream Gradient Boosting) o LightGBM (Light Gradient Boosting Machine) que combinan de distinta forma t´ecnicas como el descenso por gradiente (al igual que las redes neuronales), la selecci´on aleatoria de muestras y atributos (ﬁlas y columnas), junto a reﬁnamientos sucesivos para generar un bosque de ´arboles de decisi´on.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n52 / 123\n\n´Indice\n\n1\n\nIntroducci´on\n\n2 Estilos de aprendizaje\n\nVecinos m´as cercanos ´Arboles de decisi´on (DT)\n\nM´aquina de vectores soporte (SVM)\n\n3 Redes Neuronales Artiﬁciales (ANN) 4 Validaci´on un modelo 5 Comparaci´on entre clasiﬁcadores 6 Respuestas a los ejercicios\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n53 / 123\n\nM´aquina de vectores soporte (SVM)\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n54 / 123\n\nM´aquina de Vectores Soporte (SVM)\n\nNormalmente esta t´ecnica se aplica a dos clases y consta de dos pasos: el primero consiste en trasladar los datos originales (n- dimensiones) donde no son separables linealmente, a otra dimen- si´on superior (incluso inﬁnita), donde s´ı lo son (kernel); el segundo, calcula un hiperplano lo m´as alejado posible de ambas clases. Est´a t´ecnica fue desarrollada inicialmente por Vladimir Vapnik (Cortes and Vapnik, 1995).\n\nVectores soporteVectores soporte\n\nEspacio destinoEspacio destino\n\nmargen\n\nEspacio origenEspacio origen\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje Vecindad DT SVM\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n55 / 123\n\nAlgoritmos\n\nKernel m´as usados:\n\nPolinomial: k((cid:126)xi , (cid:126)xj ) = ((cid:126)xi · (cid:126)xj )d Gaussian Radial Basis Function (RBF): k((cid:126)xi , (cid:126)xj ) = exp(−γ(cid:107)(cid:126)xi − (cid:126)xj (cid:107)2) donde γ > 0\n\nSeparaci´on ´optima:\n\nHard-margin: Mimizar (cid:107)w (cid:107) tal que yi ((cid:126)w · (cid:126)xi − b) ≥ 1 para i = 1, . . . , n Soft-margin: [ 1 n\n\n(cid:80)n\n\ni=1 m´ax(0, 1 − yi ((cid:126)w · (cid:126)xi − b))] + λ(cid:107)(cid:126)w (cid:107)\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n56 / 123\n\n3. Redes Neuronales Artiﬁciales (ANN)\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n57 / 123",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 51
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "f5fd8c190b509bdfb9c80f182d32eec7",
+    "text": "´Indice\n\n1\n\nIntroducci´on\n\n2 Estilos de aprendizaje\n\nVecinos m´as cercanos ´Arboles de decisi´on (DT)\n\nM´aquina de vectores soporte (SVM)\n\n3 Redes Neuronales Artiﬁciales (ANN) 4 Validaci´on un modelo 5 Comparaci´on entre clasiﬁcadores 6 Respuestas a los ejercicios\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n58 / 123\n\nRedes Neuronales Artiﬁciales (ANN)\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n59 / 123\n\nRedes Neuronales Artiﬁciales (ANN)\n\nConocidas por sus siglas en ingl´es (ANN) se inspiran en las redes neuronales de los seres vivos. Se usan generalmente en sistemas interconectados de neuronas (ca- pas). Las conexiones tienen unos pesos num´ericos que se ajustan con datos de entrenamiento.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n60 / 123\n\nC´elula biol´ogica vs artiﬁcial\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n61 / 123\n\nFunciones de activaci´on I\n\nTipos\n\nSigmoidea o log´ıstica: f (x) = 1 Tangente hiperb´olica: f (x) = tanh(x) = ex −e−x ex +e−x Rectiﬁed Linear Unit (relu): f (x) = max{0, x}\n\n1+e−x\n\n0.75\n\n4\n\n4\n\n4\n\n4\n\n4\n\n4\n\n4\n\n0\n\n0.75\n\n0\n\n0\n\n1\n\n0.0\n\nRELU\n\n3\n\n0\n\n0.2\n\n0.00\n\n0.8\n\n2\n\n1.00\n\n1.00\n\n1.0\n\n2\n\n2\n\n2\n\n2\n\n2\n\nSigmoidea\n\n2\n\n5\n\n0.4\n\n0.50\n\n0.50\n\n0.6\n\nTangente hiperbólica\n\n0.25\n\n0.25\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n62 / 123\n\nFunciones de activaci´on II\n\n¿Qu´e tienen de especial estas funciones?\n\n¿y cu´al es el papel cumplen?\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n63 / 123\n\nPerceptron multicapa\n\nModelo cl´asico\n\nCapa de entrada\n\nCapa oculta\n\nCapa de salida\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n64 / 123\n\nRedes recurrentes\n\nRecurrencia\n\n´Util para manejar secuencias temporales La salida de una o m´as neuronas en el instante t se utiliza como entrada de otras en el instante t + 1\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n65 / 123\n\nAlgoritmo de aprendizaje: retro-propagaci´on\n\nDescenso por gradiente\n\nDurante el entrenamiento tenemos pares (entrada, salida)\n\nSe calcula una funci´on de p´erdida para cada ejemplo Se calcula el gradiente de dicha funci´on\n\nEl gradiente nos dice hacia d´onde hay que mover la red para minimizar la p´erdida",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 57
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "454083fe75e97311758f1baae81da5d8",
+    "text": "El ajuste de pesos se propaga desde la salida hacia la entrada, ajustando los pesos en cada caso para minimizar la p´erdida en cada capa\n\nRequiere que las funciones de activaci´on sean, adem´as, diferenciables\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n66 / 123\n\nAprendizaje profundo\n\nEn oposici´on a las redes cl´asicas, el Aprendizaje Profundo (Deep Learning) propone redes neuronales con una mayor profundidad. Una red se considera profunda si contiene 3 ´o m´as capas ocultas.\n\nDatosResultados\n\nAlgoritmos clásicosRedes grandesRedes medianasRedes pequeñas\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n67 / 123\n\nFundamentos del Deep Learning\n\nNeuronas no-convencionales\n\nExplosi´on deﬁnitiva en 2012 Crecimiento apoyado en\n\nInicializaci´on inteligente Mayor capacidad de c´omputo Uso eﬁciente de GPUs Cantidad de datos disponible\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n68 / 123\n\nFundamentos del Deep Learning\n\nElementos clave\n\nRedes convolucionales\n\nRedes recurrentes con LSTM\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n69 / 123\n\nFuncionamiento\n\nRedes Convolucionales\n\nPropuestas (inicialmente) para trabajar con im´agenes\n\nUtilizan una o m´as capas convolucionales\n\nLas capas convolucionales sustituyen los pesos de entrada por ﬁltros de convoluci´on\n\nEl mismo ﬁltro se utiliza a lo largo de toda la entrada\n\nV´ıdeo explicativo Convolutional Neural Networks - The Math of Intelligence (Siraj Raval)\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n70 / 123\n\nFuncionamiento\n\nLong Short-Term Memory (LSTM)\n\nLSTM es una neurona con una peque˜na memoria\n\nPermite a una red recurrente aprender dependencias a largo plazo\n\nLos nodos LSTM son entrenados para saber cu´ando deben mantener cierta informaci´on, cu´ando deben suministrarla para la clasiﬁcaci´on y cu´ando deben sustituirla por otra\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n71 / 123\n\nImpacto\n\nGoogle\n\nGoogle es uno de los principales promotores del Deep Learning\n\nCada vez m´as usado en sus desarrollos\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n72 / 123\n\nImpacto\n\nReconocimiento del habla\n\nPermiti´o superar el estancamiento en el campo",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 65
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "d8370c46c679a784ada9f9b775cbf63d",
+    "text": "?\n\n¿c´omo se pueden codiﬁcar palabras como vectores de entrada?\n\nImpacto\n\nML\n\nIntroducci´on\n\nProcesamiento del lenguaje natural\n\nEstilos de aprendizaje\n\nRedes recurrentes para aprender word embeddings\n\nANN\n\nCada palabra del vocabulario es representada por un vector en un espacio n-dimensional\n\nValidaci´on\n\nComparaci´on\n\nEjemplo de representaciones 2D\n\nResp. ejerc.\n\nReferencias\n\n73 / 123\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n73 / 123\n\nImpacto\n\nProcesamiento del lenguaje natural\n\nRedes recurrentes para aprender word embeddings\n\nCada palabra del vocabulario es representada por un vector en un espacio n-dimensional\n\nEjemplo de representaciones 2D\n\n?\n\n¿c´omo se pueden codiﬁcar palabras como vectores de entrada?\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n74 / 123\n\nImpacto\n\nUso extendido a todo tipo de tareas en inteligencia artiﬁcial\n\nReconocimiento y detecci´on de objetos en im´agenes o v´ıdeos\n\nTranscripci´on de documentos\n\nBiometr´ıa\n\nTraducci´on autom´atica\n\nRecomendaci´on musical\n\nQuestion answering / Image captioning\n\nGran modelo de lenguaje o LLM (Large Language Model)\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n75 / 123\n\nRedes Convolucionales\n\nLas redes convolucionales (Convolutional Neural Networks, CNN) son redes que incluyen capas convolucionales. Las neuronas son sustituidas por ﬁltros convolucionales cuyos pesos se aprenden du- rante el entrenamiento de la red.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n76 / 123\n\nRedes Convolucionales\n\nFundamentos\n\nInicialmente pensadas para recibir im´agenes como entrada\n\nNo resulta ´util desarrollar capas cl´asicas para im´agenes de entrada de tama˜no relativamente grande Capas o bloques convolucionales\n\nCompartir pesos Aprovechar la correlaci´on espacial Aprender una jerarqu´ıa de ﬁltros\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n77 / 123\n\nRedes Convolucionales\n\nCapas convolucionales Constan de tres pasos\n\nConvoluci´on\n\nActivaci´on\n\nVotaci´on\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n78 / 123\n\nRedes Convolucionales\n\nConvoluci´on\n\nProducto escalar entre la ventana de la imagen y el ﬁltro\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 73
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "247602e82ae7d6096d298438dc374584",
+    "text": "Resp. ejerc.\n\nReferencias\n\n79 / 123\n\nRedes Convolucionales\n\nConvoluci´on\n\nHiper-par´ametros\n\nProfundidad Tama˜no de los ﬁltros Solapamiento\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n80 / 123\n\nRedes Convolucionales\n\nVotaci´on\n\nCombinar activaciones como ´unica entrada para la siguiente capa Diferentes formas de implementar\n\nVotaci´on promedio (average pooling) Votaci´on m´axima (max pooling)\n\n?\n\n¿para qu´e sirve esta etapa? ¿qu´e beneﬁcios tiene?\n\nRedes Convolucionales\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n81 / 123\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n81 / 123\n\nRedes Convolucionales\n\n?\n\n¿para qu´e sirve esta etapa? ¿qu´e beneﬁcios tiene?\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n82 / 123\n\nRedes Convolucionales\n\nJerarqu´ıa de caracter´ısticas\n\nCada capa detecta un nivel de abstracci´on diferente\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n83 / 123\n\nRedes Convolucionales\n\nJerarqu´ıa de caracter´ısticas\n\nLa red no s´olo aprende a clasiﬁcar la imagen sino a extraer una buena representaci´on interna de la misma\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n84 / 123\n\nRedes Convolucionales\n\nArquitecturas famosas\n\nLeNet (1989)\n\nPrimera red convolucional en ser entrenada\n\nAlexNet (2012)\n\nInicio de la era del Deep Learning\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n85 / 123\n\nRedes Convolucionales: LeNet\n\nClasiﬁcaci´on de d´ıgitos en im´agenes de 32 × 32\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n86 / 123\n\nRedes Convolucionales: LeNet\n\nPoder de representaci´on [DEMOS]\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n87 / 123\n\nRedes Convolucionales: AlexNet\n\nRevoluci´on en la comunidad de visi´on artiﬁcial Reducci´on de un 50 % de error en reconocimiento de objetos Introducci´on de activaci´on ReLU, aumentado de datos y dropout\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n88 / 123\n\nRedes Convolucionales: AlexNet\n\nEjemplo de 96 primeros ﬁltros aprendidos por la red\n\n?\n\n¿qu´e beneﬁcios tiene el dropout?",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 80
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "036a3b2b1d0e526251c239a9a8fe2562",
+    "text": "Redes Convolucionales: AlexNet\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nDropout\n\nDurante el entrenamiento, algunas neuronas son desactivadas al azar\n\nANN\n\nValidaci´on\n\nEn AlexNet el dropout se aplica al 50 % en las 2 ´ultimas capas\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n89 / 123\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n89 / 123\n\nRedes Convolucionales: AlexNet\n\nDropout\n\nDurante el entrenamiento, algunas neuronas son desactivadas al azar\n\nEn AlexNet el dropout se aplica al 50 % en las 2 ´ultimas capas\n\n?\n\n¿qu´e beneﬁcios tiene el dropout?\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n90 / 123\n\nRedes Convolucionales: otras arquitecturas\n\nGoogleNet: aprendizaje muy profundo de objetos [Topolog´ıa]\n\nConvNet para recomendaci´on musical (Spotify) [Topolog´ıa]\n\nRedes residuales [Explicaci´on]\n\nFully Convolutional Networks [Explicaci´on]\n\nDeep Convolutional GAN [Explicaci´on]\n\nNLP: GPT 3 (OpenAI) [Explicaci´on]\n\nNLP: ChatGPT (OpenAI) [Explicaci´on]\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n91 / 123\n\nAlgunos resultados interesantes I\n\nLas redes neuronales actuales no solo clasiﬁcan o predicen un valor;\n\nLos vectores de las ´ultimas capas representan la informaci´on de una entrada de forma estructurada y compacta que se puede usar como nuevas caracter´ısticas para combinarlas con otros algoritmos;\n\nLos grandes modelos de lenguaje est´an en plena exploraci´on y se van averiguando nuevas caracter´ısticas para crear aplicaciones innovadoras.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n92 / 123\n\nEjemplo 1. I\n\nClustering-based k-Nearest Neighbor Classiﬁcation for Large-Scale Data with Neural Codes Representation (Gallego et al., 2018)\n\nkNN\n\nMuestras inicialesAprupamientos ckNNAprupamientos ext. ckNN+\n\nsample\n\naugmentationCluster\n\ndataTest\n\nDNNTraining\n\nClusteringCluster\n\nselection\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n93 / 123\n\nEjemplo 1. II\n\n100\n\n85\n\n90\n\nFSS\n\n40\n\n75\n\n20\n\n95\n\n70\n\nF1 (%)Reduced size (%)Non-dominated\n\nASS\n\n80\n\n80\n\nDR\n\n60\n\n100\n\n0\n\nckNN+\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n94 / 123\n\nEjemplo 2. I\n\nInsights into eﬃcient k-Nearest Neighbor classiﬁcation with Convolutional Neural Codes (Gallego et al., 2020).",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 91
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "5e54eab0fa029dc93f257d6b67cca168",
+    "text": "NCdataset2. NC extractionNC querykNN method3. Fit kNN method4. Inference stage\n\ntrainingdatasetquery1. Training stagepredictionCNN\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n95 / 123\n\nEjemplo 2. II\n\nckNN 512 (k=7;c=500)\n\n0\n\n1\n\nKDTree 512 (k=3;leaf=10)\n\n4096\n\n88\n\n512\n\nIRB 8 (k=3;c=1;r=0.1)\n\n10\n\n16\n\n1-NE 8 (k=5;c=1;r=0.1)\n\nNC\n\n2\n\n4\n\n32\n\n1024\n\nFm\n\n5\n\n5\n\n84\n\n86\n\n8\n\n128\n\nCost\n\nckNN 128 (k=3;c=auto)\n\nckNN 512 (k=3;c=auto)\n\n256\n\n2048\n\n64\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n96 / 123\n\nEjemplo 3. I\n\nA Multimodal Approach for Regional GDP Prediction using Social Media Activity and Historical Information Ortega-Bastida et al. (2021).\n\nFilter outliers\n\nGDP\n\nPreprocessEncoderDecoder (only for train)\n\nGDP sequence\n\nRegressor\n\nLSTM\n\nEmbedding\n\nTweetsPrediction\n\nDense\n\nSTEP 4STEP 5STEP 6\n\nConcat1st stage2nd stage(only for train)STEP 1STEP 2STEP 3\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n97 / 123\n\nEjemplo 3. II\n\n2\n\n6\n\n6\n\n2 Predicted GDPAndalusia\n\n1 Predicted GDPMadrid\n\n3\n\n4\n\n4\n\n4\n\n4\n\n2 Predicted GDPMurcia\n\n2 Predicted GDPValenciaInter-annual growth rate\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n98 / 123\n\nRedes neuronales artiﬁciales\n\nConsideraciones ﬁnales:\n\nLa teor´ıa subyacente no est´a totalmente comprendida;\n\nLas redes tambi´en sirven para el aprendizaje de caracter´ısticas;\n\nSe busca c´omo usar el aprendizaje por transferencia\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n99 / 123\n\nEntornos para su programaci´on\n\nPodemos distinguir niveles seg´un su facilidad de uso (V´ıdeo):\n\nNivel 0: Programaci´on desde cero; Nivel 1: Bibliotecas para el uso de tensores; Nivel 2: Modelado de redes neuronales con capas, conexiones, optimizadores, etc.; Nivel 3: Invocaci´on de redes neuronales con pocos par´ametros (habitualmente perceptrones multicapa - MLP).\n\nExisten muchos entornos para desarrollo con soporte para GPU: TensorFlow (tf.keras), PyTorch, MxNet y Caﬀe, entre otros.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n100 / 123\n\nKeras\n\nKeras era una biblioteca minimalista, altamente modular, pensada para facilitar la experimentaci´on con redes neuronales. Estaba im- plementada en Python y consist´ıa en una capa de abstracci´on que se ejecutaba sobre librer´ıas del bajo nivel de Deep Learning co- mo TensorFlow (Google), CNTK (Microsoft) o Theano (Universit´e de Montr´eal). Fue absorbido en 2019 por TensorFlow (Google) y conserva sus caracter´ısticas principales. Habitualmente se le conoce como tf.keras.",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 97
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "ac184e15a474eebfe36f3674a329f3e8",
+    "text": "ML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n101 / 123\n\ntf.keras\n\nCaracter´ısticas\n\nDesarrollo sencillo y r´apido;\n\nRedes convolucionales y/o recurrentes;\n\nTransparente ante ejecuci´on en CPU o GPU;\n\nBien documentada\n\nIntegrado completamente en el ecosistema de TF 2.x (depuradores, servidores, m´oviles, API, etc.)\n\nTres estilos de programaci´on: secuencial (f´acil), funcional (medio) y subclases (avanzado).\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n102 / 123\n\nAmpliar informaci´on sobre Deep Learning\n\nReferencias clave\n\nDeepLearning.net\n\nArt´ıculo introductorio en Nature: Yann LeCun, Yoshua Bengio, and Geoﬀrey Hinton. “Deep learning” Nature 521.7553 (2015): pp. 436-444\n\nDeep Learning Book (PDF, HTML) (Goodfellow et al., 2016)\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n103 / 123\n\n4. Validaci´on un modelo\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n104 / 123\n\n´Indice\n\n1\n\nIntroducci´on\n\n2 Estilos de aprendizaje\n\nVecinos m´as cercanos ´Arboles de decisi´on (DT)\n\nM´aquina de vectores soporte (SVM)\n\n3 Redes Neuronales Artiﬁciales (ANN) 4 Validaci´on un modelo 5 Comparaci´on entre clasiﬁcadores 6 Respuestas a los ejercicios\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n105 / 123\n\nValidaci´on cruzada\n\nLa validaci´on cruzada (cross-validation) es una t´ecnica utilizada para evaluar los resultados de un an´alisis estad´ıstico y garantizar que son independientes de la partici´on elegida (entrenamiento o prueba).\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n106 / 123\n\nCaracter´ısticas\n\nConsiste calcular la media aritm´etica obtenida de las medidas de evaluaci´on sobre diferentes particiones.\n\nSe utiliza en entornos donde el objetivo principal es la predicci´on y se quiere estimar c´omo de preciso es un modelo que se llevar´a a cabo a la pr´actica.\n\nEs una t´ecnica muy utilizada en proyectos de inteligencia artiﬁcial para validar modelos.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n107 / 123\n\nEjemplo: 10 cross-validation\n\nEn la actualidad el esquema de 10-CV es el m´as utilizado.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 104
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "b774c92f6994b03ab8bf357bc15694b5",
+    "text": "108 / 123\n\nCaso particular: Dejar uno fuera\n\nLa validaci´on cruzada, dejar uno fuera o (leave-one-out) consiste en separar los datos (N) de forma que tenemos 1 para test y N − 1 para entrenamiento.\n\nSe pueden realizar hasta N iteraciones.\n\nEl error cometido en la evaluaci´on es muy bajo, a cambio de un alto coste computacional.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n109 / 123\n\n5. Comparaci´on entre clasiﬁcadores\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n110 / 123\n\n´Indice\n\n1\n\nIntroducci´on\n\n2 Estilos de aprendizaje\n\nVecinos m´as cercanos ´Arboles de decisi´on (DT)\n\nM´aquina de vectores soporte (SVM)\n\n3 Redes Neuronales Artiﬁciales (ANN) 4 Validaci´on un modelo 5 Comparaci´on entre clasiﬁcadores 6 Respuestas a los ejercicios\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n111 / 123\n\nComparaci´on entre varios clasiﬁcadores\n\nLa comparaci´on entre la tasa de aciertos de varios clasiﬁcadores obedece a la necesidad de garantizar con una determinada conﬁanza que los resultados de un clasiﬁcador son signiﬁcativamente mejores que las de otro u otros.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n112 / 123\n\nHip´otesis nula\n\nLa hip´otesis nula es una declaraci´on de ausencia de efecto o de ninguna diferencia. Se espera que los resultados sean rechazados por el experimentador.\n\nEjemplo de dos distribuciones normales\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n113 / 123\n\nNivel de conﬁanza α\n\nSe trata de un umbral de conﬁanza que nos informa de si debe o no rechazarse la hip´otesis nula.\n\nDebe ser determinado por el experimentador y sus valores usuales son: 90 % (0,1), 95 % (0,05) que es la m´as utilizado por lo general y tambi´en 99 % (0,01).\n\nSi se decide un nivel de conﬁanza de 0,05 (95 % de certeza), necesitamos un valor de p (dato proporcionado por la prueba) menor que 0,05 para que se pueda rechazar la hip´otesis nula. Es decir, s´ı que hay diferencia signiﬁcativa entre los resultados.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n114 / 123\n\nTests estad´ısticos\n\nParam´etricos vs. no param´etricos: Los primeros necesitan como base la distribuci´on estad´ıstica con sus par´ametros; los segundos solo contrastan resultados.",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 111
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "fc90f6836ebe08d00037d707fc9aec1f",
+    "text": "no variables\n\n2\n\n> 2\n\nParam´etrico\n\nt-test\n\nANOVA\n\nNo param´etrico Wilcoxon test Sign test Friedman test, Iman-Davenport\n\nTurkey, Dunnet Holm, Hochberg, Bonferroni-Dunn..\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n115 / 123\n\nM´as sobre tests estad´ısticos\n\nDiapositivas con informaci´on m´as detallada sobre an´alisis estad´ıstico de resultados\n\nStatistical Analysis of Experiments .\n\nUna forma de calcular los test estad´ısticos es usar Google Colab)\n\nel test de Wilcoxon (ej. con\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n116 / 123\n\n6. Respuestas a los ejercicios\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n117 / 123\n\n´Indice\n\n1\n\nIntroducci´on\n\n2 Estilos de aprendizaje\n\nVecinos m´as cercanos ´Arboles de decisi´on (DT)\n\nM´aquina de vectores soporte (SVM)\n\n3 Redes Neuronales Artiﬁciales (ANN) 4 Validaci´on un modelo 5 Comparaci´on entre clasiﬁcadores 6 Respuestas a los ejercicios\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n118 / 123\n\nRespuesta\n\nEjercicio 1 El algoritmo implementado en Java, entre otros lenguajes, lo encontramos en Wikipedia. Suponiendo que los costes de las operaciones b´asicos son:\n\ninserci´on = 1 (cadena 1);\n\nborrado = 1 (cadena 2);\n\nsustituci´on(x,y) = (x==y) ? 0 : 1;\n\nd(“ab(cid:48)(cid:48), “aab(cid:48)(cid:48)) = b(a) + s(a, a) + s(b, b) = 1 + 0 + 0 = 1\n\nd(“aabcc (cid:48)(cid:48), “ccbaa(cid:48)(cid:48)) = s(a, c) + s(a, c) + s(b, b) + s(c, a) + (c, a) = 1 + 1 + 0 + 1 + 1 = 4\n\n(cid:34)\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n119 / 123\n\nReferencias I\n\nBreiman, L. (2001). Random forests. Machine learning, 45(1):5–32.\n\nCalvo-Zaragoza, J., Valero-Mas, J. J., and Rico-Juan, J. R. (2015). Improving knn multi-label classiﬁcation in prototype selection scenarios using class proposals. Pattern Recognition, 48(5):1608–1622.\n\nCortes, C. and Vapnik, V. (1995). Support-vector networks. Machine learning, 20(3):273–297.\n\nCover, T. and Hart, P. (1967). Nearest Neighbor Pattern Classiﬁcation. IEEE Transactions on\n\nInformation Theory, IT-13:21–27.\n\nCraw, S. (2010). Manhattan Distance. In Sammut, C. and Webb, G. I., editors, Encyclopedia of\n\nMachine Learning, page 639. Springer.\n\nGallego, A. J., Calvo-Zaragoza, J., and Rico-Juan, J. R. (2020). Insights into eﬃcient k-nearest",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 117
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "3d6e480b8b38e8a4de70ab043706dae5",
+    "text": "neighbor classiﬁcation with convolutional neural codes. IEEE Access, 8:99312–99326.\n\nGallego, A. J., Calvo-Zaragoza, J., Valero-Mas, J. J., and Rico-Juan, J. R. (2018).\n\nClustering-based k-nearest neighbor classiﬁcation for large-scale data with neural codes representation. Pattern Recognition, 74(1):531–543.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n120 / 123\n\nReferencias II\n\nGoodfellow, I., Bengio, Y., and Courville, A. (2016). Deep learning. Book in preparation for MIT\n\nPress.\n\nGupta, L., Molfese, D., Tammana, R., and Simos, P. (1996). Nonlinear alignment and averaging\n\nfor estimating the evoked potential. IEEE Transactions on Biomedical Engineering, 43(4):348 – 356.\n\nHart, P. (1968). The condensed nearest neighbor rule. IEEE Transactions on Information Theory,\n\n14(3):515–516.\n\nKubicka, E., Kubicki, G., and Vakalis, I. (1990). Using graph distance in object recognition. In\n\nProceedings of the 1990 ACM annual conference on Cooperation, CSC ’90, pages 43–48, New York, NY, USA. ACM.\n\nMic´o, L., Oncina, J., and Carrasco, R. C. (1996). A fast branch & bound nearest neighbour\n\nclassiﬁer in metric spaces. Pattern Recognition Letters, 17(7):731–739.\n\nMic´o, L., Oncina, J., and Vidal, E. (1994). A new version of the nearest-neighbour approximating\n\nand eliminating search algorithm (AESA) with linear preprocessing time and memory requirements. Pattern Recognition Letters, 15(1):9–17.\n\nMitchell, T. (1997). Machine Learning. McGraw-Hill, New York.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n121 / 123\n\nReferencias III\n\nOrtega-Bastida, J., Gallego, A. J., Rico-Juan, J. R., and Albarr´an, P. (2021). A multimodal\n\napproach for regional gdp prediction using social media activity and historical information. Applied Soft Computing, 111:107693.\n\nQuinlan, J. R. (2014). C4. 5: programs for machine learning. Elsevier.\n\nRico-Juan, J. R. and I˜nesta, J. M. (2012). New rank methods for reducing the size of the training\n\nset using the nearest neighbor rule. Pattern Recognition Letters, 33(5):654–660.\n\nRodriguez, J. J., Kuncheva, L. I., and Alonso, C. J. (2006). Rotation forest: A new classiﬁer ensemble method. Pattern Analysis and Machine Intelligence, IEEE Transactions on, 28(10):1619–1630.\n\nSilverman, B. W. and Jones, M. C. (1989). E. Fix and J.L. Hodges (1951): An Important\n\nContribution to Nonparametric Discriminant Analysis and Density Estimation: Commentary on Fix and Hodges (1951). International Statistical Review / Revue Internationale de Statistique, 57(3):233–238.",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 122
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "7c908fccf2f264d9e85e9b57e088140c",
+    "text": "Vidal, E. (1986). An algorithm for ﬁnding nearest neighbours in (approximately) constant average\n\ntime. Pattern Recognition Letters, 4:145–157.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n122 / 123\n\nReferencias IV\n\nWagner, R. and Fischer, M. (1974). The String-to-String Correction Problem. Journal of the\n\nACM, 21(1):168–173.\n\nWilson, D. (1972). Asymptotic properties of nearest neighbor rules using edited data. IEEE\n\nTransactions on Systems, Man and Cybernetics, 2(3):408–421.\n\nZhang, K. and Shasha, D. (1989). Simple Fast Algorithms for the Editing Distance Between Trees\n\nand Related Problems. SIAM J. Comput., 18(6):1245–1262.\n\nML\n\nIntroducci´on\n\nEstilos de aprendizaje\n\nANN\n\nValidaci´on\n\nComparaci´on\n\nResp. ejerc.\n\nReferencias\n\n123 / 123\n\nTema 3: Aprendizaje autom´atico (Machine Learning)\n\nProfesor: Juan R. Rico\n\nDesaf´ıos de programaci´on\n\nDpto. Lenguajes y Sistemas Inform´aticos. Universidad de Alicante\n\nVersi´on 1.1",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/53662d5d-fc7c-401e-ae01-e83932e0bbec\\3-ML.pdf",
+        "date_created": "2024-04-19 11:52:57.144109",
+        "date_modified": "2024-04-19 11:52:57.148112",
+        "date_processed": "2024-04-19T09:53:02.515179",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\53662d5d-fc7c-401e-ae01-e83932e0bbec",
+      "filename": "3-ML.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:52:57",
+      "page_number": 124
+    }
+  }
+]

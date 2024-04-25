@@ -26,7 +26,7 @@ def run_embedding_pipeline(input_path, output_dir, collection_name="chatbot_docu
             ),
             connector_config=SimpleLocalConfig(input_path=input_path),
             read_config=ReadConfig(),
-            partition_config=PartitionConfig(),
+            partition_config=PartitionConfig(strategy="fast"),
             chunking_config=ChunkingConfig(chunking_strategy="basic", max_characters=5000, new_after_n_chars=2500),#chunking_strategy="basic", max_characters=5000, new_after_n_chars=0),
             #writer=writer,
             #writer_kwargs={},
@@ -94,7 +94,8 @@ def load_and_store(output_dir, embeddings_model: EmbeddingsModel = None, collect
 
 if __name__ == '__main__':
     # Test
-    model = EmbeddingsModel("hackathon-pln-es/paraphrase-spanish-distilroberta")
-    load_and_store("assistants/7799b537-312e-41dc-807a-2aaba4204528/local-output", model, collection_name="7799b537-312e-41dc-807a-2aaba4204528")
+    model = EmbeddingsModel("http://localhost:8001")
+    run_embedding_pipeline("assistants/b98c9599-24a4-4b09-87f2-84ecfd1b3ab8", "assistants/b98c9599-24a4-4b09-87f2-84ecfd1b3ab8/local-output")
+    load_and_store("assistants/b98c9599-24a4-4b09-87f2-84ecfd1b3ab8/local-output", model, collection_name="7799b537-312e-41dc-807a-2aaba4204528")
     #load_and_store("local-output-to-chatbot_documents", model)
     

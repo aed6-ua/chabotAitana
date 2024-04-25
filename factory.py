@@ -1,8 +1,8 @@
 from assistant import Assistant
 from model import LocalGenerationModel, TestModel, OpenAIGenerationModel, EmbeddingsModel
-from retrieval import SimpleRetriever, LlamaIndexRetriever, ChromaDBRetriever
-from LlamaindexAssistant import LlamaindexAssistant
-from index import IndexManager
+from retrieval import SimpleRetriever, ChromaDBRetriever
+#from LlamaindexAssistant import LlamaindexAssistant
+#from index import IndexManager
 import json
 
 
@@ -39,7 +39,7 @@ def create_retrieval_tool(config, embeddings_model=None, retrieval_type=None, co
     if retrieval_type == "SimpleRetriever":
         return SimpleRetriever(model=embeddings_model, filename=config_retrieval["filename"], top_k=config_retrieval["top_k"])
     elif retrieval_type == "LlamaIndexRetriever":
-        return LlamaIndexRetriever(IndexManager(config_retrieval["index_path"]).load_index())
+        return None#LlamaIndexRetriever(IndexManager(config_retrieval["index_path"]).load_index())
     elif retrieval_type == "ChromaDBRetriever":
         return ChromaDBRetriever(model=embeddings_model, collection_name=collection_name)
     else:

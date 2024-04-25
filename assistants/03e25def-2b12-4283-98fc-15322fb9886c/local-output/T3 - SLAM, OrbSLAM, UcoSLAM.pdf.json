@@ -1,0 +1,132 @@
+[
+  {
+    "type": "CompositeElement",
+    "element_id": "0f7c1bb0c69070e23b37b0868ceb96fa",
+    "text": "T3 – SLAM, OrbSLAM, UcoSLAM\n\nVisión Artificial y Robótica\n\nÍndice\n\nIntroducción • SLAM • SLAM Visual • ORB-SLAM • UcoSLAM\n\nIntroducción\n\nRecordando… - Localización: Estimación de la localización (posición y rotación)\n\ndel robot\n\nMapeado: Construcción de un mapa del entorno\n\n¿Qué pasa cuando no tenemos ninguno de los dos elementos? No sabemos la posición del robot y tampoco tenemos el mapa.\n\n¿Qué hacemos?\n\nSLAM ¿Qué es y qué nos permite?\n\nSLAM: Simultaneous Localization and Mapping • Nos permite construir un mapa y localizar el robot de\n\nforma simultánea\n\nSe considera un problema fundamental para los robots verdaderamente autónomos. SLAM es la base para la mayoría de los sistemas de navegación.\n\nSLAM Aplicaciones\n\nSLAM\n\nDificultad del problema → Se necesita una estimación de la pose para hacer el mapeo → Una estimación de la pose es necesaria para el mapeo\n\nSLAM Definición del problema\n\n¿Qué tenemos?\n\nSeñales de control del robot u odometría\n\nMediciones del sensor (observaciones)\n\n¿Qué queremos?\n\nMapa del entorno\n\n𝑚 = 𝑚1, 𝑚21 … , 𝑚𝑇\n\nLocalizaciones del robot (estimación de posición)\n\nSLAM Definición del problema\n\nMapa (Desconocido)\n\nEstados del robot (Desconocido)\n\nObservaciones y control (Conocido)\n\nSLAM\n\nFull SLAM Estima la localización y el mapa completos\n\nSLAM\n\nOnline SLAM Estima la localización y el mapa más recientes basado en el estado anterior\n\nSLAM El mapa y las estimaciones de la pose están correlacionados. Las correlaciones aumentan con cada observación. Por tanto, la precisión del robot en la construcción del mapa relativo del entorno aumenta a medida que se realizan más observaciones.\n\nSLAM Asociación de los datos\n\nIncertidumbre en la posición del robot\n\nElegir asociaciones de datos incorrectas puede tener consecuencias catastróficas (divergencia).\n\nSLAM\n\nDiferentes soluciones al problema:\n\nExtended Kalman Filter\n\nFiltro de Partículas (FastSLAM)\n\nGrafos\n\nSLAM Visual\n\nORB-SLAM\n\nUcoSLAM\n\nORB-SLAM\n\nORB-SLAM\n\nUtiliza características basadas en puntos visuales para la construcción de mapas y la localización simultánea.\n\nCaracterísticas Visuales (ORB: Oriented FAST and Rotated BRIEF): ORB-SLAM utiliza un detector de características visuales llamado FAST (Features from Accelerated Segment Test) y un descriptor llamado BRIEF (Binary Robust Independent Elementary Features). Estos se utilizan para identificar puntos de interés en las imágenes y describir sus características de manera eficiente en términos de velocidad de procesamiento y uso de memoria.\n\nORB (Oriented FAST and Rotated BRIEF) Es resistente a la rotación y al ruido, lo que lo hace adecuado para aplicaciones que requieren un rendimiento rápido y robusto en presencia de cambios de orientación y condiciones adversas de imagen.",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/03e25def-2b12-4283-98fc-15322fb9886c\\T3 - SLAM, OrbSLAM, UcoSLAM.pdf",
+        "date_created": "2024-04-19 11:22:54.930063",
+        "date_modified": "2024-04-19 11:22:54.932065",
+        "date_processed": "2024-04-19T09:23:00.399398",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\03e25def-2b12-4283-98fc-15322fb9886c",
+      "filename": "T3 - SLAM, OrbSLAM, UcoSLAM.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:22:54",
+      "page_number": 1
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "5339bbd60373ec25725501ca58ab4223",
+    "text": "ORB-SLAM\n\nConfiguraciones: Es capaz de trabajar con diferentes configuraciones de cámaras, como cámaras monoculares, cámaras estéreo (dos cámaras) o cámaras RGB-D (que proporcionan información de profundidad además de información de color), utilizando modelos de lentes de agujero estenopeico (pin-hole) y ojo de pez (fisheye).\n\nRobustez y Eficiencia: ORB-SLAM se ha diseñado para ser robusto y eficiente en términos de velocidad y recursos computacionales. Esto lo hace adecuado para aplicaciones en tiempo real en entornos donde los recursos pueden ser limitados.\n\nImplementaciones: A lo largo del tiempo, han surgido diferentes versiones de ORB-SLAM, como ORB-SLAM2 y ORB-SLAM3, que ha mejorado y extendido la funcionalidad del sistema original.\n\nORB-SLAM2 KeyFrame\n\nLos enfoques basados en keyframes estiman el mapa utilizando solo frames seleccionados (keyframes), a diferencia de otros métodos que procesan todos los frames consecutivos.\n\nEsta característica permite realizar optimizaciones más costosas pero precisas, ya que el mapeo no está vinculado a la velocidad de fotogramas, de forma que se obtiene menos acumulación de error.\n\nORB-SLAM2 KeyFrame\n\nCada keyframe almacena: • La pose de la cámara, que es una transformación rígida que lleva los\n\npuntos del sistema de coordenadas mundial al sistema de coordenadas de la cámara.\n\nLos parámetros intrínsecos de la cámara, incluyendo la longitud focal y el punto principal.\n\nTodas las características ORB extraídas en el fotograma, asociadas o no a un punto del mapa, cuyas coordenadas están sin distorsiones si se proporciona un modelo de distorsión.\n\nORB-SLAM2 Sistema\n\nORB-SLAM2 Preprocesamiento de la entrada\n\nSe preprocesa la entrada para extraer características en ubicaciones claves (keypoints).\n\nLas imágenes de entrada luego se descartan y todas las operaciones del estas basan sistema características, de modo que el sistema es independiente del tipo de sensor, ya sea estéreo o RGB-D.\n\nse\n\nen\n\nEl monoculares clasifican cercanos o lejanos.\n\nsistema maneja\n\nkeypoints y estéreo, que se como\n\nadicionalmente\n\nORB-SLAM2 Localización (a corto plazo)\n\nEstimación de pose inicial:\n\nSi el seguimiento está bien: se realiza una búsqueda guiada con un modelo de velocidad constante.\n\nSi el seguimiento es aproximado: se realiza una búsqueda más amplia alrededor de las posiciones del frame anterior.\n\nSi se pierde el seguimiento: se realiza una relocalización global para un seguimiento a largo plazo.\n\nSeguimiento del mapa local:\n\nSe proyecta el mapa local y se busca más correspondencias. • Se utiliza el algoritmo de optimización Bundle Adjustment y se realiza un ajuste solo en movimiento (posición de la cámara) para refinar las estimaciones. (Motion-only bundle adjustment)",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/03e25def-2b12-4283-98fc-15322fb9886c\\T3 - SLAM, OrbSLAM, UcoSLAM.pdf",
+        "date_created": "2024-04-19 11:22:54.930063",
+        "date_modified": "2024-04-19 11:22:54.932065",
+        "date_processed": "2024-04-19T09:23:00.399398",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\03e25def-2b12-4283-98fc-15322fb9886c",
+      "filename": "T3 - SLAM, OrbSLAM, UcoSLAM.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:22:54",
+      "page_number": 17
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "e87a8399f1829f0880b5293d2f631160",
+    "text": "ORB-SLAM2 Localización (a corto plazo)\n\nDecisión de nuevo KeyFrame: Insertar keyframe con frecuencia (y eliminar los redundantes posteriormente) para hacer el seguimiento más robusto a las rotaciones. Si se cumple alguna de las siguientes condiciones se selecciona un nuevo keyframe:\n\nMás de 20 frames desde la última relocalización global. • El mapeo local está inactivo, o más de 20 frames desde la última inserción de keypoint.\n\nEl frame actual sigue menos del 90% que el keyframe de referencia. • El número de keypoints cercanos seguidos cae por debajo de un valor 𝜏𝑡 y el frame podría crear al menos 𝜏𝑐 nuevos puntos estéreo cercanos.\n\nORB-SLAM3\n\nEjemplo: Los puntos verdes tienen una profundidad menor a 40 veces la línea de base estéreo, mientras que los puntos azules están más lejos. En este tipo de secuencias, es importante insertar keyframes con suficiente frecuencia para que la cantidad de keypoints cercanos permita una estimación precisa de la traslación. Los puntos lejanos contribuyen a la estimación de la orientación, pero proporcionan información débil para la traslación y la escala.\n\nORB-SLAM2 Mapeado\n\nInserción de fotogramas clave: • Añadir al grafo de co-visibilidad y al árbol de expansión.\n\nEliminación reciente de puntos del mapa: • Eliminar puntos defectuosos durante los primeros tres\n\nfotogramas clave después de su creación.\n\nCreación de nuevos puntos del mapa: • Triangular puntos ORB desde keyframes conectados.\n\nORB-SLAM2 Mapeado\n\nAjuste local (Local bundle adjustment): • Optimizar el keyframe actual, todos los keyframes\n\nconectados y todos los keypoints vistos.\n\nTodos los demás keyframes permanecen fijos.\n\nEliminación local de fotogramas clave: • Detectar y eliminar fotogramas clave redundantes.\n\nORB-SLAM2 Cierre de ciclo y Bundle Adjustment Completo (Full BA)\n\nSe optimizan todos los fotogramas clave y puntos en el mapa, excepto el fotograma clave de origen que se mantiene fijo para eliminar la libertad de referencia.\n\nORB-SLAM2 Cierre de ciclo y Bundle Adjustment Completo (Full BA)\n\nEsta optimización puede ser muy costosa, por lo que se realiza en un hilo separado, lo que permite que el sistema continúe creando mapas y detectando ciclos.\n\nCuando la optimización completa del método de optimización termina, necesitamos fusionar el subconjunto actualizado de keyframes y puntos optimizados con los keyframes y puntos no actualizados que se insertaron mientras se ejecutaba la optimización.\n\nORB-SLAM2 Corrección de ciclo\n\nDistribuir el error de cierre del bucle a lo largo de un grafo de poses. Propagar la corrección de los fotogramas clave actualizados (es decir, la transformación desde la pose no optimizada hasta la optimizada) a los keyframes no actualizados. Los puntos no actualizados se transforman según la corrección aplicada a su keyframe de referencia.",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/03e25def-2b12-4283-98fc-15322fb9886c\\T3 - SLAM, OrbSLAM, UcoSLAM.pdf",
+        "date_created": "2024-04-19 11:22:54.930063",
+        "date_modified": "2024-04-19 11:22:54.932065",
+        "date_processed": "2024-04-19T09:23:00.399398",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\03e25def-2b12-4283-98fc-15322fb9886c",
+      "filename": "T3 - SLAM, OrbSLAM, UcoSLAM.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:22:54",
+      "page_number": 23
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "827afb9b73cfb8cbd54325efca8b9c69",
+    "text": "ORB-SLAM2\n\nhttps://youtu.be/ufvPS5wJAx0\n\nORB-SLAM3 ORB-SLAM3 es el primer sistema capaz de realizar SLAM visual, visual- inercial y multimapa con cámaras monoculares, estéreo y RGB-D, utilizando modelos de lentes pin-hole y ojo de pez.\n\nConstruido sobre ORB-SLAM2 y ORB-SLAM3 es un sistema completo de múltiples mapas y sesiones capaz de trabajar en modos puramente visuales o visual-inercial con cámaras monoculares, estéreo o RGB-D.\n\nOfrece una operación robusta en tiempo real en entornos pequeños y grandes, tanto en interiores como en exteriores.\n\nORB-SLAM3\n\nLa idea es agregar robustez a las pérdidas de seguimiento durante la exploración mediante la creación y fusión de mapas, capaz de combinar o relacionar los diferentes submapas.\n\nEl sistema se basa en un nuevo método de reconocimiento de lugares con un mejor recuerdo, lo que permite que ORB-SLAM3 sobreviva a largos períodos de información visual deficiente. Cuando se pierde, inicia un nuevo mapa que se fusionará sin problemas con mapas anteriores al volver a visitarlos.\n\nORB-SLAM3\n\nComponentes del sistema\n\nORB-SLAM2 Resumen de funcionamiento Extracción de Características (ORB): ORB-SLAM utiliza un detector de características llamado FAST (Features from Accelerated Segment Test) y un descriptor llamado BRIEF (Binary Robust Independent Elementary Features). Estos se utilizan para identificar puntos de interés en las imágenes y describir sus características de manera eficiente.\n\nSeguimiento de Características: El sistema realiza un seguimiento de estas características a medida que la cámara se mueve en el entorno. El seguimiento se realiza para mantener un conjunto consistente de características a lo largo del tiempo, lo que es esencial para la estimación de movimiento y la construcción del mapa.\n\nEstimación de Movimiento (Odometría Visual): ORB-SLAM estima el movimiento de la cámara a medida que se desplaza por el entorno. Utiliza la información de las características visuales y la geometría de la imagen para realizar una estimación robusta del cambio de posición y orientación.\n\nORB-SLAM2 Resumen de funcionamiento\n\nConstrucción y Actualización del Mapa: A medida que la cámara se mueve, ORB- SLAM construye y actualiza un mapa tridimensional del entorno. La información de profundidad se obtiene a partir del análisis de la paralaje visual entre las características detectadas en la imagen.\n\nCierre de ciclo y Corrección de Errores (Optimización): Para mejorar la precisión de la estimación de movimiento y la consistencia del mapa, ORB-SLAM realiza procesos de optimización que corrigen errores acumulativos. Esto implica ajustar las estimaciones de movimiento y actualizaciones del mapa.",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/03e25def-2b12-4283-98fc-15322fb9886c\\T3 - SLAM, OrbSLAM, UcoSLAM.pdf",
+        "date_created": "2024-04-19 11:22:54.930063",
+        "date_modified": "2024-04-19 11:22:54.932065",
+        "date_processed": "2024-04-19T09:23:00.399398",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\03e25def-2b12-4283-98fc-15322fb9886c",
+      "filename": "T3 - SLAM, OrbSLAM, UcoSLAM.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:22:54",
+      "page_number": 30
+    }
+  },
+  {
+    "type": "CompositeElement",
+    "element_id": "8eb873cac837a364fc813520c3206540",
+    "text": "UcoSLAM\n\nUcoSLAM Basado en Características Visuales.\n\nCompatibilidad con Diferentes Configuraciones de Cámara: Al igual que otros sistemas SLAM, UCOSLAM es compatible con diferentes configuraciones de cámaras, como cámaras monoculares, cámaras estéreo o cámaras RGB-D.\n\nUso en Tiempo Real: Está diseñado para funcionar en tiempo real, lo que es esencial para aplicaciones de robótica autónoma y sistemas que requieren una respuesta en tiempo real para la toma de decisiones.\n\nUcoSLAM: Simultaneous Localization and Mapping by Fusion of KeyPoints and Squared Planar Markers\n\nUcoSLAM La fusión de keypoints naturales y artificiales es una estrategia para abordar las limitaciones de algunos métodos de SLAM. Los keypoints naturales pueden ser inestables con el tiempo, repetitivos en muchos casos o insuficientes para un seguimiento robusto.\n\nUcoSLAM emplea keypoints artificiales colocados en el entorno para ayudar en el seguimiento y la relocalización. El método integra estos keypoints artificiales con naturales con el fin de lograr un seguimiento robusto a largo plazo en diversos escenarios.\n\nUcoSLAM UcoSLAM está completamente integrada con la biblioteca ArUco para la detección de marcadores fiduciales cuadrados. Estos marcadores pueden colocarse en el entorno para mejorar el seguimiento. UcoSLAM representa un avance en los métodos de SLAM basados en puntos clave, como ORBSLAM2.\n\nLos marcadores ArUco son imágenes binarias con un borde negro y el cuerpo interior tiene un color blanco, que cambia según el marcador. Son diseñadas especialmente para estimación de poses, calibración de cámaras, navegación de robots y aplicaciones de realidad aumentada.\n\nUcoSLAM Ejemplo de reconstrucción combinando keypoints naturales y artificiales (marcadores cuadrados).\n\nUcoSLAM\n\nhttps://youtu.be/S-QTOJvZcwo?si=nJWyt5MkCixeKbzf\n\nEl próximo día…\n\nT4 - Imágenes, cámaras, pinhole, calibración, stereo\n\nT3 – SLAM, OrbSLAM, UcoSLAM\n\n¿Dudas?",
+    "metadata": {
+      "data_source": {
+        "url": "assistants/03e25def-2b12-4283-98fc-15322fb9886c\\T3 - SLAM, OrbSLAM, UcoSLAM.pdf",
+        "date_created": "2024-04-19 11:22:54.930063",
+        "date_modified": "2024-04-19 11:22:54.932065",
+        "date_processed": "2024-04-19T09:23:00.399398",
+        "permissions_data": [
+          {
+            "mode": 33206
+          }
+        ]
+      },
+      "file_directory": "assistants\\03e25def-2b12-4283-98fc-15322fb9886c",
+      "filename": "T3 - SLAM, OrbSLAM, UcoSLAM.pdf",
+      "filetype": "application/pdf",
+      "languages": [
+        "eng"
+      ],
+      "last_modified": "2024-04-19T11:22:54",
+      "page_number": 36
+    }
+  }
+]

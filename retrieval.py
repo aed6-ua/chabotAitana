@@ -4,9 +4,9 @@ from abc import ABC, abstractmethod
 from typing import List
 import asyncio
 from sentence_transformers import util, SentenceTransformer
-from llama_index.core import StorageContext, load_index_from_storage, Settings
-from llama_index.core.embeddings import BaseEmbedding
-from llama_index.core.bridge.pydantic import PrivateAttr
+#from llama_index.core import StorageContext, load_index_from_storage, Settings
+#from llama_index.core.embeddings import BaseEmbedding
+#from llama_index.core.bridge.pydantic import PrivateAttr
 
 VALID_RETRIEVER_TYPES = ["sentence_transformer", "llama_index"]
 
@@ -38,7 +38,7 @@ class Retriever(ABC):
         if retriever_type == "simple_transformer":
             return SimpleRetriever(**kwargs)
         elif retriever_type == "llama_index":
-            return LlamaIndexRetriever(**kwargs)
+            return None#LlamaIndexRetriever(**kwargs)
         else:
             raise ValueError(f"Invalid retriever type: {retriever_type}. Valid types are: {VALID_RETRIEVER_TYPES}")
 
@@ -135,89 +135,89 @@ class ChromaDBRetriever(Retriever):
 
 
 
-# Retriever using LlamaIndex
-from llama_index.core.retrievers import BaseRetriever
-from llama_index.core.indices.query.embedding_utils import get_top_k_embeddings
-from llama_index.core import QueryBundle
-from llama_index.core.schema import NodeWithScore
-from typing import List, Any, Optional
+# # Retriever using LlamaIndex
+# from llama_index.core.retrievers import BaseRetriever
+# from llama_index.core.indices.query.embedding_utils import get_top_k_embeddings
+# from llama_index.core import QueryBundle
+# from llama_index.core.schema import NodeWithScore
+# from typing import List, Any, Optional
 
-class HybridRetriever(BaseRetriever):
-    """Hybrid retriever."""
+# class HybridRetriever(BaseRetriever):
+#     """Hybrid retriever."""
 
-    def __init__(
-        self,
-        vector_index,
-        docstore,
-        similarity_top_k: int = 2,
-        out_top_k: Optional[int] = None,
-        alpha: float = 0.5,
-        **kwargs: Any,
-    ) -> None:
-        """Init params."""
-        super().__init__(**kwargs)
-        self._vector_index = vector_index
-        self._embed_model = vector_index._embed_model
-        self._retriever = vector_index.as_retriever(
-            similarity_top_k=similarity_top_k
-        )
-        self._out_top_k = out_top_k or similarity_top_k
-        self._docstore = docstore
-        self._alpha = alpha
+#     def __init__(
+#         self,
+#         vector_index,
+#         docstore,
+#         similarity_top_k: int = 2,
+#         out_top_k: Optional[int] = None,
+#         alpha: float = 0.5,
+#         **kwargs: Any,
+#     ) -> None:
+#         """Init params."""
+#         super().__init__(**kwargs)
+#         self._vector_index = vector_index
+#         self._embed_model = vector_index._embed_model
+#         self._retriever = vector_index.as_retriever(
+#             similarity_top_k=similarity_top_k
+#         )
+#         self._out_top_k = out_top_k or similarity_top_k
+#         self._docstore = docstore
+#         self._alpha = alpha
 
-    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
-        """Retrieve nodes given query."""
+#     def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+#         """Retrieve nodes given query."""
 
-        # first retrieve chunks
-        nodes = self._retriever.retrieve(query_bundle.query_str)
+#         # first retrieve chunks
+#         nodes = self._retriever.retrieve(query_bundle.query_str)
 
-        # get documents, and embedding similiaryt between query and documents
+#         # get documents, and embedding similiaryt between query and documents
 
-        ## get doc embeddings
-        docs = [self._docstore.get_document(n.node.index_id) for n in nodes]
-        doc_embeddings = [d.embedding for d in docs]
-        query_embedding = self._embed_model.get_query_embedding(
-            query_bundle.query_str
-        )
+#         ## get doc embeddings
+#         docs = [self._docstore.get_document(n.node.index_id) for n in nodes]
+#         doc_embeddings = [d.embedding for d in docs]
+#         query_embedding = self._embed_model.get_query_embedding(
+#             query_bundle.query_str
+#         )
 
-        ## compute doc similarities
-        doc_similarities, doc_idxs = get_top_k_embeddings(
-            query_embedding, doc_embeddings
-        )
+#         ## compute doc similarities
+#         doc_similarities, doc_idxs = get_top_k_embeddings(
+#             query_embedding, doc_embeddings
+#         )
 
-        ## compute final similarity with doc similarities and original node similarity
-        result_tups = []
-        for doc_idx, doc_similarity in zip(doc_idxs, doc_similarities):
-            node = nodes[doc_idx]
-            # weight alpha * node similarity + (1-alpha) * doc similarity
-            full_similarity = (self._alpha * node.score) + (
-                (1 - self._alpha) * doc_similarity
-            )
-            print(
-                f"Doc {doc_idx} (node score, doc similarity, full similarity): {(node.score, doc_similarity, full_similarity)}"
-            )
-            result_tups.append((full_similarity, node))
+#         ## compute final similarity with doc similarities and original node similarity
+#         result_tups = []
+#         for doc_idx, doc_similarity in zip(doc_idxs, doc_similarities):
+#             node = nodes[doc_idx]
+#             # weight alpha * node similarity + (1-alpha) * doc similarity
+#             full_similarity = (self._alpha * node.score) + (
+#                 (1 - self._alpha) * doc_similarity
+#             )
+#             print(
+#                 f"Doc {doc_idx} (node score, doc similarity, full similarity): {(node.score, doc_similarity, full_similarity)}"
+#             )
+#             result_tups.append((full_similarity, node))
 
-        result_tups = sorted(result_tups, key=lambda x: x[0], reverse=True)
-        # update scores
-        for full_score, node in result_tups:
-            node.score = full_score
+#         result_tups = sorted(result_tups, key=lambda x: x[0], reverse=True)
+#         # update scores
+#         for full_score, node in result_tups:
+#             node.score = full_score
 
-        return [n for _, n in result_tups][:self.out_top_k]
+#         return [n for _, n in result_tups][:self.out_top_k]
     
-from llama_index.core.schema import MetadataMode
+# from llama_index.core.schema import MetadataMode
 
-class LlamaIndexRetriever(Retriever):
-    def __init__(self, index):
-        self.retriever = index.as_retriever()
-        logging.info("LlamaIndex loaded successfully.")
+# class LlamaIndexRetriever(Retriever):
+#     def __init__(self, index):
+#         self.retriever = index.as_retriever()
+#         logging.info("LlamaIndex loaded successfully.")
 
-    def retrieve(self, query):
-        # Use llamaindex to find the most relevant documents for the query
-        results = self.retriever.retrieve(query)
-        # We get a list of NodeWithScore objects, so we need to return a list of tuples with the node content and the score
-        results = [(result.node.get_content(MetadataMode.NONE), result.score) for result in results]
-        return results
+#     def retrieve(self, query):
+#         # Use llamaindex to find the most relevant documents for the query
+#         results = self.retriever.retrieve(query)
+#         # We get a list of NodeWithScore objects, so we need to return a list of tuples with the node content and the score
+#         results = [(result.node.get_content(MetadataMode.NONE), result.score) for result in results]
+#         return results
 
 
 

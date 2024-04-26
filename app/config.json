@@ -33,9 +33,7 @@
     "SentenceTransformerRetriever": {
         "model_name": "hackathon-pln-es/paraphrase-spanish-distilroberta",
         "num_chunks": 5,
-        "chunk_size": 1000,
         "%_sim_relevance": 40,
-        "number_of_documents": 5,
 
         "data_folder": "data/",
         "model_folder": "models/",
@@ -45,9 +43,7 @@
     "LlamaIndexRetriever": {
         "model_name": "hackathon-pln-es/paraphrase-spanish-distilroberta",
         "num_chunks": 5,
-        "chunk_size": 1000,
-        "%_sim_relevance": 40,
-        "number_of_documents": 5,
+        "%_sim_relevance": 25,
 
         "data_folder": "data/",
         "model_folder": "models/",
@@ -68,11 +64,13 @@
 
     "LlamaindexEmbeddings": {
         "model_name": "hackathon-pln-es/paraphrase-spanish-distilroberta",
+        "num_chunks": 5,
+        "chunk_size": 1000,
+        "chunk_overlap": 32,
+
         "data_folder": "data/",
         "model_folder": "models/",
-        "vector_folder": "storage/",
-        "chunk_size": 1000,
-        "chunk_overlap": 32
+        "vector_folder": "storage/"
     },
 
     "special_tokens": {

@@ -59,7 +59,6 @@ class SentenceTransformerEmbeddings():
             self.model_folder = config["model_folder"]
             self.chunk_size = config["chunk_size"]
             self.chunk_overlap = config["chunk_overlap"]
-            self.top_k = config["num_chunks"]
             self.data_filename = config["data_filename"]
 
             logger.info("Initializing SentenceTransformerEmbbedings...")

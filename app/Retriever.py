@@ -69,38 +69,31 @@ class LlamaIndexRetriever():
 #############################################################################################
 #############################################################################################
 class SentenceTransformerRetriever():
-    def __init__(self, model_name, filename, top_k):
-            logger.info("Initializing SentenceTransformerRetrieval...")
-            
-            self.model = SentenceTransformer(model_name)
-            logger.info(f"Loaded SentenceTransformer model: {model_name}")
-
-            self.corpus_embeddings = []
-            self.corpus_texts
-
-            self.filename = filename
-            self.top_k = top_k
+    def __init__(self, config, datafolder):
+        self.index_path = config["vector_folder"] + datafolder + "/" + config["data_filename"]
+        self.model_name = config["model_name"]
+        self.model_folder = config["model_folder"]
+        self.top_k = config["num_chunks"]
+        self.min_relevance = config["%_sim_relevance"]
 
     def load_embeddings(self):
-        logger.info("Loading embeddings from file...")
+        self.model = SentenceTransformer(model_name_or_path=self.model_name, cache_folder=self.model_folder)
+        logger.info(f"Loaded SentenceTransformer model: {self.model_name}")
         
         # Load the embeddings from the file
-        with open(self.filename, 'rb') as file:
+        with open(self.index_path, 'rb') as file:
             loaded_data = pickle.load(file)
         
         # Restaura los embeddings y textos desde el diccionario
         self.corpus_embeddings = loaded_data['corpus_embeddings']
         logger.info(f"Loaded {len(self.corpus_embeddings)} embeddings.")
         
-        self.corpus_texts_es = loaded_data.get('corpus_texts_es', [])
-        logger.info(f"Loaded {len(self.corpus_texts_es)} Spanish texts.")
-        
-        self.corpus_texts_en = loaded_data.get('corpus_texts_en', [])
-        logger.info(f"Loaded {len(self.corpus_texts_en)} English texts.")
-
-
+        self.corpus_texts = loaded_data.get('corpus_texts', [])
+        logger.info(f"Loaded {len(self.corpus_texts)} texts.")
 
     def retrieve(self, query): #TODO: comparar amb el meu codi, eliminar chunks baix l'umbral
+        if (self.corpus_embeddings is None):
+            self.load_embeddings()
         # Tokenize the query
         query_embedding = self.model.encode(query, convert_to_tensor=True)
 
@@ -108,5 +101,12 @@ class SentenceTransformerRetriever():
         hits = util.semantic_search(query_embedding, self.corpus_embeddings, top_k=self.top_k)[0]
         # Format the results as a list of tuples
         results = [(self.corpus_texts[hit['corpus_id']], hit['score']) for hit in hits] #if self.corpus_texts_es else [(self.corpus_texts_en[hit['corpus_id']], hit['score']) for hit in hits]
-        return results
+        
+        num = 0
+        result=""
+        for node in results:
+            result +=f"Text({(num+1)}) = " + node[0] + f"\nScore({(num+1)})={node[1]}\n"
+            num=num+1
+        result = f"Number of chunks: {num}.\n" + result
+        return result
 

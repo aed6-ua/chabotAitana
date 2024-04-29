@@ -1,7 +1,7 @@
 {
     "global": {
         "assistant": "GPTAssistant",
-        "retriever": "LlamaIndexRetriever",
+        "retriever": "SentenceTransformerRetriever",
         "embeddings": "SentenceTransformerEmbeddings",
         "log": "Y",
         "log_folder": "log/",
@@ -36,6 +36,7 @@
         "%_sim_relevance": 40,
 
         "data_folder": "data/",
+        "data_filename": "vectorstore.index",
         "model_folder": "models/",
         "vector_folder": "storage/"
     },

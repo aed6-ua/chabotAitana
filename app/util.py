@@ -22,6 +22,7 @@ def do_retrieve(datafolder, prompt_filename='', output_filename=''):
     logger.info(f"Working as retriever (with {model}) from data folder: {datafolder}")
     if model=="SentenceTransformerRetriever":
         retriever = SentenceTransformerRetriever(config["SentenceTransformerRetriever"], datafolder)
+        retriever.load_embeddings()
     elif model=="LlamaIndexRetriever":
         retriever = LlamaIndexRetriever(config["LlamaIndexRetriever"], datafolder)
         retriever.load_embeddings()

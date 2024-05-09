@@ -10,11 +10,10 @@ from llama_index.core.prompts.base import ChatPromptTemplate
 #############################################################################################
 #############################################################################################
 #############################################################################################
-class Assistant(ABC):
-    def __init__(self, tools=None, prompt_settings=None):
-        self.tools = tools if tools is not None else []
+class Assistant():
+    def __init__(self):
+        pass
 
-    @abstractmethod
     def process_message(self, message, context):
         """
         Processes a received message using the provided context.
@@ -28,7 +27,7 @@ class Assistant(ABC):
 #############################################################################################
 #############################################################################################
 #############################################################################################
-class GPTAssistant(Assistant):
+class GPTAssistant():
     def __init__(self, model_name="gpt-3.5-turbo", retrieval_tool=None, prompt_settings=None, api_parameters=None):
         super().__init__(tools=[retrieval_tool] if retrieval_tool is not None else [])
         self.client = OpenAI()
@@ -83,7 +82,7 @@ class GPTAssistant(Assistant):
 #############################################################################################
 #############################################################################################
 #############################################################################################
-class LlamaindexAssistant(Assistant):
+class LlamaindexAssistant():
     def __init__(self, model_name="gpt-3.5-turbo", retrieval_tool=None, api_parameters=None):
         super().__init__(tools=[retrieval_tool] if retrieval_tool is not None else [])
         storage_context = StorageContext.from_defaults(persist_dir="./storage")

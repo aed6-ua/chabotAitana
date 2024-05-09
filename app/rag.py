@@ -3,7 +3,7 @@ from log import config, logger
 from util import do_embeddings, do_retrieve, do_assistant
 
 def help():
-    print ('server.py -m [embeddings|retriever|assistant] -d folder [-p prompt_filename]')
+    print ('rag.py -m [embeddings|retriever|assistant] -d folder [-p prompt_filename]')
 
 def do_work(mode, datafolder, prompt_filename=''):
     if mode=="embeddings":
@@ -22,7 +22,7 @@ def main(argv):
     # Modo de funcionamiento: -m [embeddings|retriever|assistant]
     # Datos: -d folder (servicios, cau, tutobot)
 
-    opts, args = getopt.getopt(argv,"hm:d:")
+    opts = getopt.getopt(argv,"hm:d:")
     error=False
     msg_error=""
     prompt_filename=''

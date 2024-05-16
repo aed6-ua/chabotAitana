@@ -1,6 +1,7 @@
 from log import config, logger
 from Embeddings import LlamaIndexEmbeddings, SentenceTransformerEmbeddings
 from Retriever import LlamaIndexRetriever, SentenceTransformerRetriever
+from Assistant import RAGAssistant
 
 def do_embeddings(datafolder):
     error=False
@@ -40,10 +41,29 @@ def do_retrieve(datafolder, prompt_filename='', output_filename=''):
                     for line in input_f:
                         result = retriever.retrieve(line)
                         output_f.write(result)
-        else:
+        else: #TODO: bucle fins 'exit'
             prompt = input("Prompt: ")
             result = retriever.retrieve(prompt)
             print(result)
 
 def do_assistant(datafolder):
-    logger.info(f"Working as Asistant from RAG context: {datafolder}")
+    error=False
+    model = config["global"]["assistant"]
+
+    if model=="RAGAssistant":
+        context=config["RAGAssistant"]["RAG_DB_Folder"]
+        logger.info(f"Working as Asistant (with {model}) from RAG context: {context}")
+        assistant = RAGAssistant(config["RAGAssistant"])
+    #elif model=="TutoBotAssistant":
+        #context=config["TutoBotAssistant"]["RAG_DB_Folder"]
+        #logger.info(f"Working as Asistant (with {model}) from RAG context: {context}")
+        #assistant = TutoBotAssistant(config["TutoBotAssistant"], datafolder)
+    else:
+        logger.error(f"Assistant {model} not suported")
+        error=True
+    
+    if not error: #TODO: bucle fins 'exit', guardar històric   
+        history='' 
+        prompt = input("Prompt: ")
+        result = assistant.prompt(prompt,history)
+        print(result)

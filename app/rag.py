@@ -22,14 +22,16 @@ def main(argv):
     # Modo de funcionamiento: -m [embeddings|retriever|assistant]
     # Datos: -d folder (servicios, cau, tutobot)
 
-    opts = getopt.getopt(argv,"hm:d:")
+    opts, aux = getopt.getopt(argv,"hm:d:")
     error=False
     msg_error=""
     prompt_filename=''
     
     mode = "assistant"
     dataFolder = "serviciosUA"
-    for opt, arg in opts:
+
+    for (opt, arg) in opts:
+
         if opt == '-h':
             help()
             sys.exit()

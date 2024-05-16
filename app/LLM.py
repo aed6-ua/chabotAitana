@@ -1,17 +1,20 @@
 from abc import ABC, abstractmethod
 from log import config, logger
 
-from LLM import GPTLLM, LlamaIndexLLM, LocalLLM
-from Retriever import LlamaIndexRetriever, SentenceTransformerRetriever
+from openai import OpenAI
+
+from llama_index.core import StorageContext, load_index_from_storage
+from llama_index.core.llms import ChatMessage, MessageRole
+from llama_index.core.prompts.base import ChatPromptTemplate
 
 #############################################################################################
 #############################################################################################
 #############################################################################################
-class Assistant():
+class LLM():
     def __init__(self):
         pass
 
-    def prompt(self, message, context):
+    def process_message(self, message, context):
         """
         Processes a received message using the provided context.
         
@@ -21,89 +24,27 @@ class Assistant():
         """
         pass
 
-    def createRetriever(self, retriever, datafolder):
-        pass
-
-    def createLLM(self, LLM):
-        pass
-
-    def setRetriever(self, retriever):
-        pass
-
-    def setLLM(self, LLM):
-        pass
-
 #############################################################################################
 #############################################################################################
 #############################################################################################
-class RAGAssistant():
-    def __init__(self, config): #model_name="gpt-3.5-turbo", retrieval_tool=None, prompt_settings=None, api_parameters=None):
-        # If està configurat, creem les eines accessòries:
-        self.index_path = config["vector_folder"] + config["RAG_DB_Folder"]
-        self.retriever=None
-        self.LLM=None
-        self.error_msg = config["error_msg"]
+class GPTLLM():
+    def __init__(self, prompt_settings):
+        self.client = OpenAI()
+        self.model_name = config["model_name"]
+        self.prompt_settings = prompt_settings
+        self.api_parameters = {
+            "temperature": config["temperature"],
+            "max_tokens": config["max_tokens"]
+        }
 
-        self.prompt_settings = config["prompt_settings"]
-
-        if config["retriever"]!='':
-            self.createRetriever(config["retriever"], config["RAG_DB_Folder"])
-
-        if config["LLM"]!='':
-            self.createLLM(config["LLM"], self.prompt_settings)
-        
-
-    def createRetriever(self, model, datafolder):
-        if model=="SentenceTransformerRetriever":
-            self.retriever = SentenceTransformerRetriever(config["SentenceTransformerRetriever"], datafolder)
-            self.retriever.load_embeddings()
-        elif model=="LlamaIndexRetriever":
-            self.retriever = LlamaIndexRetriever(config["LlamaIndexRetriever"], datafolder)
-            self.retriever.load_embeddings()
-        else:
-            logger.error(f"Retriever model {model} not suported")
-
-    def createLLM(self, model):
-        if model=="GPTLLM":
-            self.LLM = GPTLLM(config["GPTLLM"])
-        elif model=="LlamaIndexLLM":
-            self.LLM = LlamaIndexLLM(config["LlamaIndexLLM"])
-        elif model=="LocalLLM":
-            self.LLM = LocalLLM(config["LocalLLM"])
-        else:
-            logger.error(f"Retriever model {model} not suported")
-
-    def setRetriever(self, retriever):
-        self.retriever = retriever
-
-    def setLLM(self, LLM):
-        self.LLM = LLM
-
-    def prompt(self, message, history):
-        response=''
-        error=False
+    def process_message(self, message, context, history):
         try:
-            if self.retriever!=None:
-                RAG_context = self.retriever.retrieve(message)
-                if self.LLM!=None: 
-                    response = self.LLM.process_message(message, RAG_context, history)
-                    if (response==config["token_error"]):
-                        error=True
-                else:
-                    logger.error("LLM not existent")
-                    error=True
-            else:
-                logger.error("Retriever not existent")
-                error=True
+            response = self._generate_response(message, context, history)
+            return response
         except Exception as e:
             logger.error(f"Error processing message: {e}")
-            error=True
+            return config["token_error"]
 
-        if error==True:
-            response = self.error_msg
-
-        return response
-    
     def _use_retrieval_tool_if_available(self, message, context):
         if self.tools and self.tools[0]:
             try:
@@ -114,14 +55,31 @@ class RAGAssistant():
             except Exception as e:
                 logger.error(f"Retrieval tool failed: {e}")
         return context
+
+    def _generate_response(self, message, context):
+        message = f"CONTEXTO:\n{context}\n\nPREGUNTA:\n{message}"
+        try:
+            chat_completion = self.client.chat.completions.create(
+                messages=[
+                    {"role": "system", "content": self.prompt_settings["introduction"]},
+                    {"role": "user", "content": message},
+                ],
+                model=self.model_name,
+            )
+            response = chat_completion.choices[0].message.content
+            return response.strip()
+        except Exception as e:
+            logger.error(f"Failed to generate response: {e}")
+            # Instead of just raising the exception, we handle it gracefully
+            return "I'm sorry, I encountered an error trying to generate a response. Please try again later."
         
 #############################################################################################
 #############################################################################################
 #############################################################################################
-"""
-class LlamaindexAssistant():
+class LlamaIndexLLM():
     def __init__(self, model_name="gpt-3.5-turbo", retrieval_tool=None, api_parameters=None):
-        super().__init__(tools=[retrieval_tool] if retrieval_tool is not None else [])
+        pass
+        """super().__init__(tools=[retrieval_tool] if retrieval_tool is not None else [])
         storage_context = StorageContext.from_defaults(persist_dir="./storage")
         # load index
         self.index = load_index_from_storage(storage_context)
@@ -163,17 +121,26 @@ class LlamaindexAssistant():
         prompts_dict = self.query_engine.get_prompts()
         for key in prompts_dict:
             print(key)
-            print(prompts_dict[key])
+            print(prompts_dict[key])"""
 
     def process_message(self, message, context):
-        try:
+        pass
+        """try:
             response = self._generate_response(message)
             return response
         except Exception as e:
             logger.error(f"Error processing message: {e}")
             return "I'm sorry, I encountered an error processing your request."
+        """
 
     def _generate_response(self, prompt):
-        response = self.query_engine.query(prompt).response
-        return response
-"""
+        pass
+        #response = self.query_engine.query(prompt).response
+        #return response
+
+class LocalLLM():
+    def __init__(self):
+        pass
+
+    def process_message(self, message, context):
+        pass

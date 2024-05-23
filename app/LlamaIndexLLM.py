@@ -1,39 +1,16 @@
-from abc import ABC, abstractmethod
+import os
 from log import config, logger
 
-class Assistant():
-    def __init__(self, config):
-        pass
+from openai import OpenAI
 
-    def prompt(self, message, context):
-        """
-        Processes a received message using the provided context.
-        
-        :param message: The message to process.
-        :param context: The context of the conversation.
-        :return: The response message.
-        """
-        pass
+from llama_index.core import StorageContext, load_index_from_storage
+from llama_index.core.llms import ChatMessage, MessageRole
+from llama_index.core.prompts.base import ChatPromptTemplate
 
-    def createRetriever(self, retriever, datafolder):
-        pass
-
-    def createLLM(self, LLM):
-        pass
-
-    def setRetriever(self, retriever):
-        pass
-
-    def setLLM(self, LLM):
-        pass
-        
-#############################################################################################
-#############################################################################################
-#############################################################################################
-"""
-class LlamaindexAssistant():
+class LlamaIndexLLM():
     def __init__(self, model_name="gpt-3.5-turbo", retrieval_tool=None, api_parameters=None):
-        super().__init__(tools=[retrieval_tool] if retrieval_tool is not None else [])
+        pass
+        """super().__init__(tools=[retrieval_tool] if retrieval_tool is not None else [])
         storage_context = StorageContext.from_defaults(persist_dir="./storage")
         # load index
         self.index = load_index_from_storage(storage_context)
@@ -75,17 +52,19 @@ class LlamaindexAssistant():
         prompts_dict = self.query_engine.get_prompts()
         for key in prompts_dict:
             print(key)
-            print(prompts_dict[key])
+            print(prompts_dict[key])"""
 
     def process_message(self, message, context):
-        try:
+        pass
+        """try:
             response = self._generate_response(message)
             return response
         except Exception as e:
             logger.error(f"Error processing message: {e}")
             return "I'm sorry, I encountered an error processing your request."
+        """
 
     def _generate_response(self, prompt):
-        response = self.query_engine.query(prompt).response
-        return response
-"""
+        pass
+        #response = self.query_engine.query(prompt).response
+        #return response

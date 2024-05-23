@@ -1,7 +1,9 @@
 from log import config, logger
-from Embeddings import LlamaIndexEmbeddings, SentenceTransformerEmbeddings
-from Retriever import LlamaIndexRetriever, SentenceTransformerRetriever
-from Assistant import RAGAssistant
+from LlamaIndexEmbeddings import LlamaIndexEmbeddings
+from SentenceTransformerEmbeddings import SentenceTransformerEmbeddings
+from LlamaIndexRetriever import LlamaIndexRetriever
+from SentenceTransformerRetriever import SentenceTransformerRetriever
+from RAGAssistant import RAGAssistant
 
 def do_embeddings(datafolder):
     error=False
@@ -39,12 +41,14 @@ def do_retrieve(datafolder, prompt_filename='', output_filename=''):
             with open(prompt_filename) as input_f:
                 with open(output_filename, "w") as output_f:
                     for line in input_f:
-                        result = retriever.retrieve(line)
+                        result = retriever.retrieve(line, True)
                         output_f.write(result)
-        else: #TODO: bucle fins 'exit'
-            prompt = input("Prompt: ")
-            result = retriever.retrieve(prompt)
-            print(result)
+        else: 
+            prompt=input("Prompt: ")
+            while (prompt!='exit'):
+                result = retriever.retrieve(prompt, True)
+                print(result)
+                prompt = input("Prompt: ")
 
 def do_assistant(datafolder):
     error=False
@@ -63,7 +67,10 @@ def do_assistant(datafolder):
         error=True
     
     if not error: #TODO: bucle fins 'exit', guardar històric   
-        history='' 
-        prompt = input("Prompt: ")
-        result = assistant.prompt(prompt,history)
-        print(result)
+        history=[]
+        prompt=input("Prompt: ")
+        while (prompt!='exit'):
+            result = assistant.prompt(prompt,history)
+            #TODO: history.add({'prompt':prompt, 'response':result})
+            print(result)
+            prompt = input("Prompt: ")

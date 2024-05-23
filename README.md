@@ -1,7 +1,7 @@
 # Comandos:
 
 - Iniciar container:  docker-compose up -d
-- Ejecutar en el container: docker exec rag python p.py argumentos
+- Ejecutar en el container: docker exec -ti rag python rag.py argumentos
 - Parar container: docker stop rag
 
 # TODO:

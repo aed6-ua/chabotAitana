@@ -1,5 +1,5 @@
 import os
-import requests
+import requests, json
 from log import config, logger
 
 
@@ -32,17 +32,17 @@ class LocalLLM():
         if self.port!=None and self.port!="":
             url = url + ":" + str(self.port)
         url = url + self.endPoint
-        print(url)
-        message = f"Contexto:\n{context}\n\Pregunta:\n{message}"
 
-        headers={}
+        entire_message = f"Contexto:\n{context}\n\nPregunta:\n{message}"
+
+        #headers={}
 
         body = {
             "model": self.model_name,
             "stream": self.api_parameters["stream"],
             "messages": [
-                    {"role": "system", "content": self.prompt_settings["introduction"]},
-                    {"role": "user", "content": message},
+                    {"role": "system", "content": json.dumps(self.prompt_settings["introduction"])},
+                    {"role": "user", "content": json.dumps(entire_message)},
                 ],
             "options": {
                 "temperature": self.api_parameters["temperature"],
@@ -52,16 +52,17 @@ class LocalLLM():
 
         try:
             # Make the POST request
-            response = requests.post(url, json=body, headers=headers)
+            response = requests.post(url, json=body)#, headers=headers)
         
             # Check if the request was successful
             response.raise_for_status()
         
             # Print the successful response
-            print("Response Status Code:", response.status_code)
-            print("Response Content:", response.json())
+            #print("Response Status Code:", response.status_code)
+            #print("Response Content:", response.json())
+            resp = response.json()
             
-            return response.json()
+            return resp['message']['content']
         except requests.exceptions.HTTPError as http_err:
             logger.error(f"Failed to generate response, HTTP Error: {http_err}. Response: {response.text}")
             return "I'm sorry, I encountered an error trying to generate a response. Please try again later."

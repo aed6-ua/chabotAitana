@@ -3,6 +3,7 @@ services:
   rag:
     container_name: rag
     build: .
+    network_mode: host
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     ports:

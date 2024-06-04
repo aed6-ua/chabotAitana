@@ -11,6 +11,7 @@ from SentenceTransformerRetriever import SentenceTransformerRetriever
 class RAGAssistant():
     def __init__(self, local_config): #model_name="gpt-3.5-turbo", retrieval_tool=None, prompt_settings=None, api_parameters=None):
         # If està configurat, creem les eines accessòries:
+        self.assistant_name="RAGAssistant"
         self.index_path = local_config["vector_folder"] + local_config["RAG_DB_Folder"]
         self.retriever=None
         self.LLM=None

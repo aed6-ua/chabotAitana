@@ -4,7 +4,7 @@
         "test": true,
         "local": false,
         "llm_server": "http://localhost:8001",
-        "model_name": "gpt-3.5-turbo",
+        "model_name": "gpt-4o",
         "memory_context_size": 0,
         "openai_api_parameters": {
             "temperature": 0.7,
@@ -23,7 +23,9 @@
         "data_folder": "data",
         "number_of_documents": 5,
         "llamaindex_path": "./storage",
-        "collection_name": "base"
+        "collection_name": "base",
+        "rerank": false,
+        "reranker_model_name": ""
     }
   }
   

@@ -41,7 +41,7 @@ def create_retrieval_tool(config, embeddings_model=None, retrieval_type=None, co
     elif retrieval_type == "LlamaIndexRetriever":
         return None#LlamaIndexRetriever(IndexManager(config_retrieval["index_path"]).load_index())
     elif retrieval_type == "ChromaDBRetriever":
-        return ChromaDBRetriever(model=embeddings_model, collection_name=collection_name)
+        return ChromaDBRetriever(model=config_retrieval["llm_server"], collection_name=collection_name, rerank=True if config_retrieval["rerank"] else False)
     else:
         raise ValueError(f"Unsupported retrieval type: {retrieval_type}")
     

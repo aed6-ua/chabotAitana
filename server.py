@@ -152,11 +152,11 @@ async def send_message(conversation_id: str, message_body: MessageSchema, assist
     if assistant_id is None:
         assistant_id = "base"
     logger.info(f"Processing message with assistant {assistant_id}")
-    response, message_context = assistants[assistant_id].process_message(message, context, top_k=top_k, max_tokens=max_tokens, temperature=temperature)
+    response, message_context, retrieval_result = assistants[assistant_id].process_message(message, context, top_k=top_k, max_tokens=max_tokens, temperature=temperature)
     conversation.add_message("user", message_context)
     conversation.add_message("assistant", response)
     
-    return {"response": response}
+    return {"response": response, "retrieval_result": json.dumps(retrieval_result) if retrieval_result else None}
 
 def store_conversation(conversation_id, stars):
     conversation = conversations[conversation_id]

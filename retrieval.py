@@ -4,6 +4,7 @@ from abc import ABC, abstractmethod
 from typing import List
 import asyncio
 from sentence_transformers import util, SentenceTransformer
+import requests
 #from llama_index.core import StorageContext, load_index_from_storage, Settings
 #from llama_index.core.embeddings import BaseEmbedding
 #from llama_index.core.bridge.pydantic import PrivateAttr
@@ -101,14 +102,17 @@ class SimpleRetriever(Retriever):
 import chromadb
 
 class ChromaDBRetriever(Retriever):
-    def __init__(self, model, collection_name, chromadb_host='localhost', chromadb_port=8000):
+    def __init__(self, model, collection_name, chromadb_host='localhost', chromadb_port=8000, rerank=False):
         client = chromadb.HttpClient(host=chromadb_host, port=chromadb_port)
-        self.model = model
+        self.server = model
         self.collection = client.get_collection(collection_name)
         logging.info(f"ChromaDB retriever initialized for collection: {collection_name}")
+        self.rerank = rerank
 
     def retrieve(self, query, top_k=1, where=None, where_document=None):
-        query_embedding = self.model.run(query)
+        print("Sending: ", query)
+        response = requests.post(f"{self.server}/embed", params={"input": query})
+        query_embedding = response.json()["embeddings"]
         results = self.collection.query(
             query_embeddings=query_embedding,
             n_results=top_k,
@@ -116,13 +120,21 @@ class ChromaDBRetriever(Retriever):
             #where_document={"$contains":"search_string"}
         )
         # We get a dictionary of lists, so we need to return a list of tuples with the document content and the score
-        return results["documents"][0]
+
+        # Rerank the results if enabled
+        if (self.rerank):
+            ranking = requests.post(f"{self.server}/rank", json={"messages": [query] + results["documents"][0]})
+            results = ranking.json()
+            results = [result["candidate"] for result in results]
+        else:
+            results = results["documents"][0]
+        return results
 
     def get_config(self, config):
         return {
                 "type": "ChromaDBRetriever",
                 "local": True,
-                "llm_server": self.model.get_config()["server_url"],
+                "llm_server": config["retriever"]["llm_server"],
                 "index_path": config["retriever"]["index_path"],
                 "model_name": config["retriever"]["model_name"],
                 "filename": config["retriever"]["filename"],
@@ -130,7 +142,8 @@ class ChromaDBRetriever(Retriever):
                 "data_folder": "data",
                 "number_of_documents": 5,
                 "llamaindex_path": "./storage",
-                "collection_name": self.collection.name
+                "collection_name": self.collection.name,
+                "rerank": self.rerank
             }
 
 

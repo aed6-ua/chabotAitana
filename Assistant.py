@@ -46,23 +46,23 @@ class Assistant:
         :return: The response message.
         """
         try:
-            enhanced_context = self._use_retrieval_tool_if_available(message, context, top_k=top_k)
-            message = f"Contexto:\n{enhanced_context}\n\nPregunta: {message}\n\nRespuesta: "
+            enhanced_context, retrieval_result = self._use_retrieval_tool_if_available(message, context, top_k=top_k)
+            message = f"{message}"
             messages = [
-                {"role": "system", "content": self.prompt_settings["introduction"]},
-                {"role": "user", "content": message},
+                {"role": "system", "content": "This is a chat between a user and an artificial intelligence assistant. The assistant gives helpful, detailed, and relevant answers to the user's questions based on the context. The assistant should also indicate when the answer cannot be found in the context. " + self.prompt_settings["introduction"] + f"\n\n{enhanced_context}"},
+                {"role": "user", "content": f"Hola, tengo una pregunta \n\nAssistant: ¡Claro! Dispara 😊\n\nUser: {message}\n\nAssistant: "},
             ]
             try:
                 # Debug print
                 #print(messages)
-                return self.model.run(messages, max_tokens, temperature), message
+                return self.model.run(messages, max_tokens, temperature), message, retrieval_result
             except Exception as e:
                 logging.error(f"Failed to generate response: {e}")
                 # Instead of just raising the exception, we handle it gracefully
-                return "I'm sorry, I encountered an error trying to generate a response. Please try again later.", context
+                return "I'm sorry, I encountered an error trying to generate a response. Please try again later.", context, retrieval_result
         except Exception as e:
             logging.error(f"Error processing message: {e}")
-            return "I'm sorry, I encountered an error processing your request.", context
+            return "I'm sorry, I encountered an error processing your request.", context, None
 
     def _use_retrieval_tool_if_available(self, message, context, top_k=1):
         if self.tools and self.tools[0]:
@@ -75,10 +75,10 @@ class Assistant:
                     text = text + f"{passage}\n\n"
                     #logging.info(f"Retrieved passage: {len(passage)}\n\n")
                 text = text + '"""\n\n'
-                return text
+                return text, retrieval_result
             except Exception as e:
                 logging.warning(f"Retrieval tool failed: {e}")
-        return context
+        return context, None
     
     def get_config(self, config):
         from model import LocalGenerationModel, TestModel

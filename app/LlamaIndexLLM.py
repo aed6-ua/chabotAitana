@@ -1,5 +1,6 @@
 import os
-from log import config, logger
+#from log import config, logger
+import log
 
 from openai import OpenAI
 
@@ -60,7 +61,7 @@ class LlamaIndexLLM():
             response = self._generate_response(message)
             return response
         except Exception as e:
-            logger.error(f"Error processing message: {e}")
+            log.logger.error(f"Error processing message: {e}")
             return "I'm sorry, I encountered an error processing your request."
         """
 

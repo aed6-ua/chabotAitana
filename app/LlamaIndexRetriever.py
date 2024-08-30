@@ -4,7 +4,8 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from llama_index.core.postprocessor import SimilarityPostprocessor
 
 
-from log import config, logger
+#from log import config, logger
+import log
 
 class LlamaIndexRetriever():
     def __init__(self, local_config, datafolder):
@@ -19,7 +20,7 @@ class LlamaIndexRetriever():
         self.storage_context = StorageContext.from_defaults(persist_dir=self.index_path)
         #Load index
         self.index = load_index_from_storage(self.storage_context, embed_model=self._model)
-        logger.info("LlamaIndex embeddings loaded successfully.")
+        log.logger.info("LlamaIndex embeddings loaded successfully.")
     
     def retrieve(self, query, debug=False):
         if (self.index is None):

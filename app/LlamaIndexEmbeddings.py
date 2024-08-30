@@ -1,6 +1,7 @@
 from pathlib import Path
 
-from log import config, logger
+#from log import config, logger
+import log
 
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.core import ServiceContext, SimpleDirectoryReader, Settings, VectorStoreIndex
@@ -23,9 +24,9 @@ class LlamaIndexEmbeddings():
 
         self.reader=SimpleDirectoryReader(self.data_path)
         documents = self.reader.load_data()
-        logger.info(f"Read {len(documents)} documents.")
+        log.logger.info(f"Read {len(documents)} documents.")
         
         self.index =  VectorStoreIndex.from_documents(documents, service_context=service_context_embedding, show_progress=True)
         self.index.storage_context.persist(persist_dir=self.index_path)
-        logger.info("LlamaIndex embeddings created successfully.")
+        log.logger.info("LlamaIndex embeddings created successfully.")
 

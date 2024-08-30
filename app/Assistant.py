@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from log import config, logger
+#import log
 
 class Assistant():
     def __init__(self, config):

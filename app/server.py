@@ -1,5 +1,5 @@
 import sys, getopt
-from log import config, logger
+import log
 
 from RAGAssistant import RAGAssistant
 from ChatServer import ChatServer
@@ -9,18 +9,18 @@ def help():
 
 def do_server(datafolder):
     error=False
-    model = config["global"]["assistant"]
+    model = log.config["global"]["assistant"]
 
     if model=="RAGAssistant":
-        context=config["RAGAssistant"]["RAG_DB_Folder"]
-        logger.info(f"Working as Asistant (with {model}) from RAG context: {context}")
-        assistant = RAGAssistant(config["RAGAssistant"])
+        context=log.config["RAGAssistant"]["RAG_DB_Folder"]
+        log.logger.info(f"Working as Asistant (with {model}) from RAG context: {context}")
+        assistant = RAGAssistant(log.config["RAGAssistant"])
     #elif model=="TutoBotAssistant":
-        #context=config["TutoBotAssistant"]["RAG_DB_Folder"]
-        #logger.info(f"Working as Asistant (with {model}) from RAG context: {context}")
-        #assistant = TutoBotAssistant(config["TutoBotAssistant"], datafolder)
+        #context=log.config["TutoBotAssistant"]["RAG_DB_Folder"]
+        #log.logger.info(f"Working as Asistant (with {model}) from RAG context: {context}")
+        #assistant = TutoBotAssistant(log.config["TutoBotAssistant"], datafolder)
     else:
-        logger.error(f"Assistant {model} not suported")
+        log.logger.error(f"Assistant {model} not suported")
         error=True
     if (not error):
         chat = ChatServer(assistant)
@@ -31,11 +31,12 @@ def main(argv):
     # Modo de funcionamiento: -m [embeddings|retriever|assistant]
     # Datos: -d folder (servicios, cau, tutobot)
 
-    opts, aux = getopt.getopt(argv,"hd:")
+    opts, aux = getopt.getopt(argv,"hd:c:")
     error=False
     msg_error=""
     
     dataFolder = "serviciosUA"
+    configFile=""
 
     for (opt, arg) in opts:
 
@@ -48,11 +49,19 @@ def main(argv):
             else:
                 msg_error="Error, you must enter a data folfer with argument '-d'."
                 error=True
+        elif opt == "-c":
+            if arg != None:
+                configFile = arg
+            else:
+                msg_error="Error, you must enter a config file with argument '-c'."
+                error=True
     
     if (error):
         print(msg_error)
         help()
     else:
+        log.logger = log.Log(configFile)
+        log.config = log.logger.getConfig()
         do_server(dataFolder)
 
 if __name__ == "__main__":

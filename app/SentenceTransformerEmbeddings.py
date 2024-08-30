@@ -2,7 +2,8 @@ import glob
 import pickle
 from pathlib import Path
 
-from log import config, logger
+#from log import config, logger
+import log
 
 from sentence_transformers import SentenceTransformer, util
 
@@ -16,9 +17,9 @@ class SentenceTransformerEmbeddings():
             self.chunk_overlap = local_config["chunk_overlap"]
             self.data_filename = local_config["data_filename"]
 
-            logger.info("Initializing SentenceTransformerEmbbedings...")
+            log.logger.info("Initializing SentenceTransformerEmbbedings...")
             self.model = SentenceTransformer(self.model_name, cache_folder=self.model_folder)
-            logger.info(f"Loaded SentenceTransformer model for embedding: {self.model_name}")
+            log.logger.info(f"Loaded SentenceTransformer model for embedding: {self.model_name}")
 
             self.corpus_embeddings = []
             self.corpus_texts = []
@@ -33,7 +34,7 @@ class SentenceTransformerEmbeddings():
 
     def load_documents(self):
         for filepath in glob.glob(self.data_path + "/*"):
-            with open(filepath, 'r', encoding=config["global"]["data_encoding"]) as f:
+            with open(filepath, 'r', encoding=log.config["global"]["data_encoding"]) as f:
                 # Leemos todo el contenido del archivo en una sola cadena
                 content = f.read()
 
@@ -43,11 +44,11 @@ class SentenceTransformerEmbeddings():
                 # Extendemos nuestra lista global de fragmentos de texto con estas oraciones
                 self.corpus_texts.extend(paragraphs)
                 
-                logger.info(f"File {filepath} chunked.")
+                log.logger.info(f"File {filepath} chunked.")
 
     def encode_embeddings(self):
         self.corpus_embeddings = self.model.encode(self.corpus_texts, convert_to_tensor=True)
-        logger.info(f"Embeddings encoded.")
+        log.logger.info(f"Embeddings encoded.")
 
     def save_embeddings(self):
         data_to_save = {
@@ -63,5 +64,5 @@ class SentenceTransformerEmbeddings():
         with open(self.index_path + "/" + self.data_filename, "wb") as f:
             # Uso de pickle para guardar los datos en el disco de forma serializada.
             pickle.dump(data_to_save, f)
-        logger.info(f"Embeddings saved to " + self.index_path + "/" + self.data_filename)
+        log.logger.info(f"Embeddings saved to " + self.index_path + "/" + self.data_filename)
 

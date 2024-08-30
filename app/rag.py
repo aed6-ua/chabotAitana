@@ -1,5 +1,6 @@
 import sys, getopt
-from log import config, logger
+import log
+
 from util import do_embeddings, do_retrieve, do_assistant
 
 def help():
@@ -22,13 +23,14 @@ def main(argv):
     # Modo de funcionamiento: -m [embeddings|retriever|assistant]
     # Datos: -d folder (servicios, cau, tutobot)
 
-    opts, aux = getopt.getopt(argv,"hm:d:")
+    opts, aux = getopt.getopt(argv,"hm:d:c:")
     error=False
     msg_error=""
     prompt_filename=''
     
     mode = "assistant"
     dataFolder = "serviciosUA"
+    configFile="config.json"
 
     for (opt, arg) in opts:
 
@@ -50,6 +52,12 @@ def main(argv):
             else:
                 msg_error="Error, you must enter a data folfer with argument '-d'."
                 error=True
+        elif opt == "-c":
+            if arg != None:
+                configFile = arg
+            else:
+                msg_error="Error, you must enter a config file with argument '-c'."
+                error=True
         elif opt == "-p":
             if arg!= None:
                 prompt_filename = arg
@@ -60,6 +68,8 @@ def main(argv):
         print(msg_error)
         help()
     else:
+        log.logger = log.Log(configFile)
+        log.config = log.logger.getConfig()
         do_work(mode, dataFolder, prompt_filename)
 
 if __name__ == "__main__":

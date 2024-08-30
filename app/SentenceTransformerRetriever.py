@@ -2,7 +2,8 @@ from sentence_transformers import SentenceTransformer, util
 
 import pickle
 
-from log import config, logger
+#from log import config, logger
+import log
 
 class SentenceTransformerRetriever():
     def __init__(self, local_config, datafolder):
@@ -14,7 +15,7 @@ class SentenceTransformerRetriever():
 
     def load_embeddings(self):
         self.model = SentenceTransformer(model_name_or_path=self.model_name, cache_folder=self.model_folder)
-        logger.info(f"Loaded SentenceTransformer model: {self.model_name}")
+        log.logger.info(f"Loaded SentenceTransformer model: {self.model_name}")
         
         # Load the embeddings from the file
         with open(self.index_path, 'rb') as file:
@@ -22,10 +23,10 @@ class SentenceTransformerRetriever():
         
         # Restaura los embeddings y textos desde el diccionario
         self.corpus_embeddings = loaded_data['corpus_embeddings']
-        logger.info(f"Loaded {len(self.corpus_embeddings)} embeddings.")
+        log.logger.info(f"Loaded {len(self.corpus_embeddings)} embeddings.")
         
         self.corpus_texts = loaded_data.get('corpus_texts', [])
-        logger.info(f"Loaded {len(self.corpus_texts)} texts.")
+        log.logger.info(f"Loaded {len(self.corpus_texts)} texts.")
 
     def retrieve(self, query, debug=False): #TODO: comparar amb el meu codi, eliminar chunks baix l'umbral
         

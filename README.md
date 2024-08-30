@@ -1,8 +1,16 @@
 # Comandos:
 
 - Iniciar container:  docker-compose up -d
-- Ejecutar en el container: docker exec -ti rag python rag.py argumentos
+- Ejecutar en el container: 
+    - docker exec -it rag python rag.py argumentos
+    - docker exec -it rag python server.py
+    - (parametre -d per fer-lo en background)
 - Parar container: docker stop rag
+- Vore processos dins el container: docker top rag
+
+- OLLAMA: (esta en un container anomenat 'ollama')
+    - docker exec ollama comando
+    - Exemple: docker exec ollama ollama list --> per vore els models carregats
 
 # TODO:
 

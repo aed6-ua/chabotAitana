@@ -1,6 +1,7 @@
 import os
 import requests, json
-from log import config, logger
+#from log import config, logger
+import log
 
 
 
@@ -24,8 +25,8 @@ class LocalLLM():
             response = self._generate_response(message, context, history)
             return response
         except Exception as e:
-            logger.error(f"Error processing message: {e}")
-            return config["global"]["token_error"]
+            log.logger.error(f"Error processing message: {e}")
+            return log.config["global"]["token_error"]
         
     def _generate_response(self, message, context, history):
         url = self.url
@@ -64,9 +65,9 @@ class LocalLLM():
             
             return resp['message']['content']
         except requests.exceptions.HTTPError as http_err:
-            logger.error(f"Failed to generate response, HTTP Error: {http_err}. Response: {response.text}")
+            log.logger.error(f"Failed to generate response, HTTP Error: {http_err}. Response: {response.text}")
             return "I'm sorry, I encountered an error trying to generate a response. Please try again later."
         except Exception as e:
-            logger.error(f"Failed to generate response: {e}")
+            log.logger.error(f"Failed to generate response: {e}")
             # Instead of just raising the exception, we handle it gracefully
             return "I'm sorry, I encountered an error trying to generate a response. Please try again later."

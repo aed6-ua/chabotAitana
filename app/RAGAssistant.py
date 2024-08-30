@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-from log import config, logger
+#from log import config, logger
+import log
 
 from GPTLLM import GPTLLM
 from LlamaIndexLLM import LlamaIndexLLM
@@ -28,23 +29,23 @@ class RAGAssistant():
 
     def createRetriever(self, model, datafolder):
         if model=="SentenceTransformerRetriever":
-            self.retriever = SentenceTransformerRetriever(config["SentenceTransformerRetriever"], datafolder)
+            self.retriever = SentenceTransformerRetriever(log.config["SentenceTransformerRetriever"], datafolder)
             self.retriever.load_embeddings()
         elif model=="LlamaIndexRetriever":
-            self.retriever = LlamaIndexRetriever(config["LlamaIndexRetriever"], datafolder)
+            self.retriever = LlamaIndexRetriever(log.config["LlamaIndexRetriever"], datafolder)
             self.retriever.load_embeddings()
         else:
-            logger.error(f"Retriever model {model} not suported")
+            log.logger.error(f"Retriever model {model} not suported")
 
     def createLLM(self, model):
         if model=="GPTLLM":
-            self.LLM = GPTLLM(config["GPTLLM"], self.prompt_settings)
+            self.LLM = GPTLLM(log.config["GPTLLM"], self.prompt_settings)
         elif model=="LlamaIndexLLM":
-            self.LLM = LlamaIndexLLM(config["LlamaIndexLLM"], self.prompt_settings)
+            self.LLM = LlamaIndexLLM(log.config["LlamaIndexLLM"], self.prompt_settings)
         elif model=="LocalLLM":
-            self.LLM = LocalLLM(config["LocalLLM"], self.prompt_settings)
+            self.LLM = LocalLLM(log.config["LocalLLM"], self.prompt_settings)
         else:
-            logger.error(f"Retriever model {model} not suported")
+            log.logger.error(f"Retriever model {model} not suported")
 
     def setRetriever(self, retriever):
         self.retriever = retriever
@@ -61,16 +62,16 @@ class RAGAssistant():
                 
                 if self.LLM!=None: 
                     response = self.LLM.process_message(message, RAG_context, history)
-                    if (response==config["global"]["token_error"]):
+                    if (response==log.config["global"]["token_error"]):
                         error=True
                 else:
-                    logger.error("LLM not existent")
+                    log.logger.error("LLM not existent")
                     error=True
             else:
-                logger.error("Retriever not existent")
+                log.logger.error("Retriever not existent")
                 error=True
         except Exception as e:
-             logger.error(f"Error processing message: {e}")
+             log.logger.error(f"Error processing message: {e}")
              error=True
 
         if error==True:
@@ -86,5 +87,5 @@ class RAGAssistant():
     #             # Convert to string with each result between triple quotes
     #             return "\n\n".join([f'"""{result}"""' for result, _ in retrieval_result])
     #         except Exception as e:
-    #             logger.error(f"Retrieval tool failed: {e}")
+    #             log.logger.error(f"Retrieval tool failed: {e}")
     #     return context
